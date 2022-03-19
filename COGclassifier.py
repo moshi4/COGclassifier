@@ -24,7 +24,6 @@ def main():
     query_fasta_file: Path = args.input_file
     outdir: Path = args.outdir
     download_dir: Path = args.download_dir
-    db_type: str = args.db_type
     thread_num: int = args.thread_num
     evalue: float = args.evalue
 
@@ -42,26 +41,15 @@ def main():
     # Setup NCBI CDD files
     cddid_tbl_ftp_url = "https://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz"
     cog_le_ftp_url = "https://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz"
-    kog_le_ftp_url = "https://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/Kog_LE.tar.gz"
 
     cddid_tbl_gzfile = ftp_download(cddid_tbl_ftp_url, download_dir)
     cddid_tbl_file = cddid_tbl_gzfile.with_suffix("")
     unpack_gzfile(cddid_tbl_gzfile, cddid_tbl_file)
 
-    if db_type == "prokaryotes":
-        cog_le_targz_file = ftp_download(cog_le_ftp_url, download_dir)
-        cog_le_dir = download_dir / "Cog_LE"
-        unpack_targz_file(cog_le_targz_file, cog_le_dir)
-        rpsblast_db = cog_le_dir / "Cog"
-    elif db_type == "eukaryotes":
-        kog_le_targz_file = ftp_download(kog_le_ftp_url, download_dir)
-        kog_le_dir = download_dir / "Kog_LE"
-        unpack_targz_file(kog_le_targz_file, kog_le_dir)
-        rpsblast_db = kog_le_dir / "Kog"
-    else:
-        raise ValueError(
-            f"Invalid db_type '{db_type}'. Please set 'prokaryotes' or 'eukaryotes'."
-        )
+    cog_le_targz_file = ftp_download(cog_le_ftp_url, download_dir)
+    cog_le_dir = download_dir / "Cog_LE"
+    unpack_targz_file(cog_le_targz_file, cog_le_dir)
+    rpsblast_db = cog_le_dir / "Cog"
 
     # RPS-BLAST against COG database
     print("\n# Step2: Running RPS-BLAST against COG database.")
@@ -210,7 +198,7 @@ def get_cddid2cogid(cddid_tbl_file: Union[str, Path]) -> Dict[str, str]:
         reader = csv.reader(f, delimiter="\t")
         for row in reader:
             cddid, accid = row[0], row[1]
-            if accid.startswith("COG") or accid.startswith("KOG"):
+            if accid.startswith("COG"):
                 cddid2cogid[cddid] = accid
     return cddid2cogid
 
@@ -399,15 +387,6 @@ def get_args() -> argparse.Namespace:
         type=Path,
         help=f"Download COG & CDD FTP data directory (Default: '{default_dl_dir}')",
         default=default_dl_dir,
-        metavar="",
-    )
-    db_types = ["prokaryotes", "eukaryotes"]
-    parser.add_argument(
-        "--db_type",
-        type=str,
-        help="COG database type ('prokaryotes'[default] or 'eukaryotes')",
-        default=db_types[0],
-        choices=db_types,
         metavar="",
     )
     cpu_count = os.cpu_count()
