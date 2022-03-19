@@ -1,3 +1,7 @@
+cog_download/
+example/
+output/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

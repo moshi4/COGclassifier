@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it as below.
+authors:
+  - family-names: Shimoyama
+    given-names: Yuki
+title: "COGclassifier: Classify protein sequences into COG functional category"
+date-released: 2022-03-20
+url: https://github.com/moshi4/COGclassifier

@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "cogclassifier"
+version = "0.1.0"
+description = "Classify protein sequences into COG functional category"
+authors = ["moshi"]
+license = "MIT"
+homepage = "https://github.com/moshi4/COGclassifier/"
+repository = "https://github.com/moshi4/COGclassifier/"
+readme = "README.md"
+keywords = [
+    "COG",
+    "bioinformatics",
+    "genomics",
+    "functional-annotation",
+    "functional-analysis",
+]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.27.1"
+
+[tool.poetry.dev-dependencies]
+black = "^22.1.0"
+flake8 = "^4.0.1"
+pydocstyle = "^6.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
