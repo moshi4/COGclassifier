@@ -124,7 +124,9 @@ def main():
 
     # Plot classifer count piechart
     piechart_fig_file = outdir / "classifier_count_piechart.html"
-    plot_classifier_piechart(df.copy(), piechart_fig_file)
+    plot_classifier_piechart(df.copy(), piechart_fig_file, sort=False)
+    piechart_sort_fig_file = outdir / "classifier_count_piechart_sort.html"
+    plot_classifier_piechart(df.copy(), piechart_sort_fig_file, sort=True)
 
 
 def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) -> Path:
@@ -237,7 +239,7 @@ def plot_classifier_barchart(
     df: pd.DataFrame,
     html_outfile: Union[str, Path],
     fig_width: int = 520,
-    fig_height: int = 385,
+    fig_height: int = 340,
     bar_width: int = 15,
 ) -> None:
     """Plot altair barchart from classifier count dataframe
@@ -249,7 +251,7 @@ def plot_classifier_barchart(
         fig_height (int): Figure height (px)
         bar_width (int): Figure bar width (px)
     """
-    df["L_DESCRIPTION"] = df["LETTER"] + ": " + df["DESCRIPTION"]
+    df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
     barchart = (
         alt.Chart(df, title="COG Functional Classification")
         .mark_bar()
@@ -271,7 +273,7 @@ def plot_classifier_barchart(
         .configure_legend(labelLimit=0)
         .configure_axisX(labelAngle=0, tickSize=0)
         .configure_mark(
-            stroke="black", width=bar_width, strokeWidth=1, strokeOpacity=0.5
+            stroke="black", width=bar_width, strokeWidth=0.15, strokeOpacity=1
         )
     )
     barchart.save(html_outfile)
@@ -280,8 +282,9 @@ def plot_classifier_barchart(
 def plot_classifier_piechart(
     df: pd.DataFrame,
     html_outfile: Union[str, Path],
-    fig_width: int = 500,
+    fig_width: int = 420,
     fig_height: int = 385,
+    sort: bool = False,
 ) -> None:
     """Plot altair piechart from classifier count dataframe
 
@@ -291,7 +294,11 @@ def plot_classifier_piechart(
         fig_width (int): Figure width (px)
         fig_height (int): Figure height (px)
     """
-    df["L_DESCRIPTION"] = df["LETTER"] + ": " + df["DESCRIPTION"]
+    sort_col = "COUNT" if sort else "index"
+    sort_order = "descending" if sort else "ascending"
+    df = df.sort_values("COUNT", ascending=False) if sort else df
+
+    df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
     piechart = (
         alt.Chart(df.reset_index(), title="COG Functional Classification")
         .mark_arc()
@@ -306,13 +313,13 @@ def plot_classifier_piechart(
                     range=df["COLOR"].to_list(),
                 ),
             ),
-            order=alt.Order("index"),
-            # order=alt.Order("COUNT", sort="descending"),
+            order=alt.Order(sort_col, sort=sort_order),
         )
         .properties(width=fig_width, height=fig_height)
-        .configure_title(fontSize=15)
+        .configure_title(fontSize=15, offset=20)
         .configure_legend(labelLimit=0)
-        .configure_mark(stroke="black", strokeWidth=1, strokeOpacity=0.2)
+        .configure_view(strokeWidth=0)
+        .configure_mark(stroke="white", strokeWidth=1, strokeOpacity=1)
     )
     piechart.save(html_outfile)
 
