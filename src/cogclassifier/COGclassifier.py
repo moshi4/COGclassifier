@@ -258,7 +258,7 @@ def plot_classifier_barchart(
         .encode(
             x=alt.X("LETTER", title="FUNCTIONAL CATEGORY", sort=None),
             y=alt.Y("COUNT", title="NUMBER OF PROTEIN SEQUENCES ASSIGNED"),
-            tooltip=["LETTER", "COUNT", "DESCRIPTION"],
+            tooltip=["DESCRIPTION", "LETTER", "COUNT"],
             color=alt.Color(
                 "L_DESCRIPTION",
                 title="",
@@ -282,8 +282,8 @@ def plot_classifier_barchart(
 def plot_classifier_piechart(
     df: pd.DataFrame,
     html_outfile: Union[str, Path],
-    fig_width: int = 420,
-    fig_height: int = 385,
+    fig_width: int = 380,
+    fig_height: int = 380,
     sort: bool = False,
 ) -> None:
     """Plot altair piechart from classifier count dataframe
@@ -293,35 +293,62 @@ def plot_classifier_piechart(
         html_outfile (Union[str, Path]): Piechart html file
         fig_width (int): Figure width (px)
         fig_height (int): Figure height (px)
+        sort (bool): Enable count descending sort
     """
-    sort_col = "COUNT" if sort else "index"
-    sort_order = "descending" if sort else "ascending"
-    df = df.sort_values("COUNT", ascending=False) if sort else df
+    # Setting sort data ("Count descending" or "Index ascending")
+    if sort:
+        sort_col, sort_order = "COUNT", "descending"
+        df = df.sort_values("COUNT", ascending=False)
+    else:
+        df = df.reset_index()
+        sort_col, sort_order = "index", "ascending"
 
     df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
-    piechart = (
-        alt.Chart(df.reset_index(), title="COG Functional Classification")
-        .mark_arc()
-        .encode(
-            theta=alt.Theta("COUNT"),
-            tooltip=["LETTER", "COUNT", "DESCRIPTION"],
-            color=alt.Color(
-                "L_DESCRIPTION",
-                title="",
-                scale=alt.Scale(
-                    domain=df["L_DESCRIPTION"].to_list(),
-                    range=df["COLOR"].to_list(),
-                ),
+
+    # Only visible 'LETTER' more than 1.0% ratio
+    df["RATIO"] = df["COUNT"] / df["COUNT"].sum() * 100
+    visible_letters = []
+    for (ratio, letter) in zip(df["RATIO"], df["LETTER"]):
+        visible_letter = letter if ratio >= 1.0 else ""
+        visible_letters.append(visible_letter)
+    df["VISIBLE_LETTER"] = visible_letters
+
+    # Format ratio to percentage (e.g. 10.293... -> "10.29%"")
+    df["RATIO"] = [f"{r:.2f}%" for r in df["RATIO"]]
+
+    base = alt.Chart(df, title="COG Functional Classification",).encode(
+        theta=alt.Theta("COUNT", stack=True),
+        tooltip=["DESCRIPTION", "LETTER", "COUNT", "RATIO"],
+        order=alt.Order(sort_col, sort=sort_order),
+        color=alt.Color(
+            "L_DESCRIPTION",
+            title="",
+            scale=alt.Scale(
+                domain=df["L_DESCRIPTION"].to_list(),
+                range=df["COLOR"].to_list(),
             ),
-            order=alt.Order(sort_col, sort=sort_order),
-        )
+        ),
+    )
+
+    outer_radius = int(min(fig_width, fig_height) / 2)
+    piechart = base.mark_arc(outerRadius=outer_radius)
+    text = base.mark_text(
+        radius=outer_radius - 15,
+        size=10,
+        stroke="black",
+        strokeWidth=1.0,
+        strokeOpacity=1.0,
+    ).encode(text="VISIBLE_LETTER")
+
+    piechart_with_text = (
+        alt.layer(piechart + text)
         .properties(width=fig_width, height=fig_height)
         .configure_title(fontSize=15, offset=20)
         .configure_legend(labelLimit=0)
         .configure_view(strokeWidth=0)
-        .configure_mark(stroke="white", strokeWidth=1, strokeOpacity=1)
+        .configure_mark(stroke="white", strokeWidth=1.0, strokeOpacity=1.0)
     )
-    piechart.save(html_outfile)
+    piechart_with_text.save(html_outfile)
 
 
 @dataclass
