@@ -120,7 +120,11 @@ def main():
 
     # Plot classifer count barchart
     barchart_fig_file = outdir / "classifier_count_barchart.html"
-    plot_classifier_barchart(df, barchart_fig_file)
+    plot_classifier_barchart(df.copy(), barchart_fig_file)
+
+    # Plot classifer count piechart
+    piechart_fig_file = outdir / "classifier_count_piechart.html"
+    plot_classifier_piechart(df.copy(), piechart_fig_file)
 
 
 def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) -> Path:
@@ -270,7 +274,46 @@ def plot_classifier_barchart(
             stroke="black", width=bar_width, strokeWidth=1, strokeOpacity=0.5
         )
     )
-    barcharts.save(html_outfile)
+
+
+def plot_classifier_piechart(
+    df: pd.DataFrame,
+    html_outfile: Union[str, Path],
+    fig_width: int = 500,
+    fig_height: int = 385,
+) -> None:
+    """Plot altair piechart from classifier count dataframe
+
+    Args:
+        df (pd.DataFrame): Classifier count dataframe
+        html_outfile (Union[str, Path]): Piechart html file
+        fig_width (int): Figure width (px)
+        fig_height (int): Figure height (px)
+    """
+    df["L_DESCRIPTION"] = df["LETTER"] + ": " + df["DESCRIPTION"]
+    piechart = (
+        alt.Chart(df.reset_index(), title="COG Functional Classification")
+        .mark_arc()
+        .encode(
+            theta=alt.Theta("COUNT"),
+            tooltip=["LETTER", "COUNT", "DESCRIPTION"],
+            color=alt.Color(
+                "L_DESCRIPTION",
+                title="",
+                scale=alt.Scale(
+                    domain=df["L_DESCRIPTION"].to_list(),
+                    range=df["COLOR"].to_list(),
+                ),
+            ),
+            order=alt.Order("index"),
+            # order=alt.Order("COUNT", sort="descending"),
+        )
+        .properties(width=fig_width, height=fig_height)
+        .configure_title(fontSize=15)
+        .configure_legend(labelLimit=0)
+        .configure_mark(stroke="black", strokeWidth=1, strokeOpacity=0.2)
+    )
+    piechart.save(html_outfile)
 
 
 @dataclass
