@@ -249,19 +249,19 @@ def plot_classifier_barchart(
         fig_height (int): Figure height (px)
         bar_width (int): Figure bar width (px)
     """
-    df["DESCRIPTION"] = df["LETTER"] + ": " + df["DESCRIPTION"]
-    barcharts = (
+    df["L_DESCRIPTION"] = df["LETTER"] + ": " + df["DESCRIPTION"]
+    barchart = (
         alt.Chart(df, title="COG Functional Classification")
         .mark_bar()
         .encode(
             x=alt.X("LETTER", title="FUNCTIONAL CATEGORY", sort=None),
             y=alt.Y("COUNT", title="NUMBER OF PROTEIN SEQUENCES ASSIGNED"),
-            tooltip="COUNT",
+            tooltip=["LETTER", "COUNT", "DESCRIPTION"],
             color=alt.Color(
-                "DESCRIPTION",
+                "L_DESCRIPTION",
                 title="",
                 scale=alt.Scale(
-                    domain=df["DESCRIPTION"].to_list(),
+                    domain=df["L_DESCRIPTION"].to_list(),
                     range=df["COLOR"].to_list(),
                 ),
             ),
@@ -274,6 +274,7 @@ def plot_classifier_barchart(
             stroke="black", width=bar_width, strokeWidth=1, strokeOpacity=0.5
         )
     )
+    barchart.save(html_outfile)
 
 
 def plot_classifier_piechart(
