@@ -22,6 +22,8 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.27.1"
+pandas = "^1.4.1"
+altair = "^4.2.0"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
