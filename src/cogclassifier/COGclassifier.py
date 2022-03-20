@@ -14,6 +14,8 @@ from distutils.version import StrictVersion
 from pathlib import Path
 from typing import Dict, List, Union
 
+import altair as alt
+import pandas as pd
 import requests
 
 
@@ -74,14 +76,15 @@ def main():
     cogid2definition = CogDefinition.parse(cog_def_file)
     letter2func_category = CogFuncCategory.parse(cog_fun_file)
 
-    classifier_contents = ""
+    classifier_results: List[ClassifierResult] = []
+    letter2count: Dict[str, int] = defaultdict(int)
     for br in top_hit_blast_results:
         queryid, cddid = br.qaccver, br.saccver.replace("CDD:", "")
         cogid = cddid2cogid[cddid]
         cog_def = cogid2definition[cogid]
         letter = cog_def.func_category[0]
         cog_fun = letter2func_category[letter]
-        classifier_result = (
+        classifier_result = ClassifierResult(
             queryid,
             cogid,
             cddid,
@@ -92,22 +95,32 @@ def main():
             letter,
             cog_fun.description,
         )
-        classifier_contents += "\t".join([str(cr) for cr in classifier_result]) + "\n"
+        classifier_results.append(classifier_result)
+        letter2count[letter] += 1
 
     classifier_result_file = outdir / "classifier_result.tsv"
-    with open(classifier_result_file, "w") as f:
-        header = (
-            "QUERY_ID\tCOG_ID\tCDD_ID\tEVALUE\tIDENTITY\tGENE_NAME\t"
-            + "COG_NAME\tCOG_LETTER\tCOG_DESCRIPTION"
-        )
-        f.write(header + "\n")
-        f.write(classifier_contents)
+    ClassifierResult.write(classifier_result_file, classifier_results)
 
     # Summarize statistics
     all_seq_count = count_fasta_seq(query_fasta_file)
     hit_seq_count = len(top_hit_blast_results)
     hit_rate = (hit_seq_count / all_seq_count) * 100
     print(hit_rate)
+
+    # Format classifier count dataframe
+    df_data = []
+    for fc in letter2func_category.values():
+        color = f"#{fc.color}"
+        df_data.append([fc.letter, letter2count[fc.letter], color, fc.description])
+    df = pd.DataFrame(df_data, columns=["LETTER", "COUNT", "COLOR", "DESCRIPTION"])
+
+    # Output classifier count result
+    classifier_count_file = outdir / "classifier_count.tsv"
+    df.to_csv(classifier_count_file, sep="\t", index=False)
+
+    # Plot classifer count barchart
+    barchart_fig_file = outdir / "classifier_count_barchart.html"
+    plot_classifier_barchart(df, barchart_fig_file)
 
 
 def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) -> Path:
@@ -214,6 +227,50 @@ def count_fasta_seq(fasta_file: Union[str, Path]) -> int:
     """
     with open(fasta_file) as f:
         return len(list(filter(lambda l: l.startswith(">"), f.readlines())))
+
+
+def plot_classifier_barchart(
+    df: pd.DataFrame,
+    html_outfile: Union[str, Path],
+    fig_width: int = 520,
+    fig_height: int = 385,
+    bar_width: int = 15,
+) -> None:
+    """Plot altair barchart from classifier count dataframe
+
+    Args:
+        df (pd.DataFrame): Classifier count dataframe
+        html_outfile (Union[str, Path]): Barchart html file
+        fig_width (int): Figure width (px)
+        fig_height (int): Figure height (px)
+        bar_width (int): Figure bar width (px)
+    """
+    df["DESCRIPTION"] = df["LETTER"] + ": " + df["DESCRIPTION"]
+    barcharts = (
+        alt.Chart(df, title="COG Functional Classification")
+        .mark_bar()
+        .encode(
+            x=alt.X("LETTER", title="FUNCTIONAL CATEGORY", sort=None),
+            y=alt.Y("COUNT", title="NUMBER OF PROTEIN SEQUENCES ASSIGNED"),
+            tooltip="COUNT",
+            color=alt.Color(
+                "DESCRIPTION",
+                title="",
+                scale=alt.Scale(
+                    domain=df["DESCRIPTION"].to_list(),
+                    range=df["COLOR"].to_list(),
+                ),
+            ),
+        )
+        .properties(width=fig_width, height=fig_height)
+        .configure_title(fontSize=15)
+        .configure_legend(labelLimit=0)
+        .configure_axisX(labelAngle=0, tickSize=0)
+        .configure_mark(
+            stroke="black", width=bar_width, strokeWidth=1, strokeOpacity=0.5
+        )
+    )
+    barcharts.save(html_outfile)
 
 
 @dataclass
@@ -352,6 +409,43 @@ class BlastResult:
         for br in blast_results:
             output_contents += "\t".join([str(e) for e in astuple(br)]) + "\n"
         with open(blast_tsv_outfile, "w") as f:
+            f.write(output_contents)
+
+
+@dataclass
+class ClassifierResult:
+    """Classifier Result DataClass"""
+
+    queryid: str
+    cogid: str
+    cddid: str
+    evalue: float
+    pident: float
+    gene_name: str
+    cog_name: str
+    letter: str
+    description: str
+
+    @staticmethod
+    def write(
+        result_tsv_outfile: Union[str, Path], classifier_results: List[ClassifierResult]
+    ) -> None:
+        """Write ClassifierResult list with TSV format
+
+        Args:
+            result_tsv_outfile (Union[str, Path]): Output tsv file
+            classifier_results (List[ClassifierResult]): Classifier results to write
+        """
+        header = (
+            "QUERY_ID\tCOG_ID\tCDD_ID\tEVALUE\tIDENTITY\tGENE_NAME\t"
+            + "COG_NAME\tCOG_LETTER\tCOG_DESCRIPTION"
+        )
+        output_contents = ""
+        for cr in classifier_results:
+            output_contents += "\t".join([str(e) for e in astuple(cr)]) + "\n"
+
+        with open(result_tsv_outfile, "w") as f:
+            f.write(header + "\n")
             f.write(output_contents)
 
 
