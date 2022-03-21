@@ -12,7 +12,7 @@ from collections import defaultdict
 from dataclasses import astuple, dataclass
 from distutils.version import StrictVersion
 from pathlib import Path
-from typing import Dict, List, Union
+from typing import Dict, List, Optional, Union
 
 import altair as alt
 import pandas as pd
@@ -122,13 +122,13 @@ def main():
 
     # Plot classifer count barchart
     barchart_fig_file = outdir / "classifier_count_barchart.html"
-    plot_classifier_barchart(df.copy(), barchart_fig_file)
+    plot_cog_classifier_barchart(df.copy(), barchart_fig_file)
 
     # Plot classifer count piechart
     piechart_fig_file = outdir / "classifier_count_piechart.html"
-    plot_classifier_piechart(df.copy(), piechart_fig_file, sort=False)
+    plot_cog_classifier_piechart(df.copy(), piechart_fig_file, sort=False)
     piechart_sort_fig_file = outdir / "classifier_count_piechart_sort.html"
-    plot_classifier_piechart(df.copy(), piechart_sort_fig_file, sort=True)
+    plot_cog_classifier_piechart(df.copy(), piechart_sort_fig_file, sort=True)
 
 
 def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) -> Path:
@@ -237,12 +237,15 @@ def count_fasta_seq(fasta_file: Union[str, Path]) -> int:
         return len(list(filter(lambda l: l.startswith(">"), f.readlines())))
 
 
-def plot_classifier_barchart(
+def plot_cog_classifier_barchart(
     df: pd.DataFrame,
     html_outfile: Union[str, Path],
     fig_width: int = 520,
     fig_height: int = 340,
     bar_width: int = 15,
+    y_limit: Optional[float] = None,
+    percent_style: bool = False,
+    sort: bool = False,
 ) -> None:
     """Plot altair barchart from classifier count dataframe
 
@@ -252,15 +255,40 @@ def plot_classifier_barchart(
         fig_width (int): Figure width (px)
         fig_height (int): Figure height (px)
         bar_width (int): Figure bar width (px)
+        y_limit (Optional[float]): y-axis max limit value
+        percent_style (bool): Plot y-axis as percent(%) instead of count number
+        sort (bool): Enable descending sort by count
     """
+    # Set 'percent style' or 'count style'
+    if percent_style:
+        yfield, ytitle, yformat = "RATIO", "Percent of Sequences COG Classified", ".0%"
+        y_limit = None if y_limit is None else y_limit / 100
+    else:
+        yfield, ytitle, yformat = "COUNT", "Number of Sequences COG Classified", "c"
+
+    # Set sort style (descending by count)
+    df = df.sort_values("COUNT", ascending=False) if sort else df
+
+    # Calculate count rate (%)
+    df["RATIO"] = df["COUNT"] / df["COUNT"].sum()
+    df["RATIO(%)"] = df["RATIO"].map("{:.2%}".format)
+
+    # If no y_limit defined by user, set appropriate value
+    y_limit = df[yfield].max() if y_limit is None else y_limit
+
     df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
     barchart = (
         alt.Chart(df, title="COG Functional Classification")
         .mark_bar()
         .encode(
-            x=alt.X("LETTER", title="FUNCTIONAL CATEGORY", sort=None),
-            y=alt.Y("COUNT", title="NUMBER OF PROTEIN SEQUENCES ASSIGNED"),
-            tooltip=["DESCRIPTION", "LETTER", "COUNT"],
+            x=alt.X("LETTER", title="Functional Category", sort=None),
+            y=alt.Y(
+                yfield,
+                title=ytitle,
+                axis=alt.Axis(format=yformat),
+                scale=alt.Scale(domainMax=y_limit, clamp=True),
+            ),
+            tooltip=["DESCRIPTION", "LETTER", "COUNT", "RATIO(%)"],
             color=alt.Color(
                 "L_DESCRIPTION",
                 title="",
@@ -281,7 +309,7 @@ def plot_classifier_barchart(
     barchart.save(html_outfile)
 
 
-def plot_classifier_piechart(
+def plot_cog_classifier_piechart(
     df: pd.DataFrame,
     html_outfile: Union[str, Path],
     fig_width: int = 380,
@@ -300,13 +328,13 @@ def plot_classifier_piechart(
     # Remove 0 Count (no assigned category)
     df = df[df["COUNT"] != 0]
 
-    # Setting sort data ("Count descending" or "Index ascending")
+    # Set sort style ("descending by count" or "ascending by index")
     if sort:
-        sort_col, sort_order = "COUNT", "descending"
+        sort_field, sort_order = "COUNT", "descending"
         df = df.sort_values("COUNT", ascending=False)
     else:
         df = df.reset_index()
-        sort_col, sort_order = "index", "ascending"
+        sort_field, sort_order = "index", "ascending"
 
     df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
 
@@ -319,12 +347,12 @@ def plot_classifier_piechart(
     df["VISIBLE_LETTER"] = visible_letters
 
     # Format ratio to percentage (e.g. 10.293... -> "10.29%"")
-    df["RATIO"] = [f"{r:.2f}%" for r in df["RATIO"]]
+    df["RATIO(%)"] = [f"{r:.2f}%" for r in df["RATIO"]]
 
     base = alt.Chart(df, title="COG Functional Classification",).encode(
         theta=alt.Theta("COUNT", stack=True),
-        tooltip=["DESCRIPTION", "LETTER", "COUNT", "RATIO"],
-        order=alt.Order(sort_col, sort=sort_order),
+        tooltip=["DESCRIPTION", "LETTER", "COUNT", "RATIO(%)"],
+        order=alt.Order(sort_field, sort=sort_order),
         color=alt.Color(
             "L_DESCRIPTION",
             title="",
