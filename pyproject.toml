@@ -32,6 +32,8 @@ pydocstyle = "^6.1.1"
 
 [tool.poetry.scripts]
 COGclassifier = "cogclassifier.COGclassifier:main"
+plot_cog_classifier_barchart = "cogclassifier.script.plot_cog_classifier_barchart:main"
+plot_cog_classifier_piechart = "cogclassifier.script.plot_cog_classifier_piechart:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
