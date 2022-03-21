@@ -128,9 +128,13 @@ def main():
 
     # Plot classifer count piechart
     piechart_fig_file = outdir / "classifier_count_piechart.html"
-    plot_cog_classifier_piechart(df.copy(), piechart_fig_file, sort=False)
+    plot_cog_classifier_piechart(
+        df.copy(), piechart_fig_file, show_letter=True, sort=False
+    )
     piechart_sort_fig_file = outdir / "classifier_count_piechart_sort.html"
-    plot_cog_classifier_piechart(df.copy(), piechart_sort_fig_file, sort=True)
+    plot_cog_classifier_piechart(
+        df.copy(), piechart_sort_fig_file, show_letter=True, sort=True
+    )
 
 
 def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) -> Path:
@@ -316,6 +320,7 @@ def plot_cog_classifier_piechart(
     html_outfile: Union[str, Path],
     fig_width: int = 380,
     fig_height: int = 380,
+    show_letter: bool = False,
     sort: bool = False,
 ) -> None:
     """Plot altair piechart from classifier count dataframe
@@ -325,6 +330,7 @@ def plot_cog_classifier_piechart(
         html_outfile (Union[str, Path]): Piechart html file
         fig_width (int): Figure width (px)
         fig_height (int): Figure height (px)
+        show_letter (bool): Show letter on piechart
         sort (bool): Enable count descending sort
     """
     # Remove 0 Count (no assigned category)
@@ -340,12 +346,15 @@ def plot_cog_classifier_piechart(
 
     df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
 
-    # Only visible 'LETTER' more than 1.0% ratio
     df["RATIO"] = df["COUNT"] / df["COUNT"].sum() * 100
     visible_letters = []
-    for (ratio, letter) in zip(df["RATIO"], df["LETTER"]):
-        visible_letter = letter if ratio >= 1.0 else ""
-        visible_letters.append(visible_letter)
+    if show_letter:
+        # Only visible 'LETTER' more than 1.0% ratio
+        for (ratio, letter) in zip(df["RATIO"], df["LETTER"]):
+            visible_letter = letter if ratio >= 1.0 else ""
+            visible_letters.append(visible_letter)
+    else:
+        visible_letters = [""] * len(df)
     df["VISIBLE_LETTER"] = visible_letters
 
     # Format ratio to percentage (e.g. 10.293... -> "10.29%"")
