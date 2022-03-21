@@ -74,6 +74,7 @@ def main():
     # BlastResult.write(top_hit_rpsblast_result_file, top_hit_blast_results)
 
     # Classify query sequences into COG functional category
+    print("\n# Step3: Classify sequences into COG functional category.")
     cddid2cogid = get_cddid2cogid(cddid_tbl_file)
     cogid2definition = CogDefinition.parse(cog_def_file)
     letter2func_category = CogFuncCategory.parse(cog_fun_file)
@@ -109,7 +110,14 @@ def main():
     all_seq_count = count_fasta_seq(query_fasta_file)
     cog_classifier_seq_count = len(classifier_results)
     classifier_ratio = (cog_classifier_seq_count / all_seq_count) * 100
-    print(classifier_ratio)
+    classifier_stats_file = outdir / "classifier_stats.txt"
+    with open(classifier_stats_file, "w") as f:
+        stats_contents = (
+            f"{classifier_ratio:.2f}% ({cog_classifier_seq_count} / {all_seq_count}) "
+            + "sequences classified into COG functional category.\n"
+        )
+        f.write(stats_contents)
+    print(stats_contents + f"\nSee output directory '{outdir}' for details.")
 
     # Format classifier count dataframe
     df_data = []
