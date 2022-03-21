@@ -18,12 +18,14 @@ import altair as alt
 import pandas as pd
 import requests
 
+__version__ = "0.1.0"
+
 
 def main():
     """COGclassifier main function"""
     # Get argument values
     args = get_args()
-    query_fasta_file: Path = args.input_file
+    query_fasta_file: Path = args.infile
     outdir: Path = args.outdir
     download_dir: Path = args.download_dir
     thread_num: int = args.thread_num
@@ -572,7 +574,7 @@ def get_args() -> argparse.Namespace:
 
     parser.add_argument(
         "-i",
-        "--input_file",
+        "--infile",
         required=True,
         type=Path,
         help="Input query protein fasta file",
@@ -588,6 +590,7 @@ def get_args() -> argparse.Namespace:
     )
     default_dl_dir = "./cog_download"
     parser.add_argument(
+        "-d",
         "--download_dir",
         type=Path,
         help=f"Download COG & CDD FTP data directory (Default: '{default_dl_dir}')",
@@ -612,6 +615,13 @@ def get_args() -> argparse.Namespace:
         help=f"RPS-BLAST e-value parameter (Default: {default_evalue})",
         default=default_evalue,
         metavar="",
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version=f"COGclassifier: v{__version__}",
+        help="Print version information",
     )
     return parser.parse_args()
 
