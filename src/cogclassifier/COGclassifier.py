@@ -81,7 +81,9 @@ def main():
     for br in top_hit_blast_results:
         queryid, cddid = br.qaccver, br.saccver.replace("CDD:", "")
         cogid = cddid2cogid[cddid]
-        cog_def = cogid2definition[cogid]
+        cog_def = cogid2definition.get(cogid)
+        if cog_def is None:
+            continue
         letter = cog_def.func_category[0]
         cog_fun = letter2func_category[letter]
         classifier_result = ClassifierResult(
@@ -103,9 +105,9 @@ def main():
 
     # Summarize statistics
     all_seq_count = count_fasta_seq(query_fasta_file)
-    hit_seq_count = len(top_hit_blast_results)
-    hit_rate = (hit_seq_count / all_seq_count) * 100
-    print(hit_rate)
+    cog_classifier_seq_count = len(classifier_results)
+    classifier_ratio = (cog_classifier_seq_count / all_seq_count) * 100
+    print(classifier_ratio)
 
     # Format classifier count dataframe
     df_data = []
