@@ -171,7 +171,7 @@ def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) ->
         print(f"=> Successfully downloaded '{download_file}'.")
         return download_file
     except requests.exceptions.ConnectionError as err:
-        print("Failed to download file. Please check network connection.", err)
+        print("Failed to download file. Please check network connection.\n", err)
         exit(1)
 
 
@@ -208,6 +208,7 @@ def has_mt_mode_option() -> bool:
 
     Notes:
         mt_mode defines multi-thread mode ('split-by-database' or 'split-by-query').
+        In 'mt_mode 1'(split-by-query), multi-thread is efficiently used and fast.
         See https://www.ncbi.nlm.nih.gov/books/NBK571452/ in details.
     """
 
