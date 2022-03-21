@@ -295,6 +295,9 @@ def plot_classifier_piechart(
         fig_height (int): Figure height (px)
         sort (bool): Enable count descending sort
     """
+    # Remove 0 Count (no assigned category)
+    df = df[df["COUNT"] != 0]
+
     # Setting sort data ("Count descending" or "Index ascending")
     if sort:
         sort_col, sort_order = "COUNT", "descending"
