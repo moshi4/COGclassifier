@@ -1,0 +1,1 @@
+86.35% (3575 / 4140) sequences classified into COG functional category.
