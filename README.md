@@ -45,11 +45,78 @@ Download latest BLAST executable binary from [NCBI FTP site](https://ftp.ncbi.nl
 
 ## Workflow
 
-1. Download COG & CDD resources
+<!-- 1. **Download COG & CDD resources**   -->
+### 1. Download COG & CDD resources
 
-2. RPS-BLAST query sequences against COG database
+Download 4 required files for classifying query sequences into COG functional category.  
 
-3. Classify query sequences into COG functional category
+- `fun-20.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/fun-20.tab>)  
+    Descriptions of COG functional categories.  
+
+    <details>
+    <summary>Show more information</summary>
+
+    > Tab-delimited plain text file with descriptions of COG functional categories  
+    > Columns:  
+    >  
+    > 1\. Functional category ID (one letter)  
+    > 2\. Hexadecimal RGB color associated with the functional category  
+    > 3\. Functional category description  
+    > Each line corresponds to one functional category. The order of the categories is meaningful (reflects a hierarchy of functions; determines the order of display)  
+    >
+    > (From <https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/Readme.2020-11-25.txt>)
+
+    </details>
+
+- `cog-20.def.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/cog-20.def.tab>)  
+    COG descriptions such as 'COG ID', 'COG functional category', 'COG name', etc...  
+
+    <details>
+    <summary>Show more information</summary>
+
+    > Tab-delimited plain text file with COG descriptions  
+    > Columns:  
+    >  
+    > 1\. COG ID  
+    > 2\. COG functional category (could include multiple letters in the order of importance)  
+    > 3\. COG name  
+    > 4\. Gene associated with the COG (optional)  
+    > 5\. Functional pathway associated with the COG (optional)  
+    > 6\. PubMed ID, associated with the COG (multiple entries are semicolon-separated; optional)  
+    > 7\. PDB ID of the structure associated with the COG (multiple entries are semicolon-separated; optional)  
+    > Each line corresponds to one COG. The order of the COGs is arbitrary (displayed in the lexicographic order)  
+    >
+    > (From <https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/Readme.2020-11-25.txt>)
+
+    </details>
+
+- `cddid.tbl.gz` (<https://ftp.ncbi.nih.gov/pub/mmdb/cdd/>)  
+    Summary information about the CD(Conserved Domain) model.  
+
+    <details>
+    <summary>Show more information</summary>
+
+    >"cddid.tbl.gz" contains summary information about the CD models in this
+    >distribution, which are part of the default "cdd" search database and are
+    >indexed in NCBI's Entrez database. This is a tab-delimited text file, with a
+    >single row per CD model and the following columns:  
+    >  
+    >PSSM-Id (unique numerical identifier)  
+    >CD accession (starting with 'cd', 'pfam', 'smart', 'COG', 'PRK' or "CHL')  
+    >CD "short name"  
+    >CD description  
+    >PSSM-Length (number of columns, the size of the search model)  
+    >
+    > (From <https://ftp.ncbi.nih.gov/pub/mmdb/cdd/README>)
+
+    </details>
+
+- `Cog_LE.tar.gz` (<https://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/>)  
+    COG database, a part of CDD(Conserved Domain Database), for RPS-BLAST search
+
+### 2. RPS-BLAST query sequences against COG database
+
+### 3. Classify query sequences into COG functional category
 
 ## Command Usage
 
@@ -127,7 +194,7 @@ COGclassifier outputs 4 result text files and 3 html format chart files.
 - **`classifier_count_barchart.html`**  
 
   Barchart of COG funcitional category classification result.  
-  COGclassifier uses `Altair` visualization library for plotting html format charts.  
+  COGclassifier uses [`Altair`](https://altair-viz.github.io/) visualization library for plotting html format charts.  
   In web browser, Altair charts interactively display tooltips and can export image as PNG or SVG format.
 
   ![classifier_count_barchart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/vega-lite_functionality.png)
