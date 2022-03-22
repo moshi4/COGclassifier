@@ -15,7 +15,11 @@
 
 ## Overview
 
-COGclassifier is a tool for classifying prokaryote protein sequences into COG functional category.
+COG(Cluster of Orthologous Genes) is a database that plays an important role in the annotation, classification, and analysis of microbial gene function.
+Functional annotation, classification, and analysis of each gene in newly sequenced bacterial genomes using the COG database is a common task.
+However, there was no COG functional classification command line software that is user-friendly and capable of producing publication-ready figures.
+Therefore, I developed COGclassifier to fill this need.
+COGclassifier can automatically perform the processes from searching query sequences into the COG database, to annotation and classification of gene functions, to generation of publication-ready figures (See figure below).
 
 ![ecoli_barchart_fig](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_barchart.png)  
 Fig.1: Barchart of COG funcitional category classification result for E.coli
