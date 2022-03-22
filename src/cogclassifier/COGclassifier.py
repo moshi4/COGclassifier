@@ -396,7 +396,7 @@ def plot_cog_classifier_piechart(
     piechart_with_text = (
         alt.layer(piechart + text)
         .properties(width=fig_width, height=fig_height)
-        .configure_title(fontSize=15, offset=20)
+        .configure_title(fontSize=15, offset=10)
         .configure_legend(labelLimit=0)
         .configure_view(strokeWidth=0)
         .configure_mark(stroke="white", strokeWidth=1.0, strokeOpacity=1.0)
