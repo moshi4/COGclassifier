@@ -515,7 +515,7 @@ class BlastResult:
             blast_results (List[BlastResult]): Blast search results
 
         Returns:
-            List[BlastResult]: Top hit blast resutls
+            List[BlastResult]: Top hit blast results
         """
         top_hits = []
         top_hit_blast_results = []
@@ -586,9 +586,8 @@ def get_args() -> argparse.Namespace:
     Returns:
         argparse.Namespace: Argument values
     """
-    parser = argparse.ArgumentParser(
-        description="Classify protein sequences into COG functional category",
-    )
+    description = "Classify prokaryote protein sequences into COG functional category"
+    parser = argparse.ArgumentParser(description=description)
 
     parser.add_argument(
         "-i",
