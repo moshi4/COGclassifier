@@ -648,8 +648,8 @@ def get_args() -> argparse.Namespace:
         default=default_dl_dir,
         metavar="",
     )
-    cpu_count = os.cpu_count()
-    default_thread_num = cpu_count - 1 if cpu_count is not None else 1
+    cpu_num = os.cpu_count()
+    default_thread_num = 1 if cpu_num is None or cpu_num == 1 else cpu_num - 1
     parser.add_argument(
         "-t",
         "--thread_num",
