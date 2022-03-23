@@ -1,6 +1,7 @@
 # COGclassifier
 
 ![Python3](https://img.shields.io/badge/Language-Python3-steelblue)
+![OS](https://img.shields.io/badge/OS-Windows_|_MacOS_|_Linux-steelblue)
 ![License](https://img.shields.io/badge/License-MIT-steelblue)
 [![Latest PyPI version](https://img.shields.io/pypi/v/cogclassifier.svg)](https://pypi.python.org/pypi/cogclassifier)  
 
@@ -37,7 +38,7 @@ Install PyPI stable version with pip:
 
 Install latest development version with pip:
 
-    pip install git+git://github.com/moshi4/COGclassifier.git
+    pip install git+https://github.com/moshi4/COGclassifier.git
 
 COGclassifier use `RPS-BLAST` for COG database search.  
 RPS-BLAST(v2.13.0) is packaged in [src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin) directory.  
