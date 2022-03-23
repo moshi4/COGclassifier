@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 
 import pandas as pd
-from cogclassifier.COGclassifier import plot_cog_classifier_piechart
+from cogclassifier.cogclassifier import plot_cog_classifier_piechart
 
 
 def main():

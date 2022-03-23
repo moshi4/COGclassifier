@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Optional
 
 import pandas as pd
-from cogclassifier.COGclassifier import plot_cog_classifier_barchart
+from cogclassifier.cogclassifier import plot_cog_classifier_barchart
 
 
 def main():

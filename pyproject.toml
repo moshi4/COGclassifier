@@ -31,7 +31,7 @@ flake8 = "^4.0.1"
 pydocstyle = "^6.1.1"
 
 [tool.poetry.scripts]
-COGclassifier = "cogclassifier.COGclassifier:main"
+COGclassifier = "cogclassifier.cogclassifier:main"
 plot_cog_classifier_barchart = "cogclassifier.script.plot_cog_classifier_barchart:main"
 plot_cog_classifier_piechart = "cogclassifier.script.plot_cog_classifier_piechart:main"
 
