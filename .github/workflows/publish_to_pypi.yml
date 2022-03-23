@@ -1,4 +1,4 @@
-name: Publish to PyPI & DockerHub
+name: Publish to PyPI
 on:
   release:
     types: [released]
