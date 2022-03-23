@@ -287,10 +287,10 @@ def plot_cog_classifier_barchart(
     """
     # Set 'percent style' or 'count style'
     if percent_style:
-        yfield, ytitle, yformat = "RATIO", "Percent of Sequences COG Classified", ".0%"
+        yfield, ytitle, yformat = "RATIO", "Percent of Sequences", ".0%"
         y_limit = None if y_limit is None else y_limit / 100
     else:
-        yfield, ytitle, yformat = "COUNT", "Number of Sequences COG Classified", "c"
+        yfield, ytitle, yformat = "COUNT", "Number of Sequences", "c"
 
     # Set sort style (descending by count)
     df = df.sort_values("COUNT", ascending=False) if sort else df
