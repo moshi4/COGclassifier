@@ -36,19 +36,15 @@ Install PyPI stable version with pip:
     pip install cogclassifier
 
 COGclassifier requires `RPS-BLAST` for COG database search.  
-Download latest BLAST executable binary from [NCBI FTP site](https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) and add to PATH.
-
-> :warning:
-> 'mt_mode' option has been added since v2.12.0 or newer versions of BLAST.
-> 'mt_mode=1' option setting makes effective use of multi-threading and is faster, so it is recommended that you install the latest version.
-> See NCBI's article [Threading By Query](https://www.ncbi.nlm.nih.gov/books/NBK571452/) for details.
+RPS-BLAST(v2.13.0) is packaged in [src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin) directory.  
 
 ## Workflow
 
-<!-- 1. **Download COG & CDD resources**   -->
+Description of COGclassifier's automated workflow.
+
 ### 1. Download COG & CDD resources
 
-Download 4 required files for classifying query sequences into COG functional category.  
+Download 4 required COG & CDD files from FTP site.
 
 - `fun-20.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/fun-20.tab>)  
     Descriptions of COG functional categories.  
@@ -114,9 +110,27 @@ Download 4 required files for classifying query sequences into COG functional ca
 - `Cog_LE.tar.gz` (<https://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/>)  
     COG database, a part of CDD(Conserved Domain Database), for RPS-BLAST search
 
-### 2. RPS-BLAST query sequences against COG database
+### 2. RPS-BLAST search against COG database
+
+Run query sequences RPS-BLAST against COG database [Default: E-value = 1e-2].
+Best-hit (=lowest e-value) blast result is extracted and
+best-hit COG database results are used in next functional classification step.
 
 ### 3. Classify query sequences into COG functional category
+
+From best-hit results, extract COG functional category relationships as described below.  
+
+1. Best-hit results -> CDD ID
+2. CDD ID -> COG ID (From `cddid.tbl`)
+3. COG ID -> COG Functional Category Letter (From `cog-20.def.tab`)
+4. COG Functional Category Letter -> COG Functional Category Definition (From `fun-20.tab`)
+
+> :warning:
+> If functional category with multiple letters exists, first letter is treated as functional category
+> (e.g. COG4862 has `KTN` multiple letters. A letter `K` is treated as functional category).
+
+Using the above information, the number of query sequences classified into each COG functional category is calculated and
+functional annotation and classification results are output.
 
 ## Command Usage
 
@@ -216,7 +230,7 @@ COGclassifier outputs 4 result text files and 3 html format chart files.
 ## Customize charts
 
 COGclassifier also provides barchart & piechart plotting scripts to customize charts appearence.
-Each script can plot the following feature charts. See [wiki](https://github.com/moshi4/COGclassifier/wiki) for details.
+Each script can plot the following feature charts from `classifier_count.tsv`. See [wiki](https://github.com/moshi4/COGclassifier/wiki) for details.
 
 - Features of **plot_cog_classifier_barchart** script  
   
@@ -224,11 +238,11 @@ Each script can plot the following feature charts. See [wiki](https://github.com
   - Plot charts with percentage style instead of count number style
   - Fix maximum value of Y-axis  
   - Descending sort by count number or not  
-  - Plot charts from user-customized `classifier_count.tsv`
+  - Plot charts from user-customized 'classifier_count.tsv'
 
 - Features of **plot_cog_classifier_piechart** script  
 
   - Adjust figure width, height
   - Descending sort by count number or not
   - Show letter on piechart or not
-  - Plot charts from user-customized `classifier_count.tsv`
+  - Plot charts from user-customized 'classifier_count.tsv'
