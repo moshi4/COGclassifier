@@ -5,6 +5,7 @@ import argparse
 import csv
 import gzip
 import os
+import platform
 import re
 import shutil
 import subprocess as sp
@@ -62,6 +63,7 @@ def main():
         f"rpsblast -query {query_fasta_file} -db {rpsblast_db} -outfmt 6 "
         f"-out {rpsblast_result_file} -evalue {evalue} -num_threads {thread_num} "
     )
+    add_bin_path()
     rpsblast_cmd = rpsblast_cmd + "-mt_mode 1" if has_mt_mode_option() else rpsblast_cmd
     print(f"$ {rpsblast_cmd}")
     sp.run(rpsblast_cmd, shell=True)
@@ -198,6 +200,14 @@ def unpack_targz_file(target_file: Union[str, Path], outdir: Union[str, Path]) -
         outdir (Union[str, Path]): Output directory for unpacked files
     """
     shutil.unpack_archive(target_file, outdir)
+
+
+def add_bin_path() -> None:
+    """Add executable binary (rpsblast) path to PATH"""
+    os_name = platform.system()  # 'Windows' or 'Darwin' or 'Linux'
+    bin_path = Path(__file__).parent / "bin" / os_name
+    env_path = f"{bin_path}:{os.environ['PATH']}"
+    os.environ["PATH"] = env_path
 
 
 def has_mt_mode_option() -> bool:
