@@ -1,16 +1,18 @@
 # COGclassifier
 
 ![Python3](https://img.shields.io/badge/Language-Python3-steelblue)
-![OS](https://img.shields.io/badge/OS-Windows_|_MacOS_|_Linux-steelblue)
+![OS](https://img.shields.io/badge/OS-Windows_|_Mac_|_Linux-steelblue)
 ![License](https://img.shields.io/badge/License-MIT-steelblue)
 [![Latest PyPI version](https://img.shields.io/pypi/v/cogclassifier.svg)](https://pypi.python.org/pypi/cogclassifier)  
+![CI workflow](https://github.com/moshi4/COGclassifier/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/moshi4/COGclassifier/branch/main/graph/badge.svg?token=F7O5HA2J3G)](https://codecov.io/gh/moshi4/COGclassifier)
 
 ## Table of Contents
 
 - [Overview](#overview)
 - [Installation](#installation)
 - [Workflow](#workflow)
-- [Command Usage](#command-usage)
+- [Usage](#usage)
 - [Output Contents](#output-contents)
 - [Customize charts](#customize-charts)
 
@@ -18,7 +20,7 @@
 
 COG(Cluster of Orthologous Genes) is a database that plays an important role in the annotation, classification, and analysis of microbial gene function.
 Functional annotation, classification, and analysis of each gene in newly sequenced bacterial genomes using the COG database is a common task.
-However, there was no COG functional classification command line software that is user-friendly and capable of producing publication-ready figures.
+However, there was no COG functional classification command line software that is easy-to-use and capable of producing publication-ready figures.
 Therefore, I developed COGclassifier to fill this need.
 COGclassifier can automatically perform the processes from searching query sequences into the COG database, to annotation and classification of gene functions, to generation of publication-ready figures (See figure below).
 
@@ -40,8 +42,8 @@ Install latest development version with pip:
 
     pip install git+https://github.com/moshi4/COGclassifier.git
 
-COGclassifier use `RPS-BLAST` for COG database search.  
-RPS-BLAST(v2.13.0) is packaged in [src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin) directory.  
+COGclassifier uses `RPS-BLAST` for COG database search.  
+RPS-BLAST(v2.13.0) is bundled in [src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin) directory.  
 
 ## Workflow
 
@@ -113,17 +115,16 @@ Download 4 required COG & CDD files from FTP site.
     </details>
 
 - `Cog_LE.tar.gz` (<https://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/>)  
-    COG database, a part of CDD(Conserved Domain Database), for RPS-BLAST search
+    COG database, a part of CDD(Conserved Domain Database), for RPS-BLAST search.  
 
 ### 2. RPS-BLAST search against COG database
 
 Run query sequences RPS-BLAST against COG database [Default: E-value = 1e-2].
-Best-hit (=lowest e-value) blast result is extracted and
-best-hit COG database results are used in next functional classification step.
+Best-hit (=lowest e-value) blast results are extracted and used in next functional classification step.
 
 ### 3. Classify query sequences into COG functional category
 
-From best-hit results, extract COG functional category relationships as described below.  
+From best-hit results, extract relationship between query sequences and COG functional category as described below.
 
 1. Best-hit results -> CDD ID
 2. CDD ID -> COG ID (From `cddid.tbl`)
@@ -132,12 +133,12 @@ From best-hit results, extract COG functional category relationships as describe
 
 > :warning:
 > If functional category with multiple letters exists, first letter is treated as functional category
-> (e.g. COG4862 has `KTN` multiple letters. A letter `K` is treated as functional category).
+> (e.g. COG4862 has multiple letters `KTN`. A letter `K` is treated as functional category).
 
 Using the above information, the number of query sequences classified into each COG functional category is calculated and
 functional annotation and classification results are output.
 
-## Command Usage
+## Usage
 
 ### Basic Command
 
@@ -159,16 +160,24 @@ Classify E.coli protein sequences into COG functional category ([ecoli.faa](http
 
     COGclassifier -i ./example/input/ecoli.faa -o ./ecoli_cog_classifier
 
+### Example API
+
+```python
+from cogclassifier import cogclassifier
+
+query_fasta_file = "./example/input/ecoli.faa"
+outdir = "./ecoli_cog_classifier"
+cogclassifier.run(query_fasta_file, outdir)
+```
+
 ## Output Contents
 
-COGclassifier outputs 4 result text files and 3 html format chart files.  
+COGclassifier outputs 4 result text files, 3 html format chart files.  
 
 - **`rpsblast_result.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/rpsblast_result.tsv))  
-
   RPS-BLAST against COG database result (format = `outfmt 6`).  
 
 - **`classifier_result.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/classifier_result.tsv))  
-
   Query sequences classified into COG functional category result.  
   This file contains all classified query sequences and associated COG information.  
 
@@ -190,7 +199,6 @@ COGclassifier outputs 4 result text files and 3 html format chart files.
     </details>
 
 - **`classifier_count.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_count.tsv))  
-  
   Count classified sequences per COG functional category result.  
 
     <details>
@@ -206,12 +214,10 @@ COGclassifier outputs 4 result text files and 3 html format chart files.
     </details>
 
 - **`classifier_stats.txt`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_stats.txt))  
-
   The percentages of the classified sequences are described as example below.  
   > 86.35% (3575 / 4140) sequences classified into COG functional category.
 
 - **`classifier_count_barchart.html`**  
-
   Barchart of COG funcitional category classification result.  
   COGclassifier uses [`Altair`](https://altair-viz.github.io/) visualization library for plotting html format charts.  
   In web browser, Altair charts interactively display tooltips and can export image as PNG or SVG format.
@@ -219,14 +225,12 @@ COGclassifier outputs 4 result text files and 3 html format chart files.
   ![classifier_count_barchart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/vega-lite_functionality.png)
 
 - **`classifier_count_piechart.html`**  
-
   Piechart of COG funcitional category classification result.  
   Functional category with percentages less than 1% don't display letter on piechart.  
 
   ![classifier_count_piechart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_piechart.png)
 
 - **`classifier_count_piechart_sort.html`**  
-
   Piechart with descending sort by count.  
   Functional category with percentages less than 1% don't display letter on piechart.  
 
@@ -238,7 +242,6 @@ COGclassifier also provides barchart & piechart plotting scripts to customize ch
 Each script can plot the following feature charts from `classifier_count.tsv`. See [wiki](https://github.com/moshi4/COGclassifier/wiki) for details.
 
 - Features of **plot_cog_classifier_barchart** script  
-  
   - Adjust figure width, height, barwidth
   - Plot charts with percentage style instead of count number style
   - Fix maximum value of Y-axis  
@@ -246,7 +249,6 @@ Each script can plot the following feature charts from `classifier_count.tsv`. S
   - Plot charts from user-customized 'classifier_count.tsv'
 
 - Features of **plot_cog_classifier_piechart** script  
-
   - Adjust figure width, height
   - Descending sort by count number or not
   - Show letter on piechart or not
