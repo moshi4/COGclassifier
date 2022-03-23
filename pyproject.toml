@@ -19,6 +19,11 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
 
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--cov=src --tb=line --cov-report=xml --cov-report=term"
+testpaths = ["tests"]
+
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "^2.27.1"
@@ -29,6 +34,8 @@ altair = "^4.2.0"
 black = "^22.1.0"
 flake8 = "^4.0.1"
 pydocstyle = "^6.1.1"
+pytest = "^7.1.1"
+pytest-cov = "^3.0.0"
 
 [tool.poetry.scripts]
 COGclassifier = "cogclassifier.cogclassifier:main"
