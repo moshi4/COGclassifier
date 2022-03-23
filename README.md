@@ -29,13 +29,17 @@ Fig.2: Piechart of COG funcitional category classification result for E.coli
 
 ## Installation
 
-COGclassifier is implemented in Python3 (Tested on Ubuntu20.04)
+COGclassifier is implemented in Python3.
 
 Install PyPI stable version with pip:
 
     pip install cogclassifier
 
-COGclassifier requires `RPS-BLAST` for COG database search.  
+Install latest development version with pip:
+
+    pip install git+git://github.com/moshi4/COGclassifier.git
+
+COGclassifier use `RPS-BLAST` for COG database search.  
 RPS-BLAST(v2.13.0) is packaged in [src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin) directory.  
 
 ## Workflow
