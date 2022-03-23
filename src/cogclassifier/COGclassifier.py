@@ -23,7 +23,7 @@ __version__ = "1.0.1"
 
 
 def main():
-    """COGclassifier main function"""
+    """COGclassifier main function for entrypoint"""
     # Get argument values
     args = get_args()
     query_fasta_file: Path = args.infile
@@ -31,6 +31,29 @@ def main():
     download_dir: Path = args.download_dir
     thread_num: int = args.thread_num
     evalue: float = args.evalue
+
+    run(query_fasta_file, outdir, download_dir, thread_num, evalue)
+
+
+def run(
+    query_fasta_file: Union[str, Path],
+    outdir: Union[str, Path],
+    download_dir: Union[str, Path] = Path("./cog_download"),
+    thread_num: int = 1,
+    evalue: float = 1e-2,
+) -> None:
+    """Run COGclassifier workflow
+
+    Args:
+        query_fasta_file (Union[str, Path]): Input query protein fasta file
+        outdir (Union[str, Path]): Output directory
+        download_dir (Union[str, Path]): Download COG & CDD FTP data directory
+        thread_num (int): RPS-BLAST num_thread parameter
+        evalue (float): RPS-BLAST e-value parameter
+    """
+    query_fasta_file = Path(query_fasta_file)
+    outdir = Path(outdir)
+    download_dir = Path(download_dir)
 
     outdir.mkdir(exist_ok=True)
     download_dir.mkdir(exist_ok=True)
