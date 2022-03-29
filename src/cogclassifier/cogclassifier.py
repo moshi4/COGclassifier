@@ -19,7 +19,7 @@ import altair as alt
 import pandas as pd
 import requests
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 
 def main():
