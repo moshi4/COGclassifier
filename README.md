@@ -3,7 +3,8 @@
 ![Python3](https://img.shields.io/badge/Language-Python3-steelblue)
 ![OS](https://img.shields.io/badge/OS-Windows_|_Mac_|_Linux-steelblue)
 ![License](https://img.shields.io/badge/License-MIT-steelblue)
-[![Latest PyPI version](https://img.shields.io/pypi/v/cogclassifier.svg)](https://pypi.python.org/pypi/cogclassifier)  
+[![Latest PyPI version](https://img.shields.io/pypi/v/cogclassifier.svg)](https://pypi.python.org/pypi/cogclassifier)
+[![Bioconda](https://img.shields.io/conda/vn/bioconda/cogclassifier.svg?color=green)](https://anaconda.org/bioconda/cogclassifier)  
 ![CI workflow](https://github.com/moshi4/COGclassifier/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/moshi4/COGclassifier/branch/main/graph/badge.svg?token=F7O5HA2J3G)](https://codecov.io/gh/moshi4/COGclassifier)
 
@@ -33,17 +34,19 @@ Fig.2: Piechart of COG funcitional category classification result for E.coli
 ## Installation
 
 COGclassifier is implemented in Python3.
+RPS-BLAST(v2.13.0) for COG database search is bundled in COGclassifier package ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
 
-Install PyPI stable version with pip:
+**Install bioconda package:**
+
+    conda install -c bioconda -c conda-forge cogclassifier
+
+**Install PyPI stable package:**
 
     pip install cogclassifier
 
-Install latest development version with pip:
+**Install latest development package:**
 
     pip install git+https://github.com/moshi4/COGclassifier.git
-
-COGclassifier uses `RPS-BLAST` for COG database search.  
-RPS-BLAST(v2.13.0) is bundled in COGclassifier package ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
 
 ## Workflow
 
