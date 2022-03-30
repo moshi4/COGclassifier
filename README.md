@@ -15,7 +15,7 @@
 - [Workflow](#workflow)
 - [Usage](#usage)
 - [Output Contents](#output-contents)
-- [Customize charts](#customize-charts)
+- [Customize Charts](#customize-charts)
 
 ## Overview
 
@@ -239,19 +239,19 @@ COGclassifier outputs 4 result text files, 3 html format chart files.
 
   ![classifier_count_piechart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_piechart_sort.png)
 
-## Customize charts
+## Customize Charts
 
 COGclassifier also provides barchart & piechart plotting scripts to customize charts appearence.
-Each script can plot the following feature charts from `classifier_count.tsv`. See [wiki](https://github.com/moshi4/COGclassifier/wiki) for details.
+Each script can plot the following feature charts from `classifier_count.tsv`. See wiki for details.
 
-- Features of **plot_cog_classifier_barchart** script  
+- Features of **plot_cog_classifier_barchart** script ([wiki](https://github.com/moshi4/COGclassifier/wiki/Customize-Barchart))  
   - Adjust figure width, height, barwidth
   - Plot charts with percentage style instead of count number style
   - Fix maximum value of Y-axis  
   - Descending sort by count number or not  
   - Plot charts from user-customized 'classifier_count.tsv'
 
-- Features of **plot_cog_classifier_piechart** script  
+- Features of **plot_cog_classifier_piechart** script ([wiki](https://github.com/moshi4/COGclassifier/wiki/Customize-Piechart))  
   - Adjust figure width, height
   - Descending sort by count number or not
   - Show letter on piechart or not
