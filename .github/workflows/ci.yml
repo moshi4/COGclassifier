@@ -1,11 +1,14 @@
 name: CI
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
     paths: ["src/**", "tests/**", ".github/workflows/**"]
   pull_request:
-    branches: [main]
+    branches: [main, develop]
     paths: ["src/**", "tests/**", ".github/workflows/**"]
+  schedule:
+    # Scheduled Daily CI
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -30,7 +33,9 @@ jobs:
           echo "$HOME/.poetry/bin" >> $GITHUB_PATH
 
       - name: Install Dependencies
-        run: poetry install -n
+        run: |
+          poetry install -n
+          poetry update -n
 
       - name: Run black format check
         run: poetry run black src tests --check --diff --verbose
