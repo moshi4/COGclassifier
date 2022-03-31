@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "cogclassifier"
 version = "1.0.3"
-description = "Classify prokaryote protein sequences into COG functional category"
+description = "A tool for classifying prokaryote protein sequences into COG functional category"
 authors = ["moshi"]
 license = "MIT"
 homepage = "https://github.com/moshi4/COGclassifier/"

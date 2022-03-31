@@ -34,7 +34,7 @@ Fig.2: Piechart of COG funcitional category classification result for E.coli
 ## Installation
 
 COGclassifier is implemented in Python3.
-RPS-BLAST(v2.13.0) for COG database search is bundled in COGclassifier package ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
+RPS-BLAST(v2.13.0) is bundled in COGclassifier ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
 
 **Install bioconda package:**
 
