@@ -152,7 +152,7 @@ functional annotation and classification results are output.
     -h, --help            show this help message and exit
     -i , --infile         Input query protein fasta file
     -o , --outdir         Output directory
-    -d , --download_dir   Download COG & CDD FTP data directory (Default: './cog_download')
+    -d , --download_dir   Download COG & CDD resources directory (Default: '~/.cache/cogclassifier')
     -t , --thread_num     RPS-BLAST num_thread parameter (Default: MaxThread - 1)
     -e , --evalue         RPS-BLAST e-value parameter (Default: 0.01)
     -v, --version         Print version information

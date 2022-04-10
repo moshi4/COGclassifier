@@ -19,7 +19,7 @@ import altair as alt
 import pandas as pd
 import requests
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 
 def main():
@@ -38,7 +38,7 @@ def main():
 def run(
     query_fasta_file: Union[str, Path],
     outdir: Union[str, Path],
-    download_dir: Union[str, Path] = Path("./cog_download"),
+    download_dir: Union[str, Path] = Path.home() / ".cache" / "cogclassifier",
     thread_num: int = 1,
     evalue: float = 1e-2,
 ) -> None:
@@ -56,7 +56,7 @@ def run(
     download_dir = Path(download_dir)
 
     outdir.mkdir(exist_ok=True)
-    download_dir.mkdir(exist_ok=True)
+    os.makedirs(download_dir, exist_ok=True)
 
     print("# Step1: Download COG & CDD FTP data")
     # Setup COG functional category files
@@ -639,12 +639,12 @@ def get_args() -> argparse.Namespace:
         help="Output directory",
         metavar="",
     )
-    default_dl_dir = "./cog_download"
+    default_dl_dir = Path.home() / ".cache" / "cogclassifier"
     parser.add_argument(
         "-d",
         "--download_dir",
         type=Path,
-        help=f"Download COG & CDD FTP data directory (Default: '{default_dl_dir}')",
+        help=f"Download COG & CDD resources directory (Default: '{default_dl_dir}')",
         default=default_dl_dir,
         metavar="",
     )
