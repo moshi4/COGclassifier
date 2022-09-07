@@ -19,7 +19,7 @@ import altair as alt
 import pandas as pd
 import requests
 
-__version__ = "1.0.4"
+from cogclassifier import __version__
 
 
 def main():
@@ -620,8 +620,9 @@ def get_args() -> argparse.Namespace:
     Returns:
         argparse.Namespace: Argument values
     """
-    description = "Classify prokaryote protein sequences into COG functional category"
-    parser = argparse.ArgumentParser(description=description)
+    description = "A tool for classifying prokaryote protein sequences "
+    description += f"into COG functional category (v{__version__})"
+    parser = argparse.ArgumentParser(description=description, add_help=False)
 
     parser.add_argument(
         "-i",
@@ -629,7 +630,7 @@ def get_args() -> argparse.Namespace:
         required=True,
         type=Path,
         help="Input query protein fasta file",
-        metavar="",
+        metavar="I",
     )
     parser.add_argument(
         "-o",
@@ -637,7 +638,7 @@ def get_args() -> argparse.Namespace:
         required=True,
         type=Path,
         help="Output directory",
-        metavar="",
+        metavar="O",
     )
     default_dl_dir = Path.home() / ".cache" / "cogclassifier"
     parser.add_argument(
@@ -663,7 +664,7 @@ def get_args() -> argparse.Namespace:
         "-e",
         "--evalue",
         type=float,
-        help=f"RPS-BLAST e-value parameter (Default: {default_evalue})",
+        help=f"RPS-BLAST e-value parameter (Default: {default_evalue:.0e})",
         default=default_evalue,
         metavar="",
     )
@@ -671,8 +672,14 @@ def get_args() -> argparse.Namespace:
         "-v",
         "--version",
         action="version",
-        version=f"COGclassifier: v{__version__}",
+        version=f"v{__version__}",
         help="Print version information",
+    )
+    parser.add_argument(
+        "-h",
+        "--help",
+        help="Show this help message and exit",
+        action="help",
     )
     return parser.parse_args()
 
