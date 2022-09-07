@@ -34,7 +34,7 @@ Fig.2: Piechart of COG funcitional category classification result for E.coli
 ## Installation
 
 COGclassifier is implemented in Python3.
-RPS-BLAST(v2.13.0) is bundled in COGclassifier ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
+RPS-BLAST(v2.13.0) binary is bundled in COGclassifier ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
 
 **Install bioconda package:**
 
@@ -51,6 +51,7 @@ RPS-BLAST(v2.13.0) is bundled in COGclassifier ([src/cogclassifier/bin](https://
 ## Workflow
 
 Description of COGclassifier's automated workflow.
+This workflow was created based in part on [cdd2cog](https://github.com/aleimba/bac-genomics-scripts/tree/master/cdd2cog).
 
 ### 1. Download COG & CDD resources
 
@@ -149,13 +150,13 @@ functional annotation and classification results are output.
 
 ### Options
 
-    -h, --help            show this help message and exit
-    -i , --infile         Input query protein fasta file
-    -o , --outdir         Output directory
+    -i I, --infile I      Input query protein fasta file
+    -o O, --outdir O      Output directory
     -d , --download_dir   Download COG & CDD resources directory (Default: '~/.cache/cogclassifier')
     -t , --thread_num     RPS-BLAST num_thread parameter (Default: MaxThread - 1)
-    -e , --evalue         RPS-BLAST e-value parameter (Default: 0.01)
+    -e , --evalue         RPS-BLAST e-value parameter (Default: 1e-02)
     -v, --version         Print version information
+    -h, --help            Show this help message and exit
 
 ### Example Command
 
