@@ -248,7 +248,15 @@ def has_mt_mode_option() -> bool:
 
     def _get_rpsblast_version() -> str:
         output = sp.run("rpsblast -version", shell=True, capture_output=True, text=True)
-        return re.match(r"rpsblast: (\d+.\d+.\d+)", output.stdout).groups()[0]
+        try:
+            match = re.match(r"rpsblast: (\d+.\d+.\d+)", output.stdout).groups()[0]
+        except Exception:
+            print(output.stderr)
+            if "libgomp.so.1" in output.stderr and platform.system() == "Linux":
+                print("In Ubuntu, this error can be resolved by following command.")
+                print("$ sudo apt-get install libgomp1 -y\n")
+            exit(1)
+        return match
 
     rpsblast_version = StrictVersion(_get_rpsblast_version())
     return rpsblast_version >= StrictVersion("2.12.0")
