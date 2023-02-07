@@ -401,7 +401,7 @@ def plot_cog_classifier_piechart(
     visible_letters = []
     if show_letter:
         # Only visible 'LETTER' more than 1.0% ratio
-        for (ratio, letter) in zip(df["RATIO"], df["LETTER"]):
+        for ratio, letter in zip(df["RATIO"], df["LETTER"]):
             visible_letter = letter if ratio >= 1.0 else ""
             visible_letters.append(visible_letter)
     else:
@@ -411,7 +411,10 @@ def plot_cog_classifier_piechart(
     # Format ratio to percentage (e.g. 10.293... -> "10.29%"")
     df["RATIO(%)"] = [f"{r:.2f}%" for r in df["RATIO"]]
 
-    base = alt.Chart(df, title="COG Functional Classification",).encode(
+    base = alt.Chart(
+        df,
+        title="COG Functional Classification",
+    ).encode(
         theta=alt.Theta("COUNT", stack=True),
         tooltip=["DESCRIPTION", "LETTER", "COUNT", "RATIO(%)"],
         order=alt.Order(sort_field, sort=sort_order),
