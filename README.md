@@ -4,9 +4,8 @@
 ![OS](https://img.shields.io/badge/OS-Windows_|_Mac_|_Linux-steelblue)
 ![License](https://img.shields.io/badge/License-MIT-steelblue)
 [![Latest PyPI version](https://img.shields.io/pypi/v/cogclassifier.svg)](https://pypi.python.org/pypi/cogclassifier)
-[![Bioconda](https://img.shields.io/conda/vn/bioconda/cogclassifier.svg?color=green)](https://anaconda.org/bioconda/cogclassifier)  
+[![Bioconda](https://img.shields.io/conda/vn/bioconda/cogclassifier.svg?color=green)](https://anaconda.org/bioconda/cogclassifier)
 ![CI workflow](https://github.com/moshi4/COGclassifier/actions/workflows/ci.yml/badge.svg)
-[![codecov](https://codecov.io/gh/moshi4/COGclassifier/branch/main/graph/badge.svg?token=F7O5HA2J3G)](https://codecov.io/gh/moshi4/COGclassifier)
 
 ## Table of Contents
 
