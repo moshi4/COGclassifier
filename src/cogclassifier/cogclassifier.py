@@ -43,12 +43,18 @@ def run(
 ) -> None:
     """Run COGclassifier workflow
 
-    Args:
-        query_fasta_file (str | Path): Input query protein fasta file
-        outdir (str | Path): Output directory
-        download_dir (str | Path): Download COG & CDD FTP data directory
-        thread_num (int): RPS-BLAST num_thread parameter
-        evalue (float): RPS-BLAST e-value parameter
+    Parameters
+    ----------
+    query_fasta_file : str | Path
+        Input query protein fasta file
+    outdir : str | Path
+        Output directory
+    download_dir : str | Path | None, optional
+        Download COG & CDD FTP data directory
+    thread_num : int, optional
+        RPS-BLAST num_thread parameter
+    evalue : float, optional
+        RPS-BLAST e-value parameter
     """
     query_fasta_file = Path(query_fasta_file)
     outdir = Path(outdir)
@@ -174,13 +180,19 @@ def run(
 def ftp_download(url: str, outdir: str | Path, overwrite: bool = False) -> Path:
     """Download file from FTP site
 
-    Args:
-        url (str): FTP site url for download
-        outdir (str | Path): Output directory
-        overwrite (bool, optional): Overwrite or not
+    Parameters
+    ----------
+    url : str
+        FTP site url for download
+    outdir : str | Path
+        Output directory
+    overwrite : bool, optional
+        Overwrite or not
 
-    Returns:
-        Path: Download file path
+    Returns
+    -------
+    download_file : Path
+        Download file path
     """
     os.makedirs(outdir, exist_ok=True)
     download_file = Path(outdir) / Path(url).name
@@ -205,11 +217,14 @@ def unpack_gzfile(
     target_file: str | Path,
     unpacked_file: str | Path,
 ) -> None:
-    """Unpack GZIP file
+    """Unpack gzip file
 
-    Args:
-        target_file (str | Path): Target file to unpack
-        unpacked_file (str | Path): Unpacked file
+    Parameters
+    ----------
+    target_file : str | Path
+        Target file to unpack
+    unpacked_file : str | Path
+        Unpacked file
     """
     with gzip.open(target_file, "rb") as f:
         content = f.read()
@@ -218,11 +233,14 @@ def unpack_gzfile(
 
 
 def unpack_targz_file(target_file: str | Path, outdir: str | Path) -> None:
-    """Unpack TARGZ file
+    """Unpack targz file
 
-    Args:
-        target_file (str | Path): Traget file to unpack
-        outdir (str | Path): Output directory for unpacked files
+    Parameters
+    ----------
+    target_file : str | Path
+        Target file to unpack
+    outdir : str | Path
+        Output directory for unpacked files
     """
     shutil.unpack_archive(target_file, outdir)
 
@@ -239,10 +257,13 @@ def add_bin_path() -> None:
 def has_mt_mode_option() -> bool:
     """Check installed rpsblast has mt_mode option (blast >= v2.12.0)
 
-    Returns:
-        bool: mt_mode exists or not
+    Returns
+    -------
+    result : bool
+        mt_mode exists or not
 
-    Notes:
+    Notes
+    -----
         mt_mode defines multi-thread mode ('split-by-database' or 'split-by-query').
         In 'mt_mode 1'(split-by-query), multi-thread is efficiently used and fast.
         See https://www.ncbi.nlm.nih.gov/books/NBK571452/ in details.
@@ -267,11 +288,15 @@ def has_mt_mode_option() -> bool:
 def get_cddid2cogid(cddid_tbl_file: str | Path) -> dict[str, str]:
     """Get CDD_ID to COG_ID dict from CDD_ID conversion table file
 
-    Args:
-        cddid_tbl_file (str | Path): CDD_ID conversion table file
+    Parameters
+    ----------
+    cddid_tbl_file : str | Path
+        CDD_ID conversion table file
 
-    Returns:
-        Dict[str, str]: CDD_ID to COG_ID conversion dict
+    Returns
+    -------
+    cddid2cogid : dict[str, str]
+        CDD_ID to COG_ID conversion dict
     """
     cddid2cogid = defaultdict(str)
     with open(cddid_tbl_file) as f:
@@ -286,11 +311,15 @@ def get_cddid2cogid(cddid_tbl_file: str | Path) -> dict[str, str]:
 def count_fasta_seq(fasta_file: str | Path) -> int:
     """Count fasta sequence number
 
-    Args:
-        fasta_file (str | Path): Fasta format file
+    Parameters
+    ----------
+    fasta_file : str | Path
+        Fasta format file
 
-    Returns:
-        int: Fasta sequence number
+    Returns
+    -------
+    count : int
+        Fasta sequence count
     """
     with open(fasta_file) as f:
         return len(list(filter(lambda line: line.startswith(">"), f.readlines())))
@@ -308,15 +337,24 @@ def plot_cog_classifier_barchart(
 ) -> None:
     """Plot altair barchart from classifier count dataframe
 
-    Args:
-        df (pd.DataFrame): Classifier count dataframe
-        html_outfile (str | Path): Barchart html file
-        fig_width (int): Figure width (px)
-        fig_height (int): Figure height (px)
-        bar_width (int): Figure bar width (px)
-        y_limit (Optional[float]): y-axis max limit value
-        percent_style (bool): Plot y-axis as percent(%) instead of count number
-        sort (bool): Enable descending sort by count
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Classifier count dataframe
+    html_outfile : str | Path
+        Barchart html file
+    fig_width : int, optional
+        Figure width (px)
+    fig_height : int, optional
+        Figure height (px)
+    bar_width : int, optional
+        Figure bar width (px)
+    y_limit : float | None, optional
+        Y-axis max limit value
+    percent_style : bool, optional
+        Plot y-axis as percent(%) instead of count number
+    sort : bool, optional
+        Enable descending sort by count
     """
     # Set 'percent style' or 'count style'
     if percent_style:
@@ -378,13 +416,20 @@ def plot_cog_classifier_piechart(
 ) -> None:
     """Plot altair piechart from classifier count dataframe
 
-    Args:
-        df (pd.DataFrame): Classifier count dataframe
-        html_outfile (str | Path): Piechart html file
-        fig_width (int): Figure width (px)
-        fig_height (int): Figure height (px)
-        show_letter (bool): Show letter on piechart
-        sort (bool): Enable count descending sort
+    Parameters
+    ----------
+    df : pd.DataFrame
+        Classifier count dataframe
+    html_outfile : str | Path
+        Piechart html file
+    fig_width : int, optional
+        Figure width (px)
+    fig_height : int, optional
+        Figure height (px)
+    show_letter : bool, optional
+        Show letter on piechart
+    sort : bool, optional
+        Enable count descending sort
     """
     # Remove 0 Count (no assigned category)
     df = df[df["COUNT"] != 0]
@@ -467,11 +512,15 @@ class CogDefinition:
     def parse(cog_def_file: str | Path) -> dict[str, CogDefinition]:
         """Parse COG definition file (cog-20.def.tab)
 
-        Args:
-            cog_def_file (str | Path): COG definition file
+        Parameters
+        ----------
+        cog_def_file : str | Path
+            COG definition file
 
-        Returns:
-            Dict[str, CogDefinition]: COG_ID to CogDefinition dict
+        Returns
+        -------
+        cogid2cogdef : dict[str, CogDefinition]
+            COG_ID to CogDefinition dict
         """
         cog_defs = []
         with open(cog_def_file, encoding="cp1252") as f:
@@ -493,11 +542,15 @@ class CogFuncCategory:
     def parse(cog_fun_file: str | Path) -> dict[str, CogFuncCategory]:
         """Parse COG functional category file (fun-20.tab)
 
-        Args:
-            cog_fun_file (str | Path): COG functional category file
+        Parameters
+        ----------
+        cog_fun_file : str | Path
+            COG functional category file
 
-        Returns:
-            Dict[str, CogFuncCategory]: A letter to CogFuncCategory dict
+        Returns
+        -------
+        cog_letter2cog_fun : dict[str, CogFuncCategory]
+            COG letter to CogFuncCategory dict
         """
         cog_funs = []
         with open(cog_fun_file) as f:
@@ -528,10 +581,15 @@ class BlastResult:
     def parse(blast_tsv_file: str | Path) -> list[BlastResult]:
         """Parse tsv format blast result file
 
-        Args:
-            blast_tsv_file (str | Path): TSV format blast result file
-        Returns:
-            List[BlastResult]: BlastResult list
+        Parameters
+        ----------
+        blast_tsv_file : str | Path
+            TSV format blast result file
+
+        Returns
+        -------
+        blast_results : list[BlastResult]
+            BlastResult list
         """
         blast_results: list[BlastResult] = []
         with open(blast_tsv_file) as f:
@@ -558,11 +616,15 @@ class BlastResult:
     def extract_top_hit(blast_results: list[BlastResult]) -> list[BlastResult]:
         """Extract top hit blast results (no duplicated query info)
 
-        Args:
-            blast_results (List[BlastResult]): Blast search results
+        Parameters
+        ----------
+        blast_results : list[BlastResult]
+            Blast search results
 
-        Returns:
-            List[BlastResult]: Top hit blast results
+        Returns
+        -------
+        top_hit_blast_results : list[BlastResult]
+            Top hit blast results
         """
         top_hits = []
         top_hit_blast_results = []
@@ -577,9 +639,12 @@ class BlastResult:
     def write(blast_tsv_outfile: str | Path, blast_results: list[BlastResult]) -> None:
         """Write BlastResult list with TSV format
 
-        Args:
-            blast_tsv_outfile (str | Path): Output tsv file
-            blast_results (List[BlastResult]): Blast results to write
+        Parameters
+        ----------
+        blast_tsv_outfile : str | Path
+            Output tsv file
+        blast_results : list[BlastResult]
+            Blast results to write
         """
         output_contents = ""
         for br in blast_results:
@@ -609,9 +674,12 @@ class ClassifierResult:
     ) -> None:
         """Write ClassifierResult list with TSV format
 
-        Args:
-            result_tsv_outfile (str | Path): Output tsv file
-            classifier_results (List[ClassifierResult]): Classifier results to write
+        Parameters
+        ----------
+        result_tsv_outfile : str | Path
+            Output tsv file
+        classifier_results : list[ClassifierResult]
+            Classifier results to write
         """
         header = (
             "QUERY_ID\tCOG_ID\tCDD_ID\tEVALUE\tIDENTITY\tGENE_NAME\t"
@@ -629,8 +697,10 @@ class ClassifierResult:
 def get_args() -> argparse.Namespace:
     """Get arguments
 
-    Returns:
-        argparse.Namespace: Argument values
+    Returns
+    -------
+    args : argparse.Namespace
+        Argument values
     """
     description = "A tool for classifying prokaryote protein sequences "
     description += f"into COG functional category (v{__version__})"
