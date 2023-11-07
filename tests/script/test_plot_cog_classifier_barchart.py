@@ -2,6 +2,7 @@ import subprocess as sp
 from pathlib import Path
 
 import pandas as pd
+
 from cogclassifier.cogclassifier import plot_cog_classifier_barchart
 
 
