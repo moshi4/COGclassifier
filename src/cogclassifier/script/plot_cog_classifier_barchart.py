@@ -35,8 +35,10 @@ def main():
 def get_args() -> argparse.Namespace:
     """Get arguments
 
-    Returns:
-        argparse.Namespace: Argument values
+    Returns
+    -------
+    args : argparse.Namespace
+        Argument values
     """
     parser = argparse.ArgumentParser(
         description="Plot barchart of COGclassifier count results",
