@@ -13,7 +13,6 @@ from collections import defaultdict
 from dataclasses import astuple, dataclass
 from distutils.version import StrictVersion
 from pathlib import Path
-from typing import Dict, List, Optional, Union
 
 import altair as alt
 import pandas as pd
@@ -36,18 +35,18 @@ def main():
 
 
 def run(
-    query_fasta_file: Union[str, Path],
-    outdir: Union[str, Path],
-    download_dir: Union[str, Path] = Path.home() / ".cache" / "cogclassifier",
+    query_fasta_file: str | Path,
+    outdir: str | Path,
+    download_dir: str | Path = Path.home() / ".cache" / "cogclassifier",
     thread_num: int = 1,
     evalue: float = 1e-2,
 ) -> None:
     """Run COGclassifier workflow
 
     Args:
-        query_fasta_file (Union[str, Path]): Input query protein fasta file
-        outdir (Union[str, Path]): Output directory
-        download_dir (Union[str, Path]): Download COG & CDD FTP data directory
+        query_fasta_file (str | Path): Input query protein fasta file
+        outdir (str | Path): Output directory
+        download_dir (str | Path): Download COG & CDD FTP data directory
         thread_num (int): RPS-BLAST num_thread parameter
         evalue (float): RPS-BLAST e-value parameter
     """
@@ -104,8 +103,8 @@ def run(
     cogid2definition = CogDefinition.parse(cog_def_file)
     letter2func_category = CogFuncCategory.parse(cog_fun_file)
 
-    classifier_results: List[ClassifierResult] = []
-    letter2count: Dict[str, int] = defaultdict(int)
+    classifier_results: list[ClassifierResult] = []
+    letter2count: dict[str, int] = defaultdict(int)
     for br in top_hit_blast_results:
         queryid, cddid = br.qaccver, br.saccver.replace("CDD:", "")
         cogid = cddid2cogid[cddid]
@@ -170,12 +169,12 @@ def run(
     )
 
 
-def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) -> Path:
+def ftp_download(url: str, outdir: str | Path, overwrite: bool = False) -> Path:
     """Download file from FTP site
 
     Args:
         url (str): FTP site url for download
-        outdir (Union[str, Path]): Output directory
+        outdir (str | Path): Output directory
         overwrite (bool, optional): Overwrite or not
 
     Returns:
@@ -201,13 +200,14 @@ def ftp_download(url: str, outdir: Union[str, Path], overwrite: bool = False) ->
 
 
 def unpack_gzfile(
-    target_file: Union[str, Path], unpacked_file: Union[str, Path]
+    target_file: str | Path,
+    unpacked_file: str | Path,
 ) -> None:
     """Unpack GZIP file
 
     Args:
-        target_file (Union[str, Path]): Target file to unpack
-        unpacked_file (Union[str, Path]): Unpacked file
+        target_file (str | Path): Target file to unpack
+        unpacked_file (str | Path): Unpacked file
     """
     with gzip.open(target_file, "rb") as f:
         content = f.read()
@@ -215,12 +215,12 @@ def unpack_gzfile(
         f.write(content)
 
 
-def unpack_targz_file(target_file: Union[str, Path], outdir: Union[str, Path]) -> None:
+def unpack_targz_file(target_file: str | Path, outdir: str | Path) -> None:
     """Unpack TARGZ file
 
     Args:
-        target_file (Union[str, Path]): Traget file to unpack
-        outdir (Union[str, Path]): Output directory for unpacked files
+        target_file (str | Path): Traget file to unpack
+        outdir (str | Path): Output directory for unpacked files
     """
     shutil.unpack_archive(target_file, outdir)
 
@@ -262,11 +262,11 @@ def has_mt_mode_option() -> bool:
     return rpsblast_version >= StrictVersion("2.12.0")
 
 
-def get_cddid2cogid(cddid_tbl_file: Union[str, Path]) -> Dict[str, str]:
+def get_cddid2cogid(cddid_tbl_file: str | Path) -> dict[str, str]:
     """Get CDD_ID to COG_ID dict from CDD_ID conversion table file
 
     Args:
-        cddid_tbl_file (Union[str, Path]): CDD_ID conversion table file
+        cddid_tbl_file (str | Path): CDD_ID conversion table file
 
     Returns:
         Dict[str, str]: CDD_ID to COG_ID conversion dict
@@ -281,26 +281,26 @@ def get_cddid2cogid(cddid_tbl_file: Union[str, Path]) -> Dict[str, str]:
     return cddid2cogid
 
 
-def count_fasta_seq(fasta_file: Union[str, Path]) -> int:
+def count_fasta_seq(fasta_file: str | Path) -> int:
     """Count fasta sequence number
 
     Args:
-        fasta_file (Union[str, Path]): Fasta format file
+        fasta_file (str | Path): Fasta format file
 
     Returns:
         int: Fasta sequence number
     """
     with open(fasta_file) as f:
-        return len(list(filter(lambda l: l.startswith(">"), f.readlines())))
+        return len(list(filter(lambda line: line.startswith(">"), f.readlines())))
 
 
 def plot_cog_classifier_barchart(
     df: pd.DataFrame,
-    html_outfile: Union[str, Path],
+    html_outfile: str | Path,
     fig_width: int = 520,
     fig_height: int = 340,
     bar_width: int = 15,
-    y_limit: Optional[float] = None,
+    y_limit: float | None = None,
     percent_style: bool = False,
     sort: bool = False,
 ) -> None:
@@ -308,7 +308,7 @@ def plot_cog_classifier_barchart(
 
     Args:
         df (pd.DataFrame): Classifier count dataframe
-        html_outfile (Union[str, Path]): Barchart html file
+        html_outfile (str | Path): Barchart html file
         fig_width (int): Figure width (px)
         fig_height (int): Figure height (px)
         bar_width (int): Figure bar width (px)
@@ -368,7 +368,7 @@ def plot_cog_classifier_barchart(
 
 def plot_cog_classifier_piechart(
     df: pd.DataFrame,
-    html_outfile: Union[str, Path],
+    html_outfile: str | Path,
     fig_width: int = 380,
     fig_height: int = 380,
     show_letter: bool = False,
@@ -378,7 +378,7 @@ def plot_cog_classifier_piechart(
 
     Args:
         df (pd.DataFrame): Classifier count dataframe
-        html_outfile (Union[str, Path]): Piechart html file
+        html_outfile (str | Path): Piechart html file
         fig_width (int): Figure width (px)
         fig_height (int): Figure height (px)
         show_letter (bool): Show letter on piechart
@@ -462,11 +462,11 @@ class CogDefinition:
     pdb_id: str
 
     @staticmethod
-    def parse(cog_def_file: Union[str, Path]) -> Dict[str, CogDefinition]:
+    def parse(cog_def_file: str | Path) -> dict[str, CogDefinition]:
         """Parse COG definition file (cog-20.def.tab)
 
         Args:
-            cog_def_file (Union[str, Path]): COG definition file
+            cog_def_file (str | Path): COG definition file
 
         Returns:
             Dict[str, CogDefinition]: COG_ID to CogDefinition dict
@@ -488,11 +488,11 @@ class CogFuncCategory:
     description: str
 
     @staticmethod
-    def parse(cog_fun_file: Union[str, Path]) -> Dict[str, CogFuncCategory]:
+    def parse(cog_fun_file: str | Path) -> dict[str, CogFuncCategory]:
         """Parse COG functional category file (fun-20.tab)
 
         Args:
-            cog_fun_file (Union[str, Path]): COG functional category file
+            cog_fun_file (str | Path): COG functional category file
 
         Returns:
             Dict[str, CogFuncCategory]: A letter to CogFuncCategory dict
@@ -523,15 +523,15 @@ class BlastResult:
     bitscore: float
 
     @staticmethod
-    def parse(blast_tsv_file: Union[str, Path]) -> List[BlastResult]:
+    def parse(blast_tsv_file: str | Path) -> list[BlastResult]:
         """Parse tsv format blast result file
 
         Args:
-            blast_tsv_file (Union[str, Path]): TSV format blast result file
+            blast_tsv_file (str | Path): TSV format blast result file
         Returns:
             List[BlastResult]: BlastResult list
         """
-        blast_results: List[BlastResult] = []
+        blast_results: list[BlastResult] = []
         with open(blast_tsv_file) as f:
             reader = csv.reader(f, delimiter="\t")
             for row in reader:
@@ -553,7 +553,7 @@ class BlastResult:
         return blast_results
 
     @staticmethod
-    def extract_top_hit(blast_results: List[BlastResult]) -> List[BlastResult]:
+    def extract_top_hit(blast_results: list[BlastResult]) -> list[BlastResult]:
         """Extract top hit blast results (no duplicated query info)
 
         Args:
@@ -572,13 +572,11 @@ class BlastResult:
         return top_hit_blast_results
 
     @staticmethod
-    def write(
-        blast_tsv_outfile: Union[str, Path], blast_results: List[BlastResult]
-    ) -> None:
+    def write(blast_tsv_outfile: str | Path, blast_results: list[BlastResult]) -> None:
         """Write BlastResult list with TSV format
 
         Args:
-            blast_tsv_outfile (Union[str, Path]): Output tsv file
+            blast_tsv_outfile (str | Path): Output tsv file
             blast_results (List[BlastResult]): Blast results to write
         """
         output_contents = ""
@@ -604,12 +602,13 @@ class ClassifierResult:
 
     @staticmethod
     def write(
-        result_tsv_outfile: Union[str, Path], classifier_results: List[ClassifierResult]
+        result_tsv_outfile: str | Path,
+        classifier_results: list[ClassifierResult],
     ) -> None:
         """Write ClassifierResult list with TSV format
 
         Args:
-            result_tsv_outfile (Union[str, Path]): Output tsv file
+            result_tsv_outfile (str | Path): Output tsv file
             classifier_results (List[ClassifierResult]): Classifier results to write
         """
         header = (

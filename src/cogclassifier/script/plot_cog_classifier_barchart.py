@@ -1,8 +1,8 @@
 import argparse
 from pathlib import Path
-from typing import Optional
 
 import pandas as pd
+
 from cogclassifier.cogclassifier import plot_cog_classifier_barchart
 
 
@@ -15,7 +15,7 @@ def main():
     width: int = args.width
     height: int = args.height
     bar_width: int = args.bar_width
-    y_limit: Optional[int] = args.y_limit
+    y_limit: int | None = args.y_limit
     percent_style: bool = args.percent_style
     sort: bool = args.sort
 
