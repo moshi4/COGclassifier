@@ -37,15 +37,11 @@ RPS-BLAST(v2.13.0) binary is bundled in COGclassifier ([src/cogclassifier/bin](h
 
 **Install bioconda package:**
 
-    conda install -c bioconda -c conda-forge cogclassifier
+    conda install -c conda-forge -c bioconda cogclassifier
 
 **Install PyPI stable package:**
 
     pip install cogclassifier
-
-**Install latest development package:**
-
-    pip install git+https://github.com/moshi4/COGclassifier.git
 
 ## Workflow
 
