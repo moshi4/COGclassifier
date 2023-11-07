@@ -37,7 +37,7 @@ def main():
 def run(
     query_fasta_file: str | Path,
     outdir: str | Path,
-    download_dir: str | Path = Path.home() / ".cache" / "cogclassifier",
+    download_dir: str | Path | None = None,
     thread_num: int = 1,
     evalue: float = 1e-2,
 ) -> None:
@@ -52,6 +52,8 @@ def run(
     """
     query_fasta_file = Path(query_fasta_file)
     outdir = Path(outdir)
+    if download_dir is None:
+        download_dir = Path.home() / ".cache" / "cogclassifier"
     download_dir = Path(download_dir)
 
     outdir.mkdir(exist_ok=True)
