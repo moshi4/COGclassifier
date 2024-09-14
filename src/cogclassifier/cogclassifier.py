@@ -11,12 +11,12 @@ import shutil
 import subprocess as sp
 from collections import defaultdict
 from dataclasses import astuple, dataclass
-from distutils.version import StrictVersion
 from pathlib import Path
 
 import altair as alt
 import pandas as pd
 import requests
+from packaging.version import Version
 
 from cogclassifier import __version__
 
@@ -281,8 +281,8 @@ def has_mt_mode_option() -> bool:
             exit(1)
         return match
 
-    rpsblast_version = StrictVersion(_get_rpsblast_version())
-    return rpsblast_version >= StrictVersion("2.12.0")
+    rpsblast_version = Version(_get_rpsblast_version())
+    return rpsblast_version >= Version("2.12.0")
 
 
 def get_cddid2cogid(cddid_tbl_file: str | Path) -> dict[str, str]:
