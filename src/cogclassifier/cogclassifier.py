@@ -702,9 +702,11 @@ def get_args() -> argparse.Namespace:
     args : argparse.Namespace
         Argument values
     """
-    description = "A tool for classifying prokaryote protein sequences "
-    description += f"into COG functional category (v{__version__})"
-    parser = argparse.ArgumentParser(description=description, add_help=False)
+    parser = argparse.ArgumentParser(
+        description="A tool for classifying prokaryote protein sequences into COG functional category",  # noqa: E501
+        usage="COGclassifier [options] -i [protein fasta file] -o [output directory]",
+        add_help=False,
+    )
 
     parser.add_argument(
         "-i",
