@@ -32,7 +32,7 @@ Fig.2: Piechart of COG funcitional category classification result for E.coli
 
 ## Installation
 
-COGclassifier is implemented in Python3.
+`Python 3.9 or later` is required for installation.
 RPS-BLAST(v2.13.0) binary is bundled in COGclassifier ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
 
 **Install bioconda package:**
@@ -60,7 +60,7 @@ Download 4 required COG & CDD files from FTP site.
 
     > Tab-delimited plain text file with descriptions of COG functional categories  
     > Columns:  
-    >  
+    >
     > 1\. Functional category ID (one letter)  
     > 2\. Hexadecimal RGB color associated with the functional category  
     > 3\. Functional category description  
@@ -78,7 +78,7 @@ Download 4 required COG & CDD files from FTP site.
 
     > Tab-delimited plain text file with COG descriptions  
     > Columns:  
-    >  
+    >
     > 1\. COG ID  
     > 2\. COG functional category (could include multiple letters in the order of importance)  
     > 3\. COG name  
@@ -102,7 +102,7 @@ Download 4 required COG & CDD files from FTP site.
     >distribution, which are part of the default "cdd" search database and are
     >indexed in NCBI's Entrez database. This is a tab-delimited text file, with a
     >single row per CD model and the following columns:  
-    >  
+    >
     >PSSM-Id (unique numerical identifier)  
     >CD accession (starting with 'cd', 'pfam', 'smart', 'COG', 'PRK' or "CHL')  
     >CD "short name"  
@@ -141,17 +141,23 @@ functional annotation and classification results are output.
 
 ### Basic Command
 
-    COGclassifier -i [query protein fasta file] -o [output directory]
+    COGclassifier -i [protein fasta file] -o [output directory]
 
 ### Options
 
-    -i I, --infile I      Input query protein fasta file
-    -o O, --outdir O      Output directory
-    -d , --download_dir   Download COG & CDD resources directory (Default: '~/.cache/cogclassifier')
-    -t , --thread_num     RPS-BLAST num_thread parameter (Default: MaxThread - 1)
-    -e , --evalue         RPS-BLAST e-value parameter (Default: 1e-02)
-    -v, --version         Print version information
-    -h, --help            Show this help message and exit
+    $ COGclassifier --help
+    usage: COGclassifier [options] -i [protein fasta file] -o [output directory]
+
+    A tool for classifying prokaryote protein sequences into COG functional category (v1.0.5)
+
+    optional arguments:
+      -i I, --infile I      Input query protein fasta file
+      -o O, --outdir O      Output directory
+      -d , --download_dir   Download COG & CDD resources directory (Default: '~/.cache/cogclassifier')
+      -t , --thread_num     RPS-BLAST num_thread parameter (Default: MaxThread - 1)
+      -e , --evalue         RPS-BLAST e-value parameter (Default: 1e-02)
+      -v, --version         Print version information
+      -h, --help            Show this help message and exit
 
 ### Example Command
 
