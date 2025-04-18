@@ -32,8 +32,7 @@ Fig.2: Piechart of COG funcitional category classification result for E.coli
 
 ## Installation
 
-`Python 3.9 or later` is required for installation.
-RPS-BLAST(v2.13.0) binary is bundled in COGclassifier ([src/cogclassifier/bin](https://github.com/moshi4/COGclassifier/tree/main/src/cogclassifier/bin)).  
+`Python 3.9 or later` is required for installation. Installation of RPS-BLAST(ncbi-blast+) is also necessary.
 
 **Install bioconda package:**
 
@@ -48,9 +47,9 @@ RPS-BLAST(v2.13.0) binary is bundled in COGclassifier ([src/cogclassifier/bin](h
 Description of COGclassifier's automated workflow.
 This workflow was created based in part on [cdd2cog](https://github.com/aleimba/bac-genomics-scripts/tree/master/cdd2cog).
 
-### 1. Download COG & CDD resources
+### 1. Setup COG & CDD resources
 
-Download 4 required COG & CDD files from FTP site.
+Download & load 4 required COG & CDD files from FTP site.
 
 - `fun-20.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/fun-20.tab>)  
     Descriptions of COG functional categories.  
@@ -146,18 +145,21 @@ functional annotation and classification results are output.
 ### Options
 
     $ COGclassifier --help
-    usage: COGclassifier [options] -i [protein fasta file] -o [output directory]
-
-    A tool for classifying prokaryote protein sequences into COG functional category (v1.0.5)
-
-    optional arguments:
-      -i I, --infile I      Input query protein fasta file
-      -o O, --outdir O      Output directory
-      -d , --download_dir   Download COG & CDD resources directory (Default: '~/.cache/cogclassifier')
-      -t , --thread_num     RPS-BLAST num_thread parameter (Default: MaxThread - 1)
-      -e , --evalue         RPS-BLAST e-value parameter (Default: 1e-02)
-      -v, --version         Print version information
-      -h, --help            Show this help message and exit
+                                                                                                                          
+    Usage: COGclassifier [OPTIONS]                                                                                       
+                                                                                                                          
+    A tool for classifying prokaryote protein sequences into COG functional category                                     
+                                                                                                                          
+    ╭─ Options ──────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+    │ *  --infile        -i        Input query protein fasta file [required]                                             │
+    │ *  --outdir        -o        Output directory [required]                                                           │
+    │    --download_dir  -d        Download COG & CDD resources directory [default: /home/user/.cache/cogclassifier_v2]  │
+    │    --thread_num    -t        RPS-BLAST num_thread parameter [default: MaxThread - 1]                               │
+    │    --evalue        -e        RPS-BLAST e-value parameter [default: 0.01]                                           │
+    │    --quiet         -q        No print log on screen                                                                │
+    │    --version       -v        Print version information                                                             │
+    │    --help          -h        Show this message and exit.                                                           │
+    ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 ### Example Command
 
@@ -165,24 +167,14 @@ Classify E.coli protein sequences into COG functional category ([ecoli.faa](http
 
     COGclassifier -i ./example/input/ecoli.faa -o ./ecoli_cog_classifier
 
-### Example API
-
-```python
-from cogclassifier import cogclassifier
-
-query_fasta_file = "./example/input/ecoli.faa"
-outdir = "./ecoli_cog_classifier"
-cogclassifier.run(query_fasta_file, outdir)
-```
-
 ## Output Contents
 
-COGclassifier outputs 4 result text files, 3 html format chart files.  
+COGclassifier outputs 4 result text files, 2 html format chart files.  
 
-- **`rpsblast_result.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/rpsblast_result.tsv))  
+- **`rpsblast.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/rpsblast_result.tsv))  
   RPS-BLAST against COG database result (format = `outfmt 6`).  
 
-- **`classifier_result.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/classifier_result.tsv))  
+- **`cog_classify.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/classifier_result.tsv))  
   Query sequences classified into COG functional category result.  
   This file contains all classified query sequences and associated COG information.  
 
@@ -203,7 +195,7 @@ COGclassifier outputs 4 result text files, 3 html format chart files.
 
     </details>
 
-- **`classifier_count.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_count.tsv))  
+- **`cog_count.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_count.tsv))  
   Count classified sequences per COG functional category result.  
 
     <details>
@@ -213,48 +205,67 @@ COGclassifier outputs 4 result text files, 3 html format chart files.
     | ------------| --------------------------------------- | ----------------------------------------------- |
     | LETTER      | Letter of COG functional category       | J                                               |
     | COUNT       | Count of COG classified sequence        | 259                                             |
-    | COLOR       | Symbol color of COG functional category | #FCCCFC                                         |
+    | GROUP       | COG functional group                    | INFORMATION STORAGE AND PROCESSING              |
+    | COLOR       | Symbol color of COG functional category | #FCCCFC                                       |
     | DESCRIPTION | Description of COG functional category  | Translation, ribosomal structure and biogenesis |
 
     </details>
 
-- **`classifier_stats.txt`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_stats.txt))  
-  The percentages of the classified sequences are described as example below.  
-  > 86.35% (3575 / 4140) sequences classified into COG functional category.
+- **`cogclassifier.log`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_stats.txt))  
+  COGclassifier log file.
 
-- **`classifier_count_barchart.html`**  
+- **`cog_count_barchart.html`**  
   Barchart of COG funcitional category classification result.  
   COGclassifier uses [`Altair`](https://altair-viz.github.io/) visualization library for plotting html format charts.  
   In web browser, Altair charts interactively display tooltips and can export image as PNG or SVG format.
 
   ![classifier_count_barchart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/vega-lite_functionality.png)
 
-- **`classifier_count_piechart.html`**  
+- **`cog_count_piechart.html`**  
   Piechart of COG funcitional category classification result.  
   Functional category with percentages less than 1% don't display letter on piechart.  
 
   ![classifier_count_piechart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_piechart.png)
 
-- **`classifier_count_piechart_sort.html`**  
-  Piechart with descending sort by count.  
-  Functional category with percentages less than 1% don't display letter on piechart.  
-
-  ![classifier_count_piechart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_piechart_sort.png)
-
 ## Customize Charts
 
 COGclassifier also provides barchart & piechart plotting scripts to customize charts appearence.
-Each script can plot the following feature charts from `classifier_count.tsv`. See wiki for details.
+Each script can plot the following feature charts from `cog_count.tsv`.
 
-- Features of **plot_cog_classifier_barchart** script ([wiki](https://github.com/moshi4/COGclassifier/wiki/Customize-Barchart))  
-  - Adjust figure width, height, barwidth
-  - Plot charts with percentage style instead of count number style
-  - Fix maximum value of Y-axis  
-  - Descending sort by count number or not  
-  - Plot charts from user-customized 'classifier_count.tsv'
+### plot_cog_count_barchart
 
-- Features of **plot_cog_classifier_piechart** script ([wiki](https://github.com/moshi4/COGclassifier/wiki/Customize-Piechart))  
-  - Adjust figure width, height
-  - Descending sort by count number or not
-  - Show letter on piechart or not
-  - Plot charts from user-customized 'classifier_count.tsv'
+    $ plot_cog_count_barchart --help
+                                                                                                                          
+    Usage: plot_cog_count_barchart [OPTIONS]                                                                             
+                                                                                                                          
+    Plot COGclassifier count barchart figure                                                                             
+                                                                                                                          
+    ╭─ Options ───────────────────────────────────────────────────────────────────────────────╮
+    │ *  --infile         -i        Input COG count result file ('cog_count.tsv') [required]  │
+    │ *  --outfile        -o        Output barchart html file (must be '*.html') [required]   │
+    │    --width                    Figure pixel width [default: 540]                         │
+    │    --height                   Figure pixel height [default: 340]                        │
+    │    --bar_width                Figure bar width [default: 15]                            │
+    │    --y_limit                  Y-axis max limit value                                    │
+    │    --percent_style            Plot percent style instead of number count                │
+    │    --sort                     Enable descending sort by number count                    │
+    │    --help           -h        Show this message and exit.                               │
+    ╰─────────────────────────────────────────────────────────────────────────────────────────╯
+
+### plot_cog_count_piechart
+
+    $ plot_cog_count_piechart --help
+                                                                                               
+    Usage: plot_cog_count_piechart [OPTIONS]                                                  
+                                                                                               
+    Plot COGclassifier count piechart figure                                                  
+                                                                                               
+    ╭─ Options ───────────────────────────────────────────────────────────────────────────────╮
+    │ *  --infile       -i        Input COG count result file ('cog_count.tsv') [required]    │
+    │ *  --outfile      -o        Output piechart html file (must be '*.html') [required]     │
+    │    --width                  Figure pixel width [default: 380]                           │
+    │    --height                 Figure pixel height [default: 380]                          │
+    │    --show_letter            Show functional category lettter on piechart                │
+    │    --sort                   Enable descending sort by number count                      │
+    │    --help         -h        Show this message and exit.                                 │
+    ╰─────────────────────────────────────────────────────────────────────────────────────────╯

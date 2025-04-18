@@ -4,56 +4,84 @@
 # last locked with the following flags:
 #   pre: false
 #   features: []
-#   all-features: false
+#   all-features: true
 #   with-sources: false
 #   generate-hashes: false
 #   universal: false
 
 -e file:.
-altair==5.4.1
+altair==5.5.0
     # via cogclassifier
-attrs==24.2.0
+annotated-types==0.7.0
+    # via pydantic
+attrs==25.3.0
     # via jsonschema
     # via referencing
-certifi==2024.8.30
+certifi==2025.1.31
     # via requests
-charset-normalizer==3.3.2
+charset-normalizer==3.4.1
     # via requests
-idna==3.8
+click==8.1.8
+    # via typer
+idna==3.10
     # via requests
-jinja2==3.1.4
+jinja2==3.1.6
     # via altair
 jsonschema==4.23.0
     # via altair
-jsonschema-specifications==2023.12.1
+jsonschema-specifications==2024.10.1
     # via jsonschema
-markupsafe==2.1.5
+markdown-it-py==3.0.0
+    # via rich
+markupsafe==3.0.2
     # via jinja2
-narwhals==1.7.0
+mdurl==0.1.2
+    # via markdown-it-py
+narwhals==1.35.0
     # via altair
 numpy==2.0.2
     # via pandas
-packaging==24.1
+packaging==24.2
     # via altair
-pandas==2.2.2
+pandas==2.2.3
     # via cogclassifier
+pydantic==2.11.3
+    # via cogclassifier
+pydantic-core==2.33.1
+    # via pydantic
+pygments==2.19.1
+    # via rich
 python-dateutil==2.9.0.post0
     # via pandas
-pytz==2024.2
+pytz==2025.2
     # via pandas
-referencing==0.35.1
+referencing==0.36.2
     # via jsonschema
     # via jsonschema-specifications
 requests==2.32.3
     # via cogclassifier
-rpds-py==0.20.0
+rich==14.0.0
+    # via typer
+rpds-py==0.24.0
     # via jsonschema
     # via referencing
-six==1.16.0
+shellingham==1.5.4
+    # via typer
+six==1.17.0
     # via python-dateutil
-typing-extensions==4.12.2
+typer==0.15.2
+    # via cogclassifier
+typing-extensions==4.13.2
     # via altair
-tzdata==2024.1
+    # via pydantic
+    # via pydantic-core
+    # via referencing
+    # via rich
+    # via typer
+    # via typing-inspection
+typing-inspection==0.4.0
+    # via pydantic
+tzdata==2025.2
     # via pandas
-urllib3==2.2.3
+urllib3==2.4.0
     # via requests

@@ -13,8 +13,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
-        python-version: ["3.9", "3.10", "3.11", "3.12"]
+        os: [ubuntu-latest]
+        python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,6 +28,12 @@ jobs:
         run: |
           rye pin ${{ matrix.python-version }}
           rye sync --update-all --all-features
+
+      - name: Install external tool dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y ncbi-blast+
+        if: ${{ matrix.os=='ubuntu-latest' }}
 
       - name: Run ruff lint check
         run: rye run ruff check --diff

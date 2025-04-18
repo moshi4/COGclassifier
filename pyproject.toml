@@ -17,15 +17,21 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
 requires-python = ">=3.9"
-dependencies = ["requests>=2.27.1", "pandas>=1.4.1", "altair>=4.2.0"]
+dependencies = [
+    "requests>=2.27.1",
+    "pandas>=2.0.0",
+    "altair>=5.0.0",
+    "pydantic>=2.11.3",
+    "typer>=0.15.2",
+]
 
 [project.urls]
 repository = "https://github.com/moshi4/COGclassifier/"
 
 [project.scripts]
-COGclassifier = "cogclassifier.cogclassifier:main"
-plot_cog_classifier_barchart = "cogclassifier.script.plot_cog_classifier_barchart:main"
-plot_cog_classifier_piechart = "cogclassifier.script.plot_cog_classifier_piechart:main"
+COGclassifier = "cogclassifier.scripts.cogclassifier:app"
+plot_cog_count_barchart = "cogclassifier.scripts.plot_cog_count_barchart:app"
+plot_cog_count_piechart = "cogclassifier.scripts.plot_cog_count_piechart:app"
 
 [tool.hatch.version]
 path = "src/cogclassifier/__init__.py"
@@ -33,10 +39,10 @@ path = "src/cogclassifier/__init__.py"
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "ruff>=0.4.0",
-    "pre-commit>=3.5.0",
+    "ruff>=0.11.0",
+    "pre-commit>=4.2.0",
     "pytest>=8.0.0",
-    "pytest-cov>=4.0.0",
+    "pytest-cov>=6.0.0",
     "ipykernel>=6.13.0",
 ]
 
