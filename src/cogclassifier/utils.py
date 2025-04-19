@@ -99,13 +99,14 @@ def exit_handler(func):
 
     @wraps(func)
     def wrapper(*args, **kwargs):
+        logger = logging.getLogger(__name__)
         try:
             return func(*args, **kwargs)
         except KeyboardInterrupt:
-            logger = logging.getLogger(__name__)
             logger.exception("Keyboard Interrupt")
             sys.exit(signal.SIGINT)
-        except Exception:
+        except Exception as e:
+            logger.exception(e)
             sys.exit(1)
 
     return wrapper
