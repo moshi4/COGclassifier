@@ -1,6 +1,6 @@
 cog_download/
-example/
-output/
+# example/
+# output/
 .vscode/
 
 # Byte-compiled / optimized / DLL files
