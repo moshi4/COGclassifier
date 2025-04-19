@@ -1,11 +1,9 @@
-[tool.poetry]
+[project]
 name = "cogclassifier"
-version = "1.0.5"
+dynamic = ["version"]
 description = "A tool for classifying prokaryote protein sequences into COG functional category"
-authors = ["moshi"]
+authors = [{ name = "moshi4", email = "" }]
 license = "MIT"
-homepage = "https://github.com/moshi4/COGclassifier/"
-repository = "https://github.com/moshi4/COGclassifier/"
 readme = "README.md"
 keywords = [
     "COG",
@@ -18,51 +16,70 @@ classifiers = [
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering :: Bio-Informatics",
 ]
-include = ["tests"]
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.27.1",
+    "pandas>=2.0.0",
+    "altair>=5.0.0",
+    "pydantic>=2.11.3",
+    "typer>=0.15.2",
+    "vl-convert-python>=1.7.0",
+]
+
+[project.urls]
+repository = "https://github.com/moshi4/COGclassifier/"
+
+[project.scripts]
+COGclassifier = "cogclassifier.scripts.cogclassifier:app"
+plot_cog_count_barchart = "cogclassifier.scripts.plot_cog_count_barchart:app"
+plot_cog_count_piechart = "cogclassifier.scripts.plot_cog_count_piechart:app"
+
+[tool.hatch.version]
+path = "src/cogclassifier/__init__.py"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "ruff>=0.11.0",
+    "pre-commit>=4.2.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=6.0.0",
+    "ipykernel>=6.13.0",
+]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "--cov=src --tb=line --cov-report=xml --cov-report=term"
+addopts = "--cov=src --tb=long -vv --cov-report=xml --cov-report=term"
 testpaths = ["tests"]
 
-# Lint Rules: https://beta.ruff.rs/docs/rules
 [tool.ruff]
-select = ["E", "F", "W", "I", "D", "B"]
-ignore = [
-    "D100",
-    "D101",
-    "D104",
-    "D105",
-    "D205",
-    "D400",
-    "D401",
-    "D403",
-    "D415",
-    "B905",
-]
-src = ["src", "tests"]
+include = ["src/**.py", "tests/**.py"]
 line-length = 88
 
-[tool.ruff.pydocstyle]
+# Lint Rules: https://docs.astral.sh/ruff/rules/
+[tool.ruff.lint]
+select = [
+    "F", # pyflakes
+    "E", # pycodestyle (Error)
+    "W", # pycodestyle (Warning)
+    "I", # isort
+    "D", # pydocstyle
+]
+ignore = [
+    "D100", # Missing docstring in public module
+    "D101", # Missing docstring in public class
+    "D104", # Missing docstring in public package
+    "D105", # Missing docstring in magic method
+    "D205", # 1 blank line required between summary line and description
+    "D400", # First line should end with a period
+    "D401", # First line should be in imperative mood
+    "D403", # First word of the first line should be properly capitalized
+    "D415", # First line should end with a period, question mark, or exclamation point
+]
+
+[tool.ruff.lint.pydocstyle]
 convention = "numpy"
 
-[tool.poetry.dependencies]
-python = ">=3.8"
-requests = ">=2.27.1"
-pandas = ">=1.4.1"
-altair = ">=4.2.0"
-
-[tool.poetry.group.dev.dependencies]
-black = ">=22.1.0"
-ruff = ">=0.0.264"
-pytest = ">=7.1.1"
-pytest-cov = ">=3.0.0"
-
-[tool.poetry.scripts]
-COGclassifier = "cogclassifier.cogclassifier:main"
-plot_cog_classifier_barchart = "cogclassifier.script.plot_cog_classifier_barchart:main"
-plot_cog_classifier_piechart = "cogclassifier.script.plot_cog_classifier_piechart:main"
-
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

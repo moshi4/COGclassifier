@@ -1,0 +1,462 @@
+QUERY_ID	COG_ID	CDD_ID	EVALUE	IDENTITY	GENE_NAME	COG_NAME	COG_LETTER	COG_DESCRIPTION
+WP_010874359.1	COG0484	440252	1.81e-20	40.278	DnaJ	DnaJ molecular chaperone, contains DnaJ and DnaJ_C  domains	O	Posttranslational modification, protein turnover, chaperones
+WP_010874360.1	COG0187	439957	0.0	58.179	GyrB	DNA gyrase/topoisomerase IV, subunit B	L	Replication, recombination and repair
+WP_010874363.1	COG0125	439895	3.11e-66	39.267	Tmk	Thymidylate kinase	F	Nucleotide transport and metabolism
+WP_010874371.1	COG0358	440127	7.75e-11	28.23	DnaG	DNA primase (bacterial type)	L	Replication, recombination and repair
+WP_010874373.1	COG0189	439959	2.07e-47	29.73	LysX	Glutathione synthase, LysX or RimK-type ligase, ATP-grasp superfamily	E	Amino acid transport and metabolism
+WP_010874378.1	COG0484	440252	7.54e-39	61.538	DnaJ	DnaJ molecular chaperone, contains DnaJ and DnaJ_C  domains	O	Posttranslational modification, protein turnover, chaperones
+WP_010874379.1	COG0596	440361	8.78e-24	22.887	MenH	2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase MenH/undecaprenyl monophosphate-sugar esterase UshA/YqjL	H	Coenzyme transport and metabolism
+WP_010874386.1	COG0231	440001	4.71e-67	39.572	Efp	Translation elongation factor P (EF-P)/translation initiation factor 5A (eIF-5A)	J	Translation, ribosomal structure and biogenesis
+WP_010874389.1	COG0693	440457	2.75e-19	28.571	YajL	Protein/nucleotide deglycase, PfpI/YajL/DJ-1 family (repair of methylglyoxal-glycated proteins and nucleic acids)	V	Defense mechanisms
+WP_010874390.1	COG0035	439805	4.5e-100	52.709	Upp	Uracil phosphoribosyltransferase	F	Nucleotide transport and metabolism
+WP_010874402.1	COG0124	439894	5.51e-135	36.343	HisS	Histidyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_010874403.1	COG0173	439943	0.0	43.599	AspS	Aspartyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_010874404.1	COG1488	441097	4.28e-66	24.944	PncB	Nicotinic acid phosphoribosyltransferase	H	Coenzyme transport and metabolism
+WP_010874410.1	COG1925	441528	3.25e-30	47.059	PtsH	HPr or related phosphotransfer protein	T	Signal transduction mechanisms
+WP_010874412.1	COG3842	443052	1.44e-127	26.964	PotA	ABC-type Fe3+/spermidine/putrescine transport systems, ATPase component	E	Amino acid transport and metabolism
+WP_010874416.1	COG0533	440299	1.9e-115	37.072	TsaD	tRNA A37 threonylcarbamoyltransferase TsaD	J	Translation, ribosomal structure and biogenesis
+WP_010874417.1	COG0192	439962	1.19e-156	45.503	MetK	S-adenosylmethionine synthetase	H	Coenzyme transport and metabolism
+WP_010874420.1	COG0274	440043	1.55e-110	50.459	DeoC	Deoxyribose-phosphate aldolase	F	Nucleotide transport and metabolism
+WP_010874422.1	COG0295	440064	3.03e-44	38.281	Cdd	Cytidine deaminase	F	Nucleotide transport and metabolism
+WP_010874426.1	COG0267	440037	2.15e-11	40.0	RpmG	Ribosomal protein L33	J	Translation, ribosomal structure and biogenesis
+WP_010874429.1	COG1658	441264	1.14e-50	34.637	RnmV	5S rRNA maturation ribonuclease M5, contains TOPRIM domain	J	Translation, ribosomal structure and biogenesis
+WP_010874431.1	COG0691	440455	5.11e-61	42.857	SmpB	tmRNA-binding protein	O	Posttranslational modification, protein turnover, chaperones
+WP_010874433.1	COG2223	441825	0.007	15.862	NarK	Nitrate/nitrite transporter NarK	P	Inorganic ion transport and metabolism
+WP_010874438.1	COG1136	440751	7.02e-105	42.601	LolD	ABC-type lipoprotein targeting system ATPase component LolD	M	Cell wall/membrane/envelope biogenesis
+WP_010874462.1	COG0016	439787	1.04e-130	36.628	PheS	Phenylalanyl-tRNA synthetase alpha subunit	J	Translation, ribosomal structure and biogenesis
+WP_010874469.1	COG2271	441872	1.06e-07	17.582	UhpC	Sugar phosphate permease	G	Carbohydrate transport and metabolism
+WP_010874473.1	COG0291	440060	9.81e-17	56.364	RpmI	Ribosomal protein L35	J	Translation, ribosomal structure and biogenesis
+WP_010874474.1	COG0292	440061	1.87e-54	56.14	RplT	Ribosomal protein L20	J	Translation, ribosomal structure and biogenesis
+WP_010874475.1	COG1039	440661	5.15e-39	33.913	RnhC	Ribonuclease HIII	L	Replication, recombination and repair
+WP_010874481.1	COG1420	441030	9.06e-87	29.532	HrcA	Transcriptional regulator of heat shock response	K	Transcription
+WP_010874483.1	COG0622	440387	1.26e-30	27.059	YfcE	Mn2+-dependent phosphodiesterase, calcineurin family	R	General function prediction only
+WP_010874490.1	COG1525	441134	2.27e-07	21.591	YncB	Endonuclease YncB, thermonuclease family	L	Replication, recombination and repair
+WP_010874492.1	COG1175	440788	1.75e-51	31.915	UgpA	ABC-type sugar transport system, permease component	G	Carbohydrate transport and metabolism
+WP_010874493.1	COG0395	440164	1.88e-48	29.412	UgpE	ABC-type glycerol-3-phosphate transport system, permease component	G	Carbohydrate transport and metabolism
+WP_010874497.1	COG0618	440383	6.69e-82	28.84	NrnA	nanoRNase/pAp phosphatase, hydrolyzes c-di-AMP and oligoRNAs	A	RNA processing and modification
+WP_010874510.1	COG1112	440729	2.93e-63	25.0	DNA2	Superfamily I DNA and/or RNA helicase	L	Replication, recombination and repair
+WP_010874513.1	COG0858	440619	1.24e-22	25.862	RbfA	Ribosome-binding factor RbfA	J	Translation, ribosomal structure and biogenesis
+WP_010874515.1	COG0196	439966	5.74e-67	29.831	RibF	FAD synthase	H	Coenzyme transport and metabolism
+WP_010874516.1	COG1253	440865	8.5e-72	26.648	MpfA	Mg2+ efflux pump MpfA, contains CBS pair and CorC-HlyC domains, TlyC/UPF0053 family	P	Inorganic ion transport and metabolism
+WP_010874521.1	COG0051	439821	6.53e-36	50.526	RpsJ	Ribosomal protein S10	J	Translation, ribosomal structure and biogenesis
+WP_010874524.1	COG0089	439859	3.22e-17	37.778	RplW	Ribosomal protein L23	J	Translation, ribosomal structure and biogenesis
+WP_010874525.1	COG0090	439860	4.61e-166	57.394	RplB	Ribosomal protein L2	J	Translation, ribosomal structure and biogenesis
+WP_010874526.1	COG0185	439955	5.04e-54	64.706	RpsS	Ribosomal protein S19	J	Translation, ribosomal structure and biogenesis
+WP_010874528.1	COG0092	439862	8e-100	44.298	RpsC	Ribosomal protein S3	J	Translation, ribosomal structure and biogenesis
+WP_010874529.1	COG0197	439967	1.06e-70	52.941	RplP	Ribosomal protein L16/L10AE	J	Translation, ribosomal structure and biogenesis
+WP_010874530.1	COG0255	440025	2.45e-14	47.541	RpmC	Ribosomal protein L29	J	Translation, ribosomal structure and biogenesis
+WP_010874532.1	COG0093	439863	2.83e-73	64.754	RplN	Ribosomal protein L14	J	Translation, ribosomal structure and biogenesis
+WP_010874533.1	COG0198	439968	8.18e-28	38.739	RplX	Ribosomal protein L24	J	Translation, ribosomal structure and biogenesis
+WP_010874535.1	COG0199	439969	6.62e-28	55.738	RpsN	Ribosomal protein S14	J	Translation, ribosomal structure and biogenesis
+WP_010874536.1	COG0096	439866	1.37e-60	56.923	RpsH	Ribosomal protein S8	J	Translation, ribosomal structure and biogenesis
+WP_010874538.1	COG0256	440026	5.85e-31	37.963	RplR	Ribosomal protein L18	J	Translation, ribosomal structure and biogenesis
+WP_010874539.1	COG0098	439868	2.39e-80	49.091	RpsE	Ribosomal protein S5	J	Translation, ribosomal structure and biogenesis
+WP_010874542.1	COG0563	440329	5.01e-79	37.561	Adk	Adenylate kinase or related kinase	F	Nucleotide transport and metabolism
+WP_010874543.1	COG0024	439795	1.13e-91	35.484	Map	Methionine aminopeptidase	J	Translation, ribosomal structure and biogenesis
+WP_010874544.1	COG0361	440130	9.92e-27	51.471	InfA	Translation initiation factor IF-1	J	Translation, ribosomal structure and biogenesis
+WP_010874545.1	COG0257	440027	4.33e-10	65.789	RpmJ	Ribosomal protein L36	J	Translation, ribosomal structure and biogenesis
+WP_010874546.1	COG0099	439869	5.76e-71	61.983	RpsM	Ribosomal protein S13	J	Translation, ribosomal structure and biogenesis
+WP_010874547.1	COG0100	439870	3.18e-60	57.143	RpsK	Ribosomal protein S11	J	Translation, ribosomal structure and biogenesis
+WP_010874549.1	COG0203	439973	3.47e-36	36.667	RplQ	Ribosomal protein L17	J	Translation, ribosomal structure and biogenesis
+WP_010874550.1	COG1122	440739	1.81e-112	42.358	EcfA2	Energy-coupling factor transporter ATP-binding protein EcfA2	P	Inorganic ion transport and metabolism
+WP_010874551.1	COG1122	440739	6.02e-102	44.351	EcfA2	Energy-coupling factor transporter ATP-binding protein EcfA2	P	Inorganic ion transport and metabolism
+WP_010874552.1	COG0619	440384	4.47e-33	32.317	EcfT	ECF-type transporter transmembrane protein EcfT	H	Coenzyme transport and metabolism
+WP_010874553.1	COG0101	439871	1.08e-93	36.585	TruA	tRNA U38,U39,U40 pseudouridine synthase TruA	J	Translation, ribosomal structure and biogenesis
+WP_010874568.1	COG0556	440322	0.0	52.432	UvrB	Excinuclease UvrABC helicase subunit UvrB	L	Replication, recombination and repair
+WP_010874572.1	COG0601	440366	5.11e-68	31.457	DppB	ABC-type dipeptide/oligopeptide/nickel transport system, permease component	E	Amino acid transport and metabolism
+WP_010874573.1	COG1173	440786	3e-43	30.045	DppC	ABC-type dipeptide/oligopeptide/nickel transport system, permease component	E	Amino acid transport and metabolism
+WP_010874576.1	COG0080	439850	2.99e-56	50.714	RplK	Ribosomal protein L11	J	Translation, ribosomal structure and biogenesis
+WP_010874577.1	COG0081	439851	3.2e-115	51.786	RplA	Ribosomal protein L1	J	Translation, ribosomal structure and biogenesis
+WP_010874578.1	COG0193	439963	1.99e-68	39.785	Pth	Peptidyl-tRNA hydrolase	J	Translation, ribosomal structure and biogenesis
+WP_010874579.1	COG0037	439807	1.25e-43	29.082	TtcA	tRNA-C32 2-thiocytidine or tRNA(Ile)-C34 C2-lysylcytidine synthase TtcA/TilS/MesJ	J	Translation, ribosomal structure and biogenesis
+WP_010874580.1	COG1493	441102	1.21e-52	41.667	HprK	Serine kinase of the HPr protein, regulates carbohydrate metabolism	T	Signal transduction mechanisms
+WP_010874581.1	COG0682	440446	6.27e-38	22.491	Lgt	Prolipoprotein diacylglyceryltransferase	M	Cell wall/membrane/envelope biogenesis
+WP_010874584.1	COG0480	440248	0.0	62.029	FusA	Translation elongation factor EF-G, a GTPase	J	Translation, ribosomal structure and biogenesis
+WP_010874585.1	COG0360	440129	1.24e-21	31.915	RpsF	Ribosomal protein S6	J	Translation, ribosomal structure and biogenesis
+WP_010874586.1	COG0629	440394	8.8e-16	33.613	Ssb	Single-stranded DNA-binding protein	L	Replication, recombination and repair
+WP_010874587.1	COG0238	440008	4.97e-30	56.338	RpsR	Ribosomal protein S18	J	Translation, ribosomal structure and biogenesis
+WP_010874588.1	COG0359	440128	6.87e-37	31.757	RplI	Ribosomal protein L9	J	Translation, ribosomal structure and biogenesis
+WP_010874592.1	COG0692	440456	6.1e-67	33.186	Ung	Uracil-DNA glycosylase	L	Replication, recombination and repair
+WP_010874594.1	COG0154	439924	8.15e-114	30.159	GatA	Asp-tRNAAsn/Glu-tRNAGln amidotransferase A subunit or related amidase	J	Translation, ribosomal structure and biogenesis
+WP_010874596.1	COG2188	441791	1.62e-05	33.333	MngR	DNA-binding transcriptional regulator, GntR family	K	Transcription
+WP_010874598.1	COG1481	441090	3.21e-31	23.824	WhiA	DNA-binding transcriptional regulator WhiA, involved in cell division	K	Transcription
+WP_010874601.1	COG1624	441231	1.31e-50	35.185	CdaA	c-di-AMP synthetase, contains the diadenylate cyclase (DAC) domain	T	Signal transduction mechanisms
+WP_010874603.1	COG0194	439964	5.49e-96	46.448	Gmk	Guanylate kinase	F	Nucleotide transport and metabolism
+WP_010874604.1	COG0631	440396	1.48e-50	27.642	PTC1	Serine/threonine protein phosphatase PrpC	T	Signal transduction mechanisms
+WP_010874606.1	COG1162	440776	3.05e-62	32.765	RsgA	Ribosome biogenesis GTPase RsgA	J	Translation, ribosomal structure and biogenesis
+WP_010874608.1	COG0036	439806	1.98e-39	29.016	Rpe	Pentose-5-phosphate-3-epimerase	G	Carbohydrate transport and metabolism
+WP_010874614.1	COG1087	440704	2.09e-125	41.284	GalE	UDP-glucose 4-epimerase	M	Cell wall/membrane/envelope biogenesis
+WP_010874617.1	COG1079	440697	7.12e-55	28.213	NupQ	ABC-type guanosine uptake system NupNOPQ, permease subunit NupQ	F	Nucleotide transport and metabolism
+WP_010874620.1	COG3118	442352	7.69e-35	39.56	CnoX	Chaperedoxin CnoX, contains thioredoxin-like and TPR-like domains, YbbN/TrxSC family	O	Posttranslational modification, protein turnover, chaperones
+WP_010874623.1	COG1393	441003	5.5e-16	21.495	ArsC	Arsenate reductase or related protein, glutaredoxin family	P	Inorganic ion transport and metabolism
+WP_010874624.1	COG0061	439831	4.76e-50	26.132	NadK	NAD kinase	H	Coenzyme transport and metabolism
+WP_010874625.1	COG1264	440876	1.54e-16	36.111	PtsG2	Phosphotransferase system IIB components	G	Carbohydrate transport and metabolism
+WP_010874632.1	COG0718	440482	3.31e-17	31.313	YbaB	DNA-binding nucleoid-associated protein YbaB/EfbC	K	Transcription
+WP_010874634.1	COG1190	440803	0.0	50.0	LysU	Lysyl-tRNA synthetase, class II	J	Translation, ribosomal structure and biogenesis
+WP_010874637.1	COG0595	440360	0.0	39.356	RnjA	mRNA degradation ribonuclease J1/J2	J	Translation, ribosomal structure and biogenesis
+WP_010874644.1	COG4942	443969	0.002	19.481	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_010874650.1	COG0597	440362	1.4e-14	28.947	LspA	Lipoprotein signal peptidase	M	Cell wall/membrane/envelope biogenesis
+WP_010874655.1	COG0736	440499	8.27e-19	37.097	AcpS	Phosphopantetheinyl transferase (holo-ACP synthase)	I	Lipid transport and metabolism
+WP_010874656.1	COG0204	439974	1.1e-47	30.233	PlsC	1-acyl-sn-glycerol-3-phosphate acyltransferase	I	Lipid transport and metabolism
+WP_010874658.1	COG1386	440996	4.17e-60	39.429	ScpB	Chromosome segregation and condensation protein ScpB	K	Transcription
+WP_010874659.1	COG0205	439975	9.96e-105	35.455	PfkA	6-phosphofructokinase	G	Carbohydrate transport and metabolism
+WP_010874660.1	COG0469	440237	5.22e-144	35.579	PykF	Pyruvate kinase	G	Carbohydrate transport and metabolism
+WP_010874663.1	COG0549	440315	1.82e-141	44.795	ArcC	Carbamate kinase	E	Amino acid transport and metabolism
+WP_010874670.1	COG2001	441604	5.37e-51	38.889	MraZ	MraZ, DNA-binding transcriptional regulator and inhibitor of RsmH methyltransferase activity	J	Translation, ribosomal structure and biogenesis
+WP_010874676.1	COG0207	439977	0.0	58.362	ThyA	Thymidylate synthase	F	Nucleotide transport and metabolism
+WP_010874677.1	COG0262	440032	1.92e-20	25.581	FolA	Dihydrofolate reductase	H	Coenzyme transport and metabolism
+WP_010874678.1	COG0208	439978	8.58e-110	33.019	NrdB	Ribonucleotide reductase beta subunit, ferritin-like domain	F	Nucleotide transport and metabolism
+WP_010874681.1	COG0261	440031	2.03e-34	45.918	RplU	Ribosomal protein L21	J	Translation, ribosomal structure and biogenesis
+WP_010874684.1	COG0648	440413	4.77e-112	37.282	Nfo	Endonuclease IV	L	Replication, recombination and repair
+WP_010874685.1	COG0735	440498	9.36e-09	19.388	Fur	Fe2+ or Zn2+ uptake regulation protein Fur/Zur	P	Inorganic ion transport and metabolism
+WP_010874697.1	COG0210	439980	4.82e-138	29.569	UvrD	Superfamily I DNA or RNA helicase	L	Replication, recombination and repair
+WP_010874704.1	COG0212	439982	3.08e-47	36.957	FAU1	5-formyltetrahydrofolate cyclo-ligase	H	Coenzyme transport and metabolism
+WP_010874705.1	COG1692	441298	4.5e-124	43.382	YmdB	2',3'- and 3',5'-cNMP phosphodiesterase YmdB, calcineurin family	T	Signal transduction mechanisms
+WP_010874706.1	COG0344	440113	2.26e-56	36.245	PlsY	Phospholipid biosynthesis protein PlsY, probable glycerol-3-phosphate acyltransferase	I	Lipid transport and metabolism
+WP_010874708.1	COG0568	440334	4.39e-117	48.718	RpoD	DNA-directed RNA polymerase, sigma subunit (sigma70/sigma32)	K	Transcription
+WP_010874710.1	COG0423	440192	0.0	46.288	GRS1	Glycyl-tRNA synthetase, class II	J	Translation, ribosomal structure and biogenesis
+WP_010874716.1	COG0254	440024	1.89e-21	38.028	RpmE	Ribosomal protein L31	J	Translation, ribosomal structure and biogenesis
+WP_010874718.1	COG2890	442135	4.09e-43	30.808	HemK	Methylase of polypeptide chain release factors	J	Translation, ribosomal structure and biogenesis
+WP_010874735.1	COG0258	440028	8.23e-110	39.175	ExoIX	5'-3' exonuclease Xni/ExoIX (flap endonuclease)	L	Replication, recombination and repair
+WP_010874736.1	COG0266	440036	4.52e-97	31.136	Nei	Formamidopyrimidine-DNA glycosylase	L	Replication, recombination and repair
+WP_010874737.1	COG0561	440327	2.28e-41	24.126	Cof	Hydroxymethylpyrimidine pyrophosphatase and other HAD family phosphatases	H	Coenzyme transport and metabolism
+WP_010874738.1	COG0237	440007	1.02e-30	27.108	CoaE	Dephospho-CoA kinase	H	Coenzyme transport and metabolism
+WP_010874739.1	COG0561	440327	8.47e-48	25.279	Cof	Hydroxymethylpyrimidine pyrophosphatase and other HAD family phosphatases	H	Coenzyme transport and metabolism
+WP_010874742.1	COG1428	441037	2.64e-25	27.027	Dck	Deoxyadenosine/deoxycytidine kinase	F	Nucleotide transport and metabolism
+WP_010874743.1	COG1196	440809	9.19e-08	20.093	Smc	Chromosome segregation ATPase Smc	D	Cell cycle control, cell division, chromosome partitioning
+WP_010874747.1	COG0508	440274	3.88e-26	50.0	AceF	Pyruvate/2-oxoglutarate dehydrogenase complex, dihydrolipoamide acyltransferase (E2) component	C	Energy production and conversion
+WP_010874748.1	COG0022	439793	9.27e-154	45.758	AcoB	Pyruvate/2-oxoglutarate/acetoin dehydrogenase complex, dehydrogenase (E1) component, beta subunit	C	Energy production and conversion
+WP_010874749.1	COG1071	440689	6.43e-132	37.607	AcoA	TPP-dependent pyruvate or acetoin dehydrogenase subunit alpha	C	Energy production and conversion
+WP_010874750.1	COG0446	440215	7.18e-82	30.24	Cdr	Coenzyme A disulfide reductase or related oxidoreductase, NAD(P)H-disulfide oxidoreductase family	H	Coenzyme transport and metabolism
+WP_010874751.1	COG0503	440269	4.48e-56	47.17	Apt	Adenine/guanine phosphoribosyltransferase or related PRPP-binding protein	F	Nucleotide transport and metabolism
+WP_010874762.1	COG0236	440006	5.33e-08	25.926	AcpP	Acyl carrier protein	I	Lipid transport and metabolism
+WP_010874766.1	COG4942	443969	0.000103	21.429	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_010874776.1	COG0584	440349	7.23e-57	30.396	UgpQ	Glycerophosphoryl diester phosphodiesterase	I	Lipid transport and metabolism
+WP_010874777.1	COG2223	441825	1.05e-13	18.434	NarK	Nitrate/nitrite transporter NarK	P	Inorganic ion transport and metabolism
+WP_010874778.1	COG0482	440250	4.96e-158	40.599	MnmA	tRNA U34 2-thiouridine synthase MnmA/TrmU, contains the PP-loop ATPase domain	J	Translation, ribosomal structure and biogenesis
+WP_010874780.1	COG2739	442041	2.83e-23	40.476	YlxM	Predicted DNA-binding protein YlxM, UPF0122 family	K	Transcription
+WP_010874781.1	COG0552	440318	1.2e-130	40.0	FtsY	Signal recognition particle GTPase FtsY	U	Intracellular trafficking, secretion, and vesicular transport
+WP_010874786.1	COG0057	439827	0.0	57.44	GapA	Glyceraldehyde-3-phosphate dehydrogenase/erythrose-4-phosphate dehydrogenase	G	Carbohydrate transport and metabolism
+WP_010874787.1	COG0619	440384	7.75e-22	20.741	EcfT	ECF-type transporter transmembrane protein EcfT	H	Coenzyme transport and metabolism
+WP_010874790.1	COG0443	440212	0.0	57.317	DnaK	Molecular chaperone DnaK (HSP70)	O	Posttranslational modification, protein turnover, chaperones
+WP_010874802.1	COG0522	440288	8.25e-88	44.118	RpsD	Ribosomal protein S4 or related protein	J	Translation, ribosomal structure and biogenesis
+WP_010874816.1	COG0168	439938	7.57e-62	23.063	TrkG	Trk-type K+ transport system, membrane component	P	Inorganic ion transport and metabolism
+WP_010874817.1	COG0569	440335	2.09e-47	28.5	TrkA	Trk/Ktr K+ transport system regulatory component TrkA/KtrA/KtrC, RCK domain	P	Inorganic ion transport and metabolism
+WP_010874827.1	COG0267	440037	3.59e-13	46.154	RpmG	Ribosomal protein L33	J	Translation, ribosomal structure and biogenesis
+WP_010874828.1	COG1307	440918	7.5e-67	30.345	DegV	Fatty acid-binding protein DegV	I	Lipid transport and metabolism
+WP_010874829.1	COG0596	440361	6.09e-27	20.763	MenH	2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase MenH/undecaprenyl monophosphate-sugar esterase UshA/YqjL	H	Coenzyme transport and metabolism
+WP_010874831.1	COG1160	440774	0.0	43.891	Der	Double Era-like domain GTPase Der	J	Translation, ribosomal structure and biogenesis
+WP_010874832.1	COG0283	440052	6.69e-89	40.724	Cmk	Cytidylate kinase	F	Nucleotide transport and metabolism
+WP_010874834.1	COG0217	439987	1.25e-48	33.333	TACO1	Transcriptional and/or translational regulatory protein YebC/TACO1	K	Transcription
+WP_010874835.1	COG1182	440795	4.6e-37	28.372	AzoR	FMN-dependent NADH-azoreductase	C	Energy production and conversion
+WP_010874837.1	COG0218	439988	5.61e-76	42.105	EngB	GTP-binding protein EngB required for normal cell division	D	Cell cycle control, cell division, chromosome partitioning
+WP_010874839.1	COG0463	440231	3.48e-21	20.657	WcaA	Glycosyltransferase involved in cell wall bisynthesis	M	Cell wall/membrane/envelope biogenesis
+WP_010874844.1	COG0822	440584	4.15e-13	21.739	IscU	Fe-S cluster assembly scaffold protein IscU, NifU family	O	Posttranslational modification, protein turnover, chaperones
+WP_010874846.1	COG0468	440236	4.79e-151	48.377	RecA	RecA/RadA recombinase	L	Replication, recombination and repair
+WP_010874848.1	COG3623	442841	2.09e-154	48.582	SgaU	L-ribulose-5-phosphate 3-epimerase UlaE	G	Carbohydrate transport and metabolism
+WP_010874850.1	COG1762	441368	8.83e-29	24.306	PtsN	Phosphotransferase system mannitol/fructose-specific IIA domain (Ntr-type)	G	Carbohydrate transport and metabolism
+WP_010874852.1	COG3037	442271	2.87e-80	29.263	UlaA	Ascorbate-specific PTS system IIC component UlaA	G	Carbohydrate transport and metabolism
+WP_010874860.1	COG4942	443969	0.01	20.29	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_010874862.1	COG1653	441259	2.06e-07	21.935	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_010874869.1	COG3505	442728	7.89e-13	25.0	VirD4	Type IV secretion/DNA transfer system ATPase VirD4/TraG/TraD	U	Intracellular trafficking, secretion, and vesicular transport
+WP_010874873.1	COG0431	440200	3.9e-24	31.447	SsuE	NAD(P)H-dependent FMN reductase	C	Energy production and conversion
+WP_010874877.1	COG0219	439989	8.91e-75	43.949	TrmL	tRNA(Leu) C34 or U34 (ribose-2'-O)-methylase TrmL, contains SPOUT domain	J	Translation, ribosomal structure and biogenesis
+WP_010874885.1	COG3331	442560	3.41e-29	32.402	YotM	Penicillin-binding protein-related factor A, putative recombinase	R	General function prediction only
+WP_010874886.1	COG0776	440539	4.9e-06	25.0	HupA	DNA-binding chromatin protein HU or IHF, alpha or beta variants	B	Chromatin structure and dynamics
+WP_010874892.1	COG0632	440397	3.53e-29	24.51	RuvA	Holliday junction resolvasome RuvABC DNA-binding subunit	L	Replication, recombination and repair
+WP_010874895.1	COG0244	440014	5.83e-39	30.968	RplJ	Ribosomal protein L10	J	Translation, ribosomal structure and biogenesis
+WP_010874902.1	COG0571	440336	2.48e-47	31.492	Rnc	dsRNA-specific ribonuclease	K	Transcription
+WP_010874904.1	COG1461	441070	4.89e-178	31.383	FakA	Fatty acid kinase	I	Lipid transport and metabolism
+WP_010874905.1	COG0564	440330	8.48e-45	34.483	RluA	Pseudouridine synthase RluA, 23S rRNA- or tRNA-specific	J	Translation, ribosomal structure and biogenesis
+WP_010874906.1	COG0618	440383	3.62e-63	29.137	NrnA	nanoRNase/pAp phosphatase, hydrolyzes c-di-AMP and oligoRNAs	A	RNA processing and modification
+WP_010874907.1	COG0301	440070	1.48e-114	36.788	ThiI	Adenylyl- and sulfurtransferase ThiI (thiamine and tRNA 4-thiouridine biosynthesis)	H	Coenzyme transport and metabolism
+WP_010874910.1	COG0441	440210	0.0	35.702	ThrS	Threonyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_010874914.1	COG0445	440214	0.0	46.493	MnmG	tRNA U34 5-carboxymethylaminomethyl modifying enzyme MnmG/GidA	J	Translation, ribosomal structure and biogenesis
+WP_010874915.1	COG0357	440126	1.25e-41	30.405	RsmG	16S rRNA G527 N7-methylase RsmG (former glucose-inhibited division protein B)	J	Translation, ribosomal structure and biogenesis
+WP_010874917.1	COG2235	441836	6.37e-154	33.654	ArcA	Arginine deiminase	E	Amino acid transport and metabolism
+WP_010874918.1	COG0572	440337	4.37e-76	38.647	Udk	Uridine kinase	F	Nucleotide transport and metabolism
+WP_010874920.1	COG0536	440302	5.55e-140	43.429	Obg	GTPase involved in cell partioning and DNA repair	D	Cell cycle control, cell division, chromosome partitioning
+WP_010874925.1	COG1159	440773	2.29e-24	28.808	Era	GTPase Era, involved in 16S rRNA processing	J	Translation, ribosomal structure and biogenesis
+WP_010874929.1	COG0260	440030	1.04e-152	40.688	PepB	Leucyl aminopeptidase	E	Amino acid transport and metabolism
+WP_010874930.1	COG0459	440227	0.0	46.026	GroEL	Chaperonin GroEL (HSP60 family)	O	Posttranslational modification, protein turnover, chaperones
+WP_010874931.1	COG0234	440004	2.18e-18	29.293	GroES	Co-chaperonin GroES (HSP10)	O	Posttranslational modification, protein turnover, chaperones
+WP_010874936.1	COG3428	442654	0.006	16.129	YdbT	Uncharacterized membrane protein YdbT, contains bPH2 (bacterial pleckstrin homology) domain	S	Function unknown
+WP_010874952.1	COG0698	440462	1.34e-72	49.655	RpiB	Ribose 5-phosphate isomerase RpiB	G	Carbohydrate transport and metabolism
+WP_010874954.1	COG0355	440124	3.13e-17	17.692	AtpC	FoF1-type ATP synthase, epsilon subunit	C	Energy production and conversion
+WP_010874955.1	COG0055	439825	0.0	74.082	AtpD	FoF1-type ATP synthase, beta subunit	C	Energy production and conversion
+WP_010874956.1	COG0224	439994	1e-69	24.468	AtpG	FoF1-type ATP synthase, gamma subunit	C	Energy production and conversion
+WP_010874959.1	COG0711	440475	3.04e-10	28.571	AtpF	FoF1-type ATP synthase, membrane subunit b or b'	C	Energy production and conversion
+WP_010874960.1	COG0636	440401	3.65e-18	42.466	AtpE	FoF1-type ATP synthase, membrane subunit c/Archaeal/vacuolar-type H+-ATPase, subunit K	C	Energy production and conversion
+WP_010874961.1	COG0356	440125	1.37e-38	27.679	AtpB	FoF1-type ATP synthase, membrane subunit a	C	Energy production and conversion
+WP_010874963.1	COG0148	439918	0.0	61.086	Eno	Enolase	G	Carbohydrate transport and metabolism
+WP_010874964.1	COG0225	439995	2.61e-84	44.516	MsrA	Peptide methionine sulfoxide reductase MsrA	O	Posttranslational modification, protein turnover, chaperones
+WP_010874965.1	COG0704	440468	3.67e-18	22.5	PhoU	Phosphate uptake regulator PhoU	P	Inorganic ion transport and metabolism
+WP_010874966.1	COG1117	440734	5.2e-163	56.863	PstB	ABC-type phosphate transport system, ATPase component	P	Inorganic ion transport and metabolism
+WP_010874967.1	COG0581	440346	8.83e-62	36.719	PstA	ABC-type phosphate transport system, permease component	P	Inorganic ion transport and metabolism
+WP_010874974.1	COG0102	439872	2.71e-69	43.165	RplM	Ribosomal protein L13	J	Translation, ribosomal structure and biogenesis
+WP_010874978.1	COG0595	440360	1.78e-122	24.605	RnjA	mRNA degradation ribonuclease J1/J2	J	Translation, ribosomal structure and biogenesis
+WP_010874979.1	COG0184	439954	5.53e-30	50.602	RpsO	Ribosomal protein S15P/S13E	J	Translation, ribosomal structure and biogenesis
+WP_010874981.1	COG0227	439997	2.74e-18	40.625	RpmB	Ribosomal protein L28	J	Translation, ribosomal structure and biogenesis
+WP_010874982.1	COG1765	441371	1.12e-11	22.472	YhfA	Uncharacterized OsmC-related protein/domain	R	General function prediction only
+WP_010874986.1	COG0149	439919	8.63e-101	43.443	TpiA	Triosephosphate isomerase	G	Carbohydrate transport and metabolism
+WP_010874988.1	COG0264	440034	2.04e-116	40.94	Tsf	Translation elongation factor EF-Ts	J	Translation, ribosomal structure and biogenesis
+WP_010874999.1	COG4105	443281	0.000552	32.653	BamD	Outer membrane protein assembly factor BamD, BamD/ComL family	M	Cell wall/membrane/envelope biogenesis
+WP_010875010.1	COG4668	443705	9.91e-35	28.472	MtlA2	Mannitol/fructose-specific phosphotransferase system, IIA domain	G	Carbohydrate transport and metabolism
+WP_010875013.1	COG1161	440775	6.38e-73	33.808	RbgA	Ribosome biogenesis GTPase RbgA	J	Translation, ribosomal structure and biogenesis
+WP_010875015.1	COG0335	440104	1.67e-49	51.327	RplS	Ribosomal protein L19	J	Translation, ribosomal structure and biogenesis
+WP_010875019.1	COG0229	439999	1.65e-78	53.731	MsrB	Peptide methionine sulfoxide reductase MsrB	O	Posttranslational modification, protein turnover, chaperones
+WP_010875022.1	COG0050	439820	0.0	73.99	TufA	Translation elongation factor EF-Tu, a GTPase	J	Translation, ribosomal structure and biogenesis
+WP_010875025.1	COG1764	441370	9.94e-26	30.303	OsmC	Organic hydroperoxide reductase OsmC/OhrA	V	Defense mechanisms
+WP_010875027.1	COG1900	441504	0.000665	36.842	HcyBio	Sulfur incorporation enzyme MA1821 (anaerobic homocysteine biosynthesis), HcyBio/DUF39 family	E	Amino acid transport and metabolism
+WP_010875028.1	COG0465	440233	0.0	54.733	HflB	ATP-dependent Zn proteases	O	Posttranslational modification, protein turnover, chaperones
+WP_010875031.1	COG0039	439809	8.34e-134	47.039	Mdh	Malate/lactate dehydrogenase	C	Energy production and conversion
+WP_010875036.1	COG0030	439801	7.72e-80	34.586	RsmA	rRNA adenine N6-methylase, includes 16S rRNA A1518 and A1519 N6-dimethyltransferase  RsmA/KsgA/DIM  and 23S rRNA A2058 N6-methylase ErmO/TlrD (may also have DNA glycosylase/AP lyase activity)	J	Translation, ribosomal structure and biogenesis
+WP_010875037.1	COG0706	440470	2.12e-31	22.311	YidC	Membrane protein insertase Oxa1/YidC/SpoIIIJ	M	Cell wall/membrane/envelope biogenesis
+WP_010875038.1	COG0594	440359	7.67e-18	32.0	RnpA	RNase P protein component	A	RNA processing and modification
+WP_010875039.1	COG0230	440000	8e-14	72.727	RpmH	Ribosomal protein L34	J	Translation, ribosomal structure and biogenesis
+WP_010875042.1	COG1136	440751	3.14e-82	36.986	LolD	ABC-type lipoprotein targeting system ATPase component LolD	M	Cell wall/membrane/envelope biogenesis
+WP_010875045.1	COG1192	440805	5.47e-54	29.63	ParA	ParA-like ATPase involved in chromosome/plasmid partitioning or cellulose biosynthesis protein BcsQ	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325278.1	COG0592	440357	2.12e-63	23.56	DnaN	DNA polymerase III sliding clamp (beta) subunit, PCNA homolog	L	Replication, recombination and repair
+WP_014325281.1	COG0486	440253	4.19e-150	35.033	MnmE	tRNA U34 5-carboxymethylaminomethyl modifying GTPase MnmE/TrmE	J	Translation, ribosomal structure and biogenesis
+WP_014325282.1	COG0084	439854	1.39e-93	40.385	TatD	3'->5' ssDNA/RNA exonuclease TatD	N	Cell motility
+WP_014325284.1	COG0189	439959	1.95e-30	18.367	LysX	Glutathione synthase, LysX or RimK-type ligase, ATP-grasp superfamily	E	Amino acid transport and metabolism
+WP_014325285.1	COG0190	439960	1.85e-62	29.276	FolD	5,10-methylene-tetrahydrofolate dehydrogenase/Methenyl tetrahydrofolate cyclohydrolase	H	Coenzyme transport and metabolism
+WP_014325286.1	COG1132	440747	4.44e-116	25.92	MdlB	ABC-type multidrug and LPS transport system, ATPase and permease component MsbA	M	Cell wall/membrane/envelope biogenesis
+WP_014325288.1	COG0553	440319	4.04e-174	40.991	HepA	Superfamily II DNA or RNA helicase, SNF2 family	K	Transcription
+WP_014325290.1	COG0143	439913	0.0	35.753	MetG	Methionyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325292.1	COG0191	439961	5.76e-132	44.027	Fba	Fructose/tagatose bisphosphate aldolase	G	Carbohydrate transport and metabolism
+WP_014325293.1	COG0012	439783	0.0	55.464	GTP1	Ribosome-binding ATPase YchF, GTP1/OBG family	J	Translation, ribosomal structure and biogenesis
+WP_014325294.1	COG1670	441276	1.6e-08	20.0	RimL	Protein N-acetyltransferase, RimJ/RimL family	J	Translation, ribosomal structure and biogenesis
+WP_014325295.1	COG0463	440231	5.12e-30	25.882	WcaA	Glycosyltransferase involved in cell wall bisynthesis	M	Cell wall/membrane/envelope biogenesis
+WP_014325298.1	COG4942	443969	5.78e-05	22.68	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325306.1	COG1435	441044	1.71e-87	46.032	Tdk	Thymidine kinase	F	Nucleotide transport and metabolism
+WP_014325308.1	COG3883	443091	2.2e-05	24.444	CwlO1	Uncharacterized N-terminal coiled-coil domain of peptidoglycan hydrolase CwlO	S	Function unknown
+WP_014325310.1	COG0579	440344	9.82e-113	35.697	LhgO	L-2-hydroxyglutarate oxidase LhgO	G	Carbohydrate transport and metabolism
+WP_014325311.1	COG1744	441350	1.09e-19	22.572	Med	Lipoprotein Med, regulator of KinD/Spo0A, PBP1-ABC superfamily, includes NupN	T	Signal transduction mechanisms
+WP_014325313.1	COG1177	440790	2e-52	30.303	PotC	ABC-type spermidine/putrescine transport system, permease component II	E	Amino acid transport and metabolism
+WP_014325315.1	COG0541	440307	0.0	44.393	Srp	Signal recognition particle GTPase Srp/Ffh	U	Intracellular trafficking, secretion, and vesicular transport
+WP_014325316.1	COG0813	440575	5.31e-127	49.789	DeoD	Purine-nucleoside phosphorylase	F	Nucleotide transport and metabolism
+WP_014325318.1	COG0213	439983	1.56e-160	40.58	DeoA	Thymidine phosphorylase	F	Nucleotide transport and metabolism
+WP_014325319.1	COG1109	440726	7.35e-91	26.392	ManB	Phosphomannomutase	G	Carbohydrate transport and metabolism
+WP_014325320.1	COG0250	440020	1.76e-11	32.258	NusG	Transcription termination/antitermination protein NusG	K	Transcription
+WP_014325321.1	COG0313	440082	2.95e-73	36.486	RsmI	16S rRNA C1402 (ribose-2'-O) methylase RsmI	J	Translation, ribosomal structure and biogenesis
+WP_014325323.1	COG0738	440501	0.000157	19.167	FucP	Fucose permease	G	Carbohydrate transport and metabolism
+WP_014325324.1	COG1299	440910	3.43e-140	35.614	FrwC	Phosphotransferase system, fructose-specific IIC component	G	Carbohydrate transport and metabolism
+WP_014325325.1	COG1105	440722	1.56e-48	27.083	FruK	1-phosphofructokinase or 6-phosphofructokinase II	G	Carbohydrate transport and metabolism
+WP_014325326.1	COG4591	443648	9.78e-12	27.891	LolC	ABC-type lipoprotein targeting system transmembrane component LolC/LolE	M	Cell wall/membrane/envelope biogenesis
+WP_014325327.1	COG0021	439792	0.0	38.321	TktA	Transketolase	G	Carbohydrate transport and metabolism
+WP_014325337.1	COG4942	443969	0.005	27.451	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325339.1	COG1653	441259	5.12e-08	22.086	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_014325341.1	COG1196	440809	3.95e-05	14.286	Smc	Chromosome segregation ATPase Smc	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325346.1	COG0072	439842	5.05e-121	26.726	PheT	Phenylalanyl-tRNA synthetase beta subunit	J	Translation, ribosomal structure and biogenesis
+WP_014325355.1	COG0484	440252	2.22e-32	66.176	DnaJ	DnaJ molecular chaperone, contains DnaJ and DnaJ_C  domains	O	Posttranslational modification, protein turnover, chaperones
+WP_014325356.1	COG0576	440341	2.06e-31	39.167	GrpE	Molecular chaperone GrpE (heat shock protein HSP-70)	O	Posttranslational modification, protein turnover, chaperones
+WP_014325358.1	COG0188	439958	0.0	35.125	GyrA	DNA gyrase/topoisomerase IV, subunit A	L	Replication, recombination and repair
+WP_014325359.1	COG0322	440091	1.76e-179	32.19	UvrC	Excinuclease UvrABC, nuclease subunit	L	Replication, recombination and repair
+WP_014325360.1	COG3883	443091	4.61e-09	17.391	CwlO1	Uncharacterized N-terminal coiled-coil domain of peptidoglycan hydrolase CwlO	S	Function unknown
+WP_014325365.1	COG3839	443050	3.78e-131	27.051	MalK	ABC-type sugar transport system, ATPase component MalK	G	Carbohydrate transport and metabolism
+WP_014325366.1	COG4913	443941	1.65e-05	21.97		Uncharacterized conserved protein, contains a C-terminal ATPase domain	S	Function unknown
+WP_014325374.1	COG3883	443091	0.006	15.663	CwlO1	Uncharacterized N-terminal coiled-coil domain of peptidoglycan hydrolase CwlO	S	Function unknown
+WP_014325380.1	COG1653	441259	4.29e-08	21.019	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_014325382.1	COG0532	440298	0.0	53.106	InfB	Translation initiation factor IF-2, a GTPase	J	Translation, ribosomal structure and biogenesis
+WP_014325384.1	COG4487	443580	1.95e-12	24.925		Uncharacterized conserved protein, contains DUF2130 domain	S	Function unknown
+WP_014325387.1	COG0088	439858	2.11e-75	40.284	RplD	Ribosomal protein L4	J	Translation, ribosomal structure and biogenesis
+WP_014325390.1	COG0200	439970	4.26e-55	45.752	RplO	Ribosomal protein L15	J	Translation, ribosomal structure and biogenesis
+WP_014325391.1	COG0201	439971	3.63e-121	38.235	SecY	Preprotein translocase subunit SecY	U	Intracellular trafficking, secretion, and vesicular transport
+WP_014325393.1	COG0202	439972	2.72e-118	39.091	RpoA	DNA-directed RNA polymerase, alpha subunit/40 kD subunit	K	Transcription
+WP_014325394.1	COG1164	440778	1.79e-142	29.285	PepF	Oligoendopeptidase F	E	Amino acid transport and metabolism
+WP_014325396.1	COG1653	441259	2.01e-06	23.077	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_014325400.1	COG4942	443969	1.5e-05	22.078	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325402.1	COG1263	440875	1.43e-47	21.191	PtsG1	Phosphotransferase system IIC components, glucose/maltose/N-acetylglucosamine-specific	G	Carbohydrate transport and metabolism
+WP_014325403.1	COG0052	439822	4.8e-103	43.697	RpsB	Ribosomal protein S2	J	Translation, ribosomal structure and biogenesis
+WP_014325404.1	COG0474	440242	0.0	36.504	MgtA	Magnesium-transporting ATPase (P-type)	P	Inorganic ion transport and metabolism
+WP_014325405.1	COG0653	440418	0.0	41.558	SecA	Preprotein translocase subunit SecA	U	Intracellular trafficking, secretion, and vesicular transport
+WP_014325407.1	COG0444	440213	1.67e-146	39.385	DppD	ABC-type dipeptide/oligopeptide/nickel transport system, ATPase component	E	Amino acid transport and metabolism
+WP_014325408.1	COG4608	443658	4.48e-75	60.465	AppF	ABC-type oligopeptide transport system, ATPase component	E	Amino acid transport and metabolism
+WP_014325410.1	COG0048	439818	7.36e-75	72.263	RpsL	Ribosomal protein S12	J	Translation, ribosomal structure and biogenesis
+WP_014325411.1	COG0049	439819	2.49e-100	62.987	RpsG	Ribosomal protein S7	J	Translation, ribosomal structure and biogenesis
+WP_014325412.1	COG0305	440074	1.34e-96	36.464	DnaB	Replicative DNA helicase	L	Replication, recombination and repair
+WP_014325415.1	COG0492	440258	7.39e-105	39.643	TrxB	Thioredoxin reductase	O	Posttranslational modification, protein turnover, chaperones
+WP_014325416.1	COG0557	440323	0.0	31.077	VacB	Exoribonuclease R	K	Transcription
+WP_014325417.1	COG0515	440281	6.6e-64	28.616	SPS1	Serine/threonine protein kinase, uncludes type III secretion system effector YopO	T	Signal transduction mechanisms
+WP_014325418.1	COG0166	439936	5.2e-120	31.017	Pgi	Glucose-6-phosphate isomerase	G	Carbohydrate transport and metabolism
+WP_014325419.1	COG0017	439788	0.0	45.657	AsnS	Aspartyl/asparaginyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325420.1	COG0558	440324	1.16e-30	27.228	PgsA	Phosphatidylglycerophosphate synthase	I	Lipid transport and metabolism
+WP_014325427.1	COG0561	440327	3.44e-30	20.8	Cof	Hydroxymethylpyrimidine pyrophosphatase and other HAD family phosphatases	H	Coenzyme transport and metabolism
+WP_014325428.1	COG0180	439950	2.41e-130	40.922	TrpS	Tryptophanyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325433.1	COG0537	440303	9.09e-47	44.144	HinT	Purine nucleoside phosphoramidase/Ap4A hydrolase, histidine triade (HIT) family	F	Nucleotide transport and metabolism
+WP_014325435.1	COG0562	440328	1.54e-158	37.984	Glf	UDP-galactopyranose mutase	M	Cell wall/membrane/envelope biogenesis
+WP_014325436.1	COG0481	440249	0.0	57.215	LepA	Translation elongation factor EF-4, membrane-bound GTPase	J	Translation, ribosomal structure and biogenesis
+WP_014325440.1	COG1653	441259	2.36e-06	22.699	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_014325445.1	COG1214	440827	4.89e-17	19.82	TsaB	tRNA A37 threonylcarbamoyladenosine modification protein TsaB	J	Translation, ribosomal structure and biogenesis
+WP_014325446.1	COG0564	440330	1.74e-77	39.726	RluA	Pseudouridine synthase RluA, 23S rRNA- or tRNA-specific	J	Translation, ribosomal structure and biogenesis
+WP_014325451.1	COG0531	440297	1.12e-15	17.871	PotE	Serine and glutamate transporter AimA/YbeC, amino acid:H+ symporter family	E	Amino acid transport and metabolism
+WP_014325453.1	COG1196	440809	1.2e-15	18.318	Smc	Chromosome segregation ATPase Smc	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325456.1	COG0275	440044	6.03e-134	44.409	RmsH	16S rRNA C1402 N4-methylase RsmH	J	Translation, ribosomal structure and biogenesis
+WP_014325459.1	COG0531	440297	7.15e-21	17.672	PotE	Serine and glutamate transporter AimA/YbeC, amino acid:H+ symporter family	E	Amino acid transport and metabolism
+WP_014325461.1	COG1780	441386	4.29e-71	51.88	NrdI	Flavodoxin NrdI, NrdF-interacting activator of class Ib ribonucleotide reductase	F	Nucleotide transport and metabolism
+WP_014325463.1	COG0544	440310	1.11e-73	27.123	Tig	Trigger factor Tig, ribosome-bound chaperone (peptidyl-prolyl cis-trans isomerase)	O	Posttranslational modification, protein turnover, chaperones
+WP_014325464.1	COG0466	440234	0.0	43.108	Lon	ATP-dependent Lon protease, bacterial type	O	Posttranslational modification, protein turnover, chaperones
+WP_014325466.1	COG1131	440746	5.49e-71	31.982	RbbA	Ribosome-associated ATPase or ATPase component of an ABC-type multidrug transport system	J	Translation, ribosomal structure and biogenesis
+WP_014325467.1	COG1277	440888	3.55e-07	18.519	NosY	ABC-type transport system involved in multi-copper enzyme maturation, permease component	O	Posttranslational modification, protein turnover, chaperones
+WP_014325471.1	COG1714	441320	7.34e-07	22.642	YckC	Uncharacterized membrane protein YckC, RDD family	S	Function unknown
+WP_014325473.1	COG0286	440055	5.45e-92	39.382	HsdM	Type I restriction-modification system, DNA methylase subunit	V	Defense mechanisms
+WP_014325477.1	COG0610	440375	5.68e-32	25.912		Type I site-specific restriction-modification system, R (restriction) subunit and related helicases ...	V	Defense mechanisms
+WP_014325479.1	COG0358	440127	2.39e-93	29.356	DnaG	DNA primase (bacterial type)	L	Replication, recombination and repair
+WP_014325480.1	COG0566	440332	1.02e-77	35.124	SpoU	tRNA G18 (ribose-2'-O)-methylase SpoU	J	Translation, ribosomal structure and biogenesis
+WP_014325481.1	COG0215	439985	6.2e-135	34.615	CysS	Cysteinyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325485.1	COG0216	439986	0.0	50.992	PrfA	Protein chain release factor RF1	J	Translation, ribosomal structure and biogenesis
+WP_014325486.1	COG1653	441259	1e-07	22.353	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_014325502.1	COG0495	440261	0.0	41.627	LeuS	Leucyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325508.1	COG0317	440086	1.08e-129	27.47	SpoT	(p)ppGpp synthase/hydrolase, HD superfamily	T	Signal transduction mechanisms
+WP_014325510.1	COG3206	442439	0.000546	17.949	GumC	Tyrosine-protein kinase Wzc involved in exopolysaccharide export, GumC/Wzc1 domain	M	Cell wall/membrane/envelope biogenesis
+WP_014325511.1	COG0782	440545	1.99e-57	47.134	GreA	Transcription elongation factor, GreA/GreB family	K	Transcription
+WP_014325517.1	COG1653	441259	5.89e-08	22.93	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_014325522.1	COG3638	442855	2.8e-60	29.365	PhnC	ABC-type phosphate/phosphonate transport system, ATPase component	P	Inorganic ion transport and metabolism
+WP_014325523.1	COG0816	440578	1.41e-33	29.71	YqgF	YqgF/RuvX protein, pre-16S rRNA maturation RNase/Holliday junction resolvase/anti-termination factor	J	Translation, ribosomal structure and biogenesis
+WP_014325526.1	COG0561	440327	7.15e-36	22.605	Cof	Hydroxymethylpyrimidine pyrophosphatase and other HAD family phosphatases	H	Coenzyme transport and metabolism
+WP_014325530.1	COG1122	440739	4.29e-72	33.621	EcfA2	Energy-coupling factor transporter ATP-binding protein EcfA2	P	Inorganic ion transport and metabolism
+WP_014325539.1	COG0513	440279	2.12e-55	25.057	SrmB	Superfamily II DNA and RNA helicase	L	Replication, recombination and repair
+WP_014325544.1	COG0658	440423	1.85e-17	24.335	ComEC	DNA uptake channel protein ComEC, N-terminal domain	U	Intracellular trafficking, secretion, and vesicular transport
+WP_014325558.1	COG0006	439777	1.68e-93	33.429	PepP	Xaa-Pro aminopeptidase	E	Amino acid transport and metabolism
+WP_014325559.1	COG1196	440809	4.47e-10	19.811	Smc	Chromosome segregation ATPase Smc	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325560.1	COG0525	440291	0.0	36.836	ValS	Valyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325562.1	COG0520	440286	2.72e-109	32.581	CsdA	Selenocysteine lyase/Cysteine desulfurase	E	Amino acid transport and metabolism
+WP_014325565.1	COG2374	441941	1.09e-09	19.797		Predicted extracellular nuclease	R	General function prediction only
+WP_014325566.1	COG0269	440039	7.23e-81	37.788	UlaD	3-keto-L-gulonate-6-phosphate decarboxylase	G	Carbohydrate transport and metabolism
+WP_014325567.1	COG3414	442640	2.73e-25	35.165	SgaB	Phosphotransferase system, galactitol-specific IIB component	G	Carbohydrate transport and metabolism
+WP_014325569.1	COG0235	440005	1.18e-62	32.0	AraD	5-methylthioribulose/5-deoxyribulose/Fuculose 1-phosphate aldolase (methionine salvage, sugar degradation)	E	Amino acid transport and metabolism
+WP_014325573.1	COG0732	440496	9.36e-07	26.506	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_014325575.1	COG3064	442298	0.000682	28.369	TolA	Membrane protein TolA involved in colicin uptake	M	Cell wall/membrane/envelope biogenesis
+WP_014325577.1	COG0085	439855	0.0	38.881	RpoB	DNA-directed RNA polymerase, beta subunit/140 kD subunit	K	Transcription
+WP_014325579.1	COG0060	439830	0.0	35.331	IleS	Isoleucyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325580.1	COG0220	439990	9.69e-65	36.416	TrmB	tRNA G46 N7-methylase TrmB	J	Translation, ribosomal structure and biogenesis
+WP_014325582.1	COG4942	443969	2.02e-05	18.824	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325585.1	COG0221	439991	3.7e-66	44.654	Ppa	Inorganic pyrophosphatase	C	Energy production and conversion
+WP_014325586.1	COG0542	440308	0.0	51.768	ClpA	ATP-dependent Clp protease, ATP-binding subunit ClpA	O	Posttranslational modification, protein turnover, chaperones
+WP_014325587.1	COG0510	440276	1.89e-17	24.324	CotS	Thiamine kinase or a related kinase	H	Coenzyme transport and metabolism
+WP_014325588.1	COG0282	440051	0.0	48.354	AckA	Acetate kinase	C	Energy production and conversion
+WP_014325589.1	COG2255	441856	3.8e-98	34.967	RuvB	Holliday junction resolvasome RuvABC, ATP-dependent DNA helicase subunit RuvB	L	Replication, recombination and repair
+WP_014325590.1	COG0389	440158	1.44e-89	32.012	DinP	Nucleotidyltransferase/DNA polymerase DinP involved in DNA repair	L	Replication, recombination and repair
+WP_014325591.1	COG0222	439992	2.66e-33	45.238	RplL	Ribosomal protein L7/L12	J	Translation, ribosomal structure and biogenesis
+WP_014325592.1	COG0333	440102	2.31e-18	66.667	RpmF	Ribosomal protein L32	J	Translation, ribosomal structure and biogenesis
+WP_014325593.1	COG0268	440038	2.06e-17	42.353	RpsT	Ribosomal protein S20	J	Translation, ribosomal structure and biogenesis
+WP_014325594.1	COG0223	439993	2.82e-96	28.939	Fmt	Methionyl-tRNA formyltransferase	J	Translation, ribosomal structure and biogenesis
+WP_014325596.1	COG0416	440185	1.53e-107	34.743	PlsX	Acyl-ACP:phosphate acyltransferase (fatty acid/phospholipid biosynthesis)	I	Lipid transport and metabolism
+WP_014325598.1	COG0544	440310	0.003	25.714	Tig	Trigger factor Tig, ribosome-bound chaperone (peptidyl-prolyl cis-trans isomerase)	O	Posttranslational modification, protein turnover, chaperones
+WP_014325600.1	COG0171	439941	2.34e-56	37.387	NadE	NH3-dependent NAD+ synthetase	H	Coenzyme transport and metabolism
+WP_014325603.1	COG0584	440349	1.09e-28	26.728	UgpQ	Glycerophosphoryl diester phosphodiesterase	I	Lipid transport and metabolism
+WP_014325604.1	COG3115	442349	0.003	22.556	ZipA	Cell division protein ZipA, interacts with FtsZ	D	Cell cycle control, cell division, chromosome partitioning
+WP_014325608.1	COG0112	439882	0.0	58.374	GlyA	Glycine/serine hydroxymethyltransferase	E	Amino acid transport and metabolism
+WP_014325628.1	COG0056	439826	0.0	57.256	AtpA	FoF1-type ATP synthase, alpha subunit	C	Energy production and conversion
+WP_014325629.1	COG0712	440476	2.68e-35	27.381	AtpH	FoF1-type ATP synthase, delta subunit	C	Energy production and conversion
+WP_014325637.1	COG0103	439873	3.83e-59	53.03	RpsI	Ribosomal protein S9	J	Translation, ribosomal structure and biogenesis
+WP_014325638.1	COG2812	442061	2.71e-115	41.104	DnaX	DNA polymerase III, gamma/tau subunits	L	Replication, recombination and repair
+WP_014325641.1	COG0513	440279	1.66e-119	33.249	SrmB	Superfamily II DNA and RNA helicase	L	Replication, recombination and repair
+WP_014325642.1	COG1191	440804	2.93e-06	22.0	FliA	DNA-directed RNA polymerase specialized sigma subunit	K	Transcription
+WP_014325643.1	COG1080	440698	0.0	46.235	PtsA	Phosphoenolpyruvate-protein kinase (PTS system EI component in bacteria)	G	Carbohydrate transport and metabolism
+WP_014325644.1	COG0696	440460	0.0	49.608	GpmI	Phosphoglycerate mutase (BPG-independent), AlkP superfamily	G	Carbohydrate transport and metabolism
+WP_014325645.1	COG1284	440895	2.62e-33	18.333	YitT	Uncharacterized membrane-anchored protein YitT, contains DUF161 and DUF2179 domains	S	Function unknown
+WP_014325650.1	COG0233	440003	1.32e-61	38.587	Frr	Ribosome recycling factor	J	Translation, ribosomal structure and biogenesis
+WP_014325651.1	COG0575	440340	5.82e-29	25.676	CdsA	CDP-diglyceride synthetase	I	Lipid transport and metabolism
+WP_014325652.1	COG0732	440496	1.01e-11	40.0	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_014325667.1	COG0228	439998	9.13e-32	47.143	RpsP	Ribosomal protein S16	J	Translation, ribosomal structure and biogenesis
+WP_014325668.1	COG0534	440300	4.22e-21	18.711	NorM	Na+-driven multidrug efflux pump, DinF/NorM/MATE family	V	Defense mechanisms
+WP_014325669.1	COG0073	439843	9.94e-30	32.5	EMAP	tRNA-binding EMAP/Myf domain	J	Translation, ribosomal structure and biogenesis
+WP_014325671.1	COG1210	440823	3.39e-158	52.595	GalU	UTP-glucose-1-phosphate uridylyltransferase	M	Cell wall/membrane/envelope biogenesis
+WP_014325672.1	COG0162	439932	3.47e-167	42.787	TyrS	Tyrosyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014325673.1	COG0634	440399	3.46e-68	36.628	HptA	Hypoxanthine-guanine phosphoribosyltransferase	F	Nucleotide transport and metabolism
+WP_014325674.1	COG0245	440015	2.09e-12	25.131	IspF	2C-methyl-D-erythritol 2,4-cyclodiphosphate synthase	I	Lipid transport and metabolism
+WP_014325676.1	COG1078	440696	4.62e-103	31.829	YdhJ	HD superfamily phosphohydrolase	R	General function prediction only
+WP_014325678.1	COG1136	440751	1.09e-96	38.667	LolD	ABC-type lipoprotein targeting system ATPase component LolD	M	Cell wall/membrane/envelope biogenesis
+WP_014325680.1	COG0593	440358	1.4e-89	35.37	DnaA	Chromosomal replication initiation ATPase DnaA	L	Replication, recombination and repair
+WP_014574838.1	COG0188	439958	0.0	53.425	GyrA	DNA gyrase/topoisomerase IV, subunit A	L	Replication, recombination and repair
+WP_014574839.1	COG0172	439942	0.0	46.099	SerS	Seryl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014574840.1	COG0470	440238	4.07e-14	26.207	HolB	DNA polymerase III, delta prime subunit	L	Replication, recombination and repair
+WP_014574844.1	COG3343	442572	3.42e-24	35.294	RpoE	DNA-directed RNA polymerase, delta subunit	K	Transcription
+WP_014574846.1	COG2176	441779	2.37e-56	34.783	PolC	DNA polymerase III, alpha subunit (gram-positive type)	L	Replication, recombination and repair
+WP_014574856.1	COG1176	440789	1.44e-41	23.723	PotB	ABC-type spermidine/putrescine transport system, permease component I	E	Amino acid transport and metabolism
+WP_014574858.1	COG0687	440451	8.52e-11	22.188	PotD	Spermidine/putrescine-binding periplasmic protein	E	Amino acid transport and metabolism
+WP_014574862.1	COG0462	440230	1.06e-160	49.524	PrsA	Phosphoribosylpyrophosphate synthetase	E	Amino acid transport and metabolism
+WP_014574880.1	COG0187	439957	0.0	49.371	GyrB	DNA gyrase/topoisomerase IV, subunit B	L	Replication, recombination and repair
+WP_014574901.1	COG0087	439857	5.5e-88	45.283	RplC	Ribosomal protein L3	J	Translation, ribosomal structure and biogenesis
+WP_014574902.1	COG0091	439861	6.41e-48	51.376	RplV	Ribosomal protein L22	J	Translation, ribosomal structure and biogenesis
+WP_014574903.1	COG0186	439956	2.16e-31	54.118	RpsQ	Ribosomal protein S17	J	Translation, ribosomal structure and biogenesis
+WP_014574904.1	COG0094	439864	8.2e-111	63.636	RplE	Ribosomal protein L5	J	Translation, ribosomal structure and biogenesis
+WP_014574906.1	COG0732	440496	4.3e-07	28.378	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_014574914.1	COG3064	442298	0.000725	16.129	TolA	Membrane protein TolA involved in colicin uptake	M	Cell wall/membrane/envelope biogenesis
+WP_014574916.1	COG0064	439834	9.01e-169	36.475	GatB	Asp-tRNAAsn/Glu-tRNAGln amidotransferase B subunit	J	Translation, ribosomal structure and biogenesis
+WP_014574917.1	COG0242	440012	1.41e-46	31.707	Def	Peptide deformylase	J	Translation, ribosomal structure and biogenesis
+WP_014574923.1	COG3845	443055	0.0	40.248	NupO	ABC-type guanosine uptake system NupNOPQ, ATPase component NupO	F	Nucleotide transport and metabolism
+WP_014574935.1	COG0732	440496	3.42e-07	29.63	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_014574941.1	COG1354	440965	1.86e-36	24.419	ScpA	Chromatin segregation and condensation protein Rec8/ScpA/Scc1, kleisin family	L	Replication, recombination and repair
+WP_014574945.1	COG0209	439979	0.0	34.33	NrdA	Ribonucleotide reductase alpha subunit	F	Nucleotide transport and metabolism
+WP_014574948.1	COG1057	440677	1.08e-52	32.178	NadD	Nicotinate-nucleotide adenylyltransferase NadD	H	Coenzyme transport and metabolism
+WP_014574950.1	COG0210	439980	7.98e-120	26.9	UvrD	Superfamily I DNA or RNA helicase	L	Replication, recombination and repair
+WP_014574951.1	COG0732	440496	4.31e-08	32.143	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_014574955.1	COG2384	441950	1.07e-36	29.258	TrmK	tRNA A22 N1-methylase	J	Translation, ribosomal structure and biogenesis
+WP_014574957.1	COG0272	440042	0.0	42.685	Lig	NAD-dependent DNA ligase	L	Replication, recombination and repair
+WP_014574962.1	COG0587	440352	0.0	32.209	DnaE	DNA polymerase III, alpha subunit	L	Replication, recombination and repair
+WP_014574963.1	COG0095	439865	8.5e-95	39.837	LplA	Lipoate-protein ligase A	H	Coenzyme transport and metabolism
+WP_014574964.1	COG1249	440861	3.79e-176	40.725	Lpd	Dihydrolipoamide dehydrogenase (E3) component of pyruvate/2-oxoglutarate dehydrogenase complex or glutathione oxidoreductase	C	Energy production and conversion
+WP_014574969.1	COG0442	440211	1.18e-22	15.753	ProS	Prolyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014574975.1	COG0013	439784	0.0	31.919	AlaS	Alanyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014574976.1	COG1196	440809	1.18e-162	28.36	Smc	Chromosome segregation ATPase Smc	D	Cell cycle control, cell division, chromosome partitioning
+WP_014574977.1	COG0280	440049	4.22e-110	39.634	Pta	Phosphotransacetylase (includes Pta, EutD and phosphobutyryltransferase)	C	Energy production and conversion
+WP_014574978.1	COG0126	439896	0.0	50.0	Pgk	3-phosphoglycerate kinase	G	Carbohydrate transport and metabolism
+WP_014574979.1	COG1122	440739	1.13e-56	36.607	EcfA2	Energy-coupling factor transporter ATP-binding protein EcfA2	P	Inorganic ion transport and metabolism
+WP_014574981.1	COG0392	440161	9.93e-11	13.58	AglD2	Predicted membrane flippase AglD2/YbhN, UPF0104 family	M	Cell wall/membrane/envelope biogenesis
+WP_014574985.1	COG0596	440361	2.54e-18	21.545	MenH	2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase MenH/undecaprenyl monophosphate-sugar esterase UshA/YqjL	H	Coenzyme transport and metabolism
+WP_014574986.1	COG3115	442349	8.55e-06	24.806	ZipA	Cell division protein ZipA, interacts with FtsZ	D	Cell cycle control, cell division, chromosome partitioning
+WP_014574989.1	COG3266	442497	1.06e-05	13.311	DamX	Cell division protein DamX, binds to the septal ring, contains C-terminal SPOR domain	D	Cell cycle control, cell division, chromosome partitioning
+WP_014574990.1	COG4166	443327	1.13e-05	20.354	OppA	ABC-type oligopeptide transport system, periplasmic component	E	Amino acid transport and metabolism
+WP_014574992.1	COG4942	443969	4.23e-05	18.478	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_014574997.1	COG3763	442977	8.09e-24	39.437	YneF	Uncharacterized conserved protein YneF, UPF0154 family	S	Function unknown
+WP_014575015.1	COG0433	440202	0.0002	24.324	CedB	Crenarchaeal DNA import helicase CedB/HerA or a related bacterial ATPase	L	Replication, recombination and repair
+WP_014575016.1	COG0086	439856	0.0	41.247	RpoC	DNA-directed RNA polymerase, beta' subunit/160 kD subunit	K	Transcription
+WP_014575017.1	COG0596	440361	6.33e-20	32.407	MenH	2-succinyl-6-hydroxy-2,4-cyclohexadiene-1-carboxylate synthase MenH/undecaprenyl monophosphate-sugar esterase UshA/YqjL	H	Coenzyme transport and metabolism
+WP_014575023.1	COG0018	439789	4.01e-121	32.841	ArgS	Arginyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014575046.1	COG0246	440016	2.61e-06	30.952	MtlD	Mannitol-1-phosphate/altronate dehydrogenases	G	Carbohydrate transport and metabolism
+WP_014575048.1	COG1284	440895	6.45e-38	19.126	YitT	Uncharacterized membrane-anchored protein YitT, contains DUF161 and DUF2179 domains	S	Function unknown
+WP_014575049.1	COG0336	440105	3.5e-124	48.498	TrmD	tRNA G37 N-methylase TrmD	J	Translation, ribosomal structure and biogenesis
+WP_014575051.1	COG1307	440918	1.11e-37	24.138	DegV	Fatty acid-binding protein DegV	I	Lipid transport and metabolism
+WP_014575057.1	COG0008	439779	0.0	39.916	GlnS	Glutamyl- or glutaminyl-tRNA synthetase	J	Translation, ribosomal structure and biogenesis
+WP_014575059.1	COG4591	443648	1.65e-06	20.915	LolC	ABC-type lipoprotein targeting system transmembrane component LolC/LolE	M	Cell wall/membrane/envelope biogenesis
+WP_015344914.1	COG1466	441075	4.58e-27	23.154	HolA	DNA polymerase III, delta subunit	L	Replication, recombination and repair
+WP_015344925.1	COG0319	440088	1.26e-28	29.839	YbeY	ssRNA-specific RNase YbeY, 16S rRNA maturation enzyme	J	Translation, ribosomal structure and biogenesis
+WP_015344929.1	COG2182	441785	0.01	22.857	MalE	Maltose-binding periplasmic protein MalE	G	Carbohydrate transport and metabolism
+WP_017532717.1	COG2213	441815	4.32e-129	42.967	MtlA	Phosphotransferase system, mannitol-specific IIBC component	G	Carbohydrate transport and metabolism
+WP_017532742.1	COG0531	440297	1.97e-19	21.622	PotE	Serine and glutamate transporter AimA/YbeC, amino acid:H+ symporter family	E	Amino acid transport and metabolism
+WP_017532769.1	COG4913	443941	0.000207	17.606		Uncharacterized conserved protein, contains a C-terminal ATPase domain	S	Function unknown
+WP_017532771.1	COG2868	442115	3.36e-18	33.019	Prp	Cysteine protease Prp/YsxB, processes ribosomal protein L27	J	Translation, ribosomal structure and biogenesis
+WP_017532796.1	COG3266	442497	0.000709	16.529	DamX	Cell division protein DamX, binds to the septal ring, contains C-terminal SPOR domain	D	Cell cycle control, cell division, chromosome partitioning
+WP_017532806.1	COG0550	440316	0.0	37.397	TopA	DNA topoisomerase IA	L	Replication, recombination and repair
+WP_017532960.1	COG0528	440294	3.78e-78	32.377	PyrH	Uridylate kinase	F	Nucleotide transport and metabolism
+WP_019830469.1	COG1653	441259	5.71e-06	21.818	UgpB	ABC-type glycerol-3-phosphate transport system, periplasmic component	G	Carbohydrate transport and metabolism
+WP_019830474.1	COG0554	440320	0.0	54.691	GlpK	Glycerol kinase	C	Energy production and conversion
+WP_026088309.1	COG0286	440055	0.000359	18.699	HsdM	Type I restriction-modification system, DNA methylase subunit	V	Defense mechanisms
+WP_026088348.1	COG1196	440809	2.52e-05	18.28	Smc	Chromosome segregation ATPase Smc	D	Cell cycle control, cell division, chromosome partitioning
+WP_053344019.1	COG3883	443091	2.4e-06	15.094	CwlO1	Uncharacterized N-terminal coiled-coil domain of peptidoglycan hydrolase CwlO	S	Function unknown
+WP_053344053.1	COG0463	440231	3.82e-28	24.299	WcaA	Glycosyltransferase involved in cell wall bisynthesis	M	Cell wall/membrane/envelope biogenesis
+WP_053344054.1	COG2271	441872	5.74e-09	21.182	UhpC	Sugar phosphate permease	G	Carbohydrate transport and metabolism
+WP_053344057.1	COG0721	440485	1.56e-14	31.395	GatC	Asp-tRNAAsn/Glu-tRNAGln amidotransferase C subunit	J	Translation, ribosomal structure and biogenesis
+WP_053344059.1	COG0732	440496	4.36e-06	26.389	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_053344080.1	COG0732	440496	8.8e-06	26.923	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_053344184.1	COG0732	440496	1.46e-06	31.25	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_129639275.1	COG0178	439948	0.0	58.961	UvrA	Excinuclease UvrABC ATPase subunit	L	Replication, recombination and repair
+WP_129639287.1	COG3639	442856	1.84e-35	25.41	PhnE	ABC-type phosphate/phosphonate transport system, permease component	P	Inorganic ion transport and metabolism
+WP_129639289.1	COG0531	440297	9.23e-30	20.911	PotE	Serine and glutamate transporter AimA/YbeC, amino acid:H+ symporter family	E	Amino acid transport and metabolism
+WP_129639291.1	COG1418	441028	1.52e-17	27.559	RnaY	HD superfamily phosphodiesterase, includes HD domain of RNase Y	J	Translation, ribosomal structure and biogenesis
+WP_129639293.1	COG4603	443653	4.05e-43	23.823	NupP	ABC-type guanosine uptake system NupNOPQ, permease component NupP	F	Nucleotide transport and metabolism
+WP_129639296.1	COG0580	440345	7.26e-46	32.78	GlpF	Glycerol uptake facilitator or related aquaporin (Major Intrinsic protein Family)	G	Carbohydrate transport and metabolism
+WP_129639298.1	COG0711	440475	0.001	29.851	AtpF	FoF1-type ATP synthase, membrane subunit b or b'	C	Energy production and conversion
+WP_201281260.1	COG4942	443969	0.008	15.854	EnvC	Septal ring factor EnvC, activator of murein hydrolases AmiA and AmiB	D	Cell cycle control, cell division, chromosome partitioning
+WP_216745971.1	COG0290	440059	4.96e-53	35.632	InfC	Translation initiation factor IF-3	J	Translation, ribosomal structure and biogenesis
+WP_225971122.1	COG3611	442829	0.000161	22.277	DnaB2	Replication initiation and membrane attachment protein DnaB	L	Replication, recombination and repair
+WP_225971123.1	COG0226	439996	3.25e-27	23.418	PstS	ABC-type phosphate transport system, periplasmic component	P	Inorganic ion transport and metabolism
+WP_225971127.1	COG1132	440747	0.0	32.886	MdlB	ABC-type multidrug and LPS transport system, ATPase and permease component MsbA	M	Cell wall/membrane/envelope biogenesis
+WP_225971135.1	COG0211	439981	5.12e-41	57.143	RpmA	Ribosomal protein L27	J	Translation, ribosomal structure and biogenesis
+WP_231113985.1	COG0732	440496	9.17e-06	30.12	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_231113987.1	COG0732	440496	3.46e-06	27.692	HsdS	Restriction endonuclease S subunit	V	Defense mechanisms
+WP_232018006.1	COG0484	440252	1.08e-21	40.278	DnaJ	DnaJ molecular chaperone, contains DnaJ and DnaJ_C  domains	O	Posttranslational modification, protein turnover, chaperones
+WP_232018009.1	COG0484	440252	2.21e-21	40.278	DnaJ	DnaJ molecular chaperone, contains DnaJ and DnaJ_C  domains	O	Posttranslational modification, protein turnover, chaperones
