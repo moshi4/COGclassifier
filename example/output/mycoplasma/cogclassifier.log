@@ -1,0 +1,34 @@
+2025-04-19 21:06:37 | INFO | Run COGclassifier v2.0.0
+2025-04-19 21:06:37 | INFO | $ COGclassifier -i example/input/mycoplasma.faa -o example/output/mycoplasma
+2025-04-19 21:06:37 | INFO | Operating System: linux
+2025-04-19 21:06:37 | INFO | Python Version: v3.9.19
+2025-04-19 21:06:37 | INFO | Parameter: infile=example/input/mycoplasma.faa
+2025-04-19 21:06:37 | INFO | Parameter: outdir=example/output/mycoplasma
+2025-04-19 21:06:37 | INFO | Parameter: download_dir=/home/ys/.cache/cogclassifier_v2
+2025-04-19 21:06:37 | INFO | Parameter: thread_num=11
+2025-04-19 21:06:37 | INFO | Parameter: evalue=0.01
+2025-04-19 21:06:37 | INFO | Download COG & CDD resources in NCBI FTP site
+2025-04-19 21:06:37 | INFO | Download https://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
+2025-04-19 21:06:37 | INFO | => Already file exists /home/ys/.cache/cogclassifier_v2/cddid.tbl.gz
+2025-04-19 21:06:37 | INFO | Download https://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/Cog_LE.tar.gz
+2025-04-19 21:06:37 | INFO | => Already file exists /home/ys/.cache/cogclassifier_v2/Cog_LE.tar.gz
+2025-04-19 21:06:37 | INFO | Load COG Functional Category from /home/ys/Desktop/Project/Bioinformatics/COGclassifier/src/cogclassifier/resources/cog_func_category.tsv
+2025-04-19 21:06:37 | INFO | Load COG Definition from /home/ys/Desktop/Project/Bioinformatics/COGclassifier/src/cogclassifier/resources/cog_definition.tsv
+2025-04-19 21:06:37 | INFO | Load COG <=> CDD ID Conversion Table from /home/ys/.cache/cogclassifier_v2/cddid.tbl.gz
+2025-04-19 21:06:38 | INFO | ********** Start RPS-BLAST(v2.12.0) Search **********
+2025-04-19 21:06:38 | INFO | $ rpsblast+ -query example/input/mycoplasma.faa -db /home/ys/.cache/cogclassifier_v2/Cog_LE/Cog -outfmt 6 -out /tmp/tmpp6_rz243/rpsblast.tsv -evalue 0.01 -num_threads 11 -mt_mode 1
+2025-04-19 21:06:41 | INFO | ********** Finished RPS-BLAST Search **********
+2025-04-19 21:06:41 | INFO | 67.20% (461 / 686) sequences are classified into COG functional category
+2025-04-19 21:06:41 | INFO | Write rpsblast search result
+2025-04-19 21:06:41 | INFO | => example/output/mycoplasma/rpsblast.tsv
+2025-04-19 21:06:41 | INFO | Write summary of COG functional category count
+2025-04-19 21:06:41 | INFO | => example/output/mycoplasma/cog_count.tsv
+2025-04-19 21:06:41 | INFO | Write result of COG classification per query
+2025-04-19 21:06:41 | INFO | => example/output/mycoplasma/cog_classify.tsv
+2025-04-19 21:06:41 | INFO | Plot COG count barchart figure
+2025-04-19 21:06:41 | INFO | => example/output/mycoplasma/cog_count_barchart.html
+2025-04-19 21:06:42 | INFO | => example/output/mycoplasma/cog_count_barchart.png
+2025-04-19 21:06:42 | INFO | Plot COG count piechart figure
+2025-04-19 21:06:42 | INFO | => example/output/mycoplasma/cog_count_piechart.html
+2025-04-19 21:06:42 | INFO | => example/output/mycoplasma/cog_count_piechart.png
+2025-04-19 21:06:42 | INFO | Done (elapsed time: 5.53[s])
