@@ -48,11 +48,11 @@ class CogClassifier:
             shutil.unpack_archive(cog_le_targz_file, cog_le_dir)
 
         # Load NCBI COG & CDD resources
-        logger.info(f"Load COG Functional Category {const.COG_FUNC_CATEGORY_FILE}")
+        logger.info(f"Load COG Functional Category from {const.COG_FUNC_CATEGORY_FILE}")
         cog_fc_rec = CogFuncCategoryRecord(const.COG_FUNC_CATEGORY_FILE)
-        logger.info(f"Load COG Definition {const.COG_DEFINITION_FILE}")
+        logger.info(f"Load COG Definition from {const.COG_DEFINITION_FILE}")
         cog_def_rec = CogDefinitionRecord(const.COG_DEFINITION_FILE)
-        logger.info(f"Load COG <=> CDD ID Conversion Table {cddid_tbl_gzfile}")
+        logger.info(f"Load COG <=> CDD ID Conversion Table from {cddid_tbl_gzfile}")
         cog_cdd_id_table = CogCddIdTable(cddid_tbl_gzfile)
 
         # Run RPS-BLAST

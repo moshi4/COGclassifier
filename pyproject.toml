@@ -23,6 +23,7 @@ dependencies = [
     "altair>=5.0.0",
     "pydantic>=2.11.3",
     "typer>=0.15.2",
+    "vl-convert-python>=1.7.0",
 ]
 
 [project.urls]

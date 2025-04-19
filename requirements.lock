@@ -85,3 +85,5 @@ tzdata==2025.2
     # via pandas
 urllib3==2.4.0
     # via requests
+vl-convert-python==1.7.0
+    # via cogclassifier

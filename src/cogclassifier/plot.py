@@ -7,37 +7,50 @@ import pandas as pd
 
 
 def plot_cog_count_barchart(
-    df: pd.DataFrame,
-    html_outfile: str | Path,
+    data: str | Path | pd.DataFrame,
+    outfile: str | Path | None = None,
     *,
-    fig_width: int = 540,
+    fig_width: int = 440,
     fig_height: int = 340,
-    bar_width: int = 15,
+    bar_width: int = 12,
     y_limit: float | None = None,
     percent_style: bool = False,
     sort: bool = False,
-) -> None:
+    dpi: int = 100,
+) -> alt.Chart:
     """Plot altair barchart from COG count dataframe
 
     Parameters
     ----------
-    df : pd.DataFrame
-        COG count dataframe
-    outfile : str | Path
-        Barchart output html file
+    data : str | Path | pd.DataFrame
+        COG count file or dataframe
+    outfile : str | Path | None, optional
+        Barchart output file (`*.png`|`*.svg`|`*.html`)
     fig_width : int, optional
-        Figure width (px)
+        Figure pixel width
     fig_height : int, optional
-        Figure height (px)
+        Figure pixel height
     bar_width : int, optional
-        Figure bar width (px)
+        Figure pixel bar width
     y_limit : float | None, optional
         Y-axis max limit value
     percent_style : bool, optional
         Plot y-axis as percent(%) instead of count number
     sort : bool, optional
         Enable descending sort by count
+    dpi : int, option
+        Figure DPI
+
+    Returns
+    -------
+    barchart : alt.Chart
+        Altair barchart
     """
+    if isinstance(data, pd.DataFrame):
+        df = data
+    else:
+        df = pd.read_csv(data, sep="\t", encoding="utf-8")
+
     # Set 'percent style' or 'count style'
     if percent_style:
         yfield, ytitle, yformat = "RATIO", "Percent of Sequences", ".0%"
@@ -59,7 +72,7 @@ def plot_cog_count_barchart(
     df["L_DESCRIPTION"] = df["LETTER"] + " : " + df["DESCRIPTION"]
     barchart = (
         alt.Chart(df, title="COG Functional Classification")
-        .mark_bar(stroke="lightgrey", strokeWidth=1.0)
+        .mark_bar(stroke="black", strokeWidth=0.2)
         .encode(
             x=alt.X("LETTER", title="Functional Category", sort=None),
             y=alt.Y(
@@ -77,6 +90,9 @@ def plot_cog_count_barchart(
                     range=df["COLOR"].to_list(),
                 ),
             ),
+            stroke=alt.condition(
+                alt.datum[yfield] > 0, alt.value("black"), alt.value("transparent")
+            ),
         )
         .properties(width=fig_width, height=fig_height)
         .configure_title(fontSize=15)
@@ -86,35 +102,54 @@ def plot_cog_count_barchart(
             stroke="black", width=bar_width, strokeWidth=0.15, strokeOpacity=1
         )
     )
-    barchart.save(html_outfile)
+    if outfile is not None:
+        if Path(outfile).suffix == ".png":
+            barchart.save(outfile, ppi=dpi)
+        else:
+            barchart.save(outfile)
+
+    return barchart
 
 
 def plot_cog_count_piechart(
-    df: pd.DataFrame,
-    html_outfile: str | Path,
+    data: str | Path | pd.DataFrame,
+    outfile: str | Path | None = None,
     *,
     fig_width: int = 380,
     fig_height: int = 380,
     show_letter: bool = False,
     sort: bool = False,
-) -> None:
+    dpi: int = 100,
+) -> alt.LayerChart:
     """Plot altair piechart from COG count dataframe
 
     Parameters
     ----------
-    df : pd.DataFrame
-        COG count dataframe
-    html_outfile : str | Path
-        Piechart output html file
+    df : str | Path | pd.DataFrame
+        COG count file or dataframe
+    outfile : str | Path | None, optional
+        Piechart output file (`*.png`|`*.svg`|`*.html`)
     fig_width : int, optional
-        Figure width (px)
+        Figure pixel width
     fig_height : int, optional
-        Figure height (px)
+        Figure pixel height
     show_letter : bool, optional
         Show letter on piechart
     sort : bool, optional
         Enable count descending sort
+    dpi : int, optional
+        Figure DPI
+
+    Returns
+    -------
+    piechart : alt.LayerChart
+        Altair piechart
     """
+    if isinstance(data, pd.DataFrame):
+        df = data
+    else:
+        df = pd.read_csv(data, sep="\t", encoding="utf-8")
+
     # Remove 0 Count (no assigned category)
     df = df[df["COUNT"] != 0]
 
@@ -177,4 +212,10 @@ def plot_cog_count_piechart(
         .configure_view(strokeWidth=0)
         .configure_mark(stroke="white", strokeWidth=1.0, strokeOpacity=1.0)
     )
-    piechart_with_text.save(html_outfile)
+    if outfile is not None:
+        if Path(outfile).suffix == ".png":
+            piechart_with_text.save(outfile, ppi=dpi)
+        else:
+            piechart_with_text.save(outfile)
+
+    return piechart_with_text

@@ -139,7 +139,7 @@ rich==14.0.0
 rpds-py==0.24.0
     # via jsonschema
     # via referencing
-ruff==0.11.5
+ruff==0.11.6
 shellingham==1.5.4
     # via typer
 six==1.17.0
@@ -178,6 +178,8 @@ urllib3==2.4.0
     # via requests
 virtualenv==20.30.0
     # via pre-commit
+vl-convert-python==1.7.0
+    # via cogclassifier
 wcwidth==0.2.13
     # via prompt-toolkit
 zipp==3.21.0

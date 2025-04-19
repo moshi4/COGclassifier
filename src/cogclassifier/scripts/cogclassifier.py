@@ -131,20 +131,22 @@ def cli(
     logger.info(f"=> {cog_classify_file}")
 
     # Plot barchart
-    barchart_file = outdir / "cog_count_barchart.html"
-    plot_cog_count_barchart(cog_stats.count_summary_df, barchart_file)
+    barchart_html_file = outdir / "cog_count_barchart.html"
+    barchart_png_file = barchart_html_file.with_suffix(".png")
     logger.info("Plot COG count barchart figure")
-    logger.info(f"=> {barchart_file}")
+    plot_cog_count_barchart(cog_stats.count_summary_df, barchart_html_file)
+    logger.info(f"=> {barchart_html_file}")
+    plot_cog_count_barchart(cog_stats.count_summary_df, barchart_png_file)
+    logger.info(f"=> {barchart_png_file}")
     # Plot piechart
-    piechart_file = outdir / "cog_count_piechart.html"
-    plot_cog_count_piechart(
-        cog_stats.count_summary_df,
-        piechart_file,
-        show_letter=True,
-        sort=True,
-    )
+    piechart_html_file = outdir / "cog_count_piechart.html"
+    piechart_png_file = piechart_html_file.with_suffix(".png")
+    props = dict(show_letter=True, sort=True)
     logger.info("Plot COG count piechart figure")
-    logger.info(f"=> {piechart_file}")
+    plot_cog_count_piechart(cog_stats.count_summary_df, piechart_html_file, **props)  # type: ignore
+    logger.info(f"=> {piechart_html_file}")
+    plot_cog_count_piechart(cog_stats.count_summary_df, piechart_png_file, **props)  # type: ignore
+    logger.info(f"=> {piechart_png_file}")
 
 
 if __name__ == "__main__":

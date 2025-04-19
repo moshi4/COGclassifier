@@ -2,7 +2,6 @@ from functools import partial
 from pathlib import Path
 from typing import Annotated
 
-import pandas as pd
 from typer import Option, Typer
 
 from cogclassifier.plot import plot_cog_count_piechart
@@ -32,7 +31,7 @@ def cli(
         Option(
             "-o",
             "--outfile",
-            help="Output piechart html file (must be '*.html')",
+            help="Output piechart figure file (*.png|*.svg|*.html)",
             show_default=False,
         ),
     ],
@@ -52,15 +51,20 @@ def cli(
         bool,
         Option("--sort", help="Enable descending sort by number count"),
     ] = False,
+    dpi: Annotated[
+        int,
+        Option("--dpi", help="Figure DPI"),
+    ] = 100,
 ) -> None:
     """Plot COGclassifier count piechart figure"""
     plot_cog_count_piechart(
-        pd.read_csv(infile, sep="\t"),
+        infile,
         outfile,
         fig_width=width,
         fig_height=height,
         show_letter=show_letter,
         sort=sort,
+        dpi=dpi,
     )
 
 

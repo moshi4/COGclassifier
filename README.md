@@ -24,10 +24,10 @@ However, there was no COG functional classification command line software that i
 Therefore, I developed COGclassifier to fill this need.
 COGclassifier can automatically perform the processes from searching query sequences into the COG database, to annotation and classification of gene functions, to generation of publication-ready figures (See figure below).
 
-![ecoli_barchart_fig](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_barchart.png)  
+![ecoli_barchart_fig](https://raw.githubusercontent.com/moshi4/COGclassifier/main/example/output/ecoli/cog_count_barchart.png)  
 Fig.1: Barchart of COG funcitional category classification result for E.coli
 
-![ecoli_piechart_sort_fig](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_piechart_sort.png)  
+![ecoli_piechart_fig](https://raw.githubusercontent.com/moshi4/COGclassifier/main/example/output/ecoli/cog_count_piechart.png)  
 Fig.2: Piechart of COG funcitional category classification result for E.coli
 
 ## Installation
@@ -51,43 +51,49 @@ This workflow was created based in part on [cdd2cog](https://github.com/aleimba/
 
 Download & load 4 required COG & CDD files from FTP site.
 
-- `fun-20.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/fun-20.tab>)  
+- `cog-24.fun.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2024/data/cog-24.fun.tab>)  
     Descriptions of COG functional categories.  
+    This resource file is included in the package as `cog_func_category.tsv`.  
 
     <details>
     <summary>Show more information</summary>
 
     > Tab-delimited plain text file with descriptions of COG functional categories  
+    > The categories form four functional groups:  
+    > 1\. INFORMATION STORAGE AND PROCESSING  
+    > 2\. CELLULAR PROCESSES AND SIGNALING  
+    > 3\. METABOLISM  
+    > 4\. POORLY CHARACTERIZED  
     > Columns:  
-    >
     > 1\. Functional category ID (one letter)  
-    > 2\. Hexadecimal RGB color associated with the functional category  
-    > 3\. Functional category description  
+    > 2\. Functional group (1-4, as above)  
+    > 3\. Hexadecimal RGB color associated with the functional category  
+    > 4\. Functional category description  
     > Each line corresponds to one functional category. The order of the categories is meaningful (reflects a hierarchy of functions; determines the order of display)  
     >
-    > (From <https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/Readme.2020-11-25.txt>)
+    > (From <https://ftp.ncbi.nih.gov/pub/COG/COG2024/data/Readme.COG2024.txt>)  
 
     </details>
 
-- `cog-20.def.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/cog-20.def.tab>)  
+- `cog-24.def.tab` (<https://ftp.ncbi.nih.gov/pub/COG/COG2024/data/cog-24.def.tab>)  
     COG descriptions such as 'COG ID', 'COG functional category', 'COG name', etc...  
+    This resource file is included in the package as `cog_definition.tsv`.  
 
     <details>
     <summary>Show more information</summary>
 
     > Tab-delimited plain text file with COG descriptions  
     > Columns:  
-    >
     > 1\. COG ID  
     > 2\. COG functional category (could include multiple letters in the order of importance)  
     > 3\. COG name  
-    > 4\. Gene associated with the COG (optional)  
+    > 4\. Gene name associated with the COG (optional)  
     > 5\. Functional pathway associated with the COG (optional)  
     > 6\. PubMed ID, associated with the COG (multiple entries are semicolon-separated; optional)  
     > 7\. PDB ID of the structure associated with the COG (multiple entries are semicolon-separated; optional)  
     > Each line corresponds to one COG. The order of the COGs is arbitrary (displayed in the lexicographic order)  
     >
-    > (From <https://ftp.ncbi.nih.gov/pub/COG/COG2020/data/Readme.2020-11-25.txt>)
+    > (From <https://ftp.ncbi.nih.gov/pub/COG/COG2024/data/Readme.COG2024.txt>)
 
     </details>
 
@@ -125,9 +131,9 @@ Best-hit (=lowest e-value) blast results are extracted and used in next function
 From best-hit results, extract relationship between query sequences and COG functional category as described below.
 
 1. Best-hit results -> CDD ID
-2. CDD ID -> COG ID (From `cddid.tbl`)
-3. COG ID -> COG Functional Category Letter (From `cog-20.def.tab`)
-4. COG Functional Category Letter -> COG Functional Category Definition (From `fun-20.tab`)
+2. CDD ID -> COG ID (From `cddid.tbl.gz`)
+3. COG ID -> COG Functional Category Letter (From `cog-24.def.tab`)
+4. COG Functional Category Letter -> COG Functional Category Definition (From `cog-24.fun.tab`)
 
 > :warning:
 > If functional category with multiple letters exists, first letter is treated as functional category
@@ -163,18 +169,16 @@ functional annotation and classification results are output.
 
 ### Example Command
 
-Classify E.coli protein sequences into COG functional category ([ecoli.faa](https://github.com/moshi4/COGclassifier/blob/main/example/input/ecoli.faa?raw=true)):  
+Click [here](https://github.com/moshi4/COGclassifier/raw/main/example/example.zip) to download example protein fasta files.
 
-    COGclassifier -i ./example/input/ecoli.faa -o ./ecoli_cog_classifier
+    COGclassifier -i ./example/ecoli.faa -o ./ecoli_cogclassifier
 
 ## Output Contents
 
-COGclassifier outputs 4 result text files, 2 html format chart files.  
-
-- **`rpsblast.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/rpsblast_result.tsv))  
+- **`rpsblast.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma/rpsblast.tsv))  
   RPS-BLAST against COG database result (format = `outfmt 6`).  
 
-- **`cog_classify.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma_cog_classifier/classifier_result.tsv))  
+- **`cog_classify.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/mycoplasma/cog_classify.tsv))  
   Query sequences classified into COG functional category result.  
   This file contains all classified query sequences and associated COG information.  
 
@@ -195,11 +199,11 @@ COGclassifier outputs 4 result text files, 2 html format chart files.
 
     </details>
 
-- **`cog_count.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_count.tsv))  
+- **`cog_count.tsv`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli/cog_count.tsv))  
   Count classified sequences per COG functional category result.  
 
     <details>
-    <summary>Table of detailed tsv format information (4 columns)</summary>
+    <summary>Table of detailed tsv format information (5 columns)</summary>
 
     | Columns     | Contents                                | Example Value                                   |
     | ------------| --------------------------------------- | ----------------------------------------------- |
@@ -211,61 +215,62 @@ COGclassifier outputs 4 result text files, 2 html format chart files.
 
     </details>
 
-- **`cogclassifier.log`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli_cog_classifier/classifier_stats.txt))  
+- **`cogclassifier.log`** ([example](https://github.com/moshi4/COGclassifier/blob/main/example/output/ecoli/cogclassifier.log))  
   COGclassifier log file.
 
-- **`cog_count_barchart.html`**  
+- **`cog_count_barchart.[png|html]`**  
   Barchart of COG funcitional category classification result.  
-  COGclassifier uses [`Altair`](https://altair-viz.github.io/) visualization library for plotting html format charts.  
-  In web browser, Altair charts interactively display tooltips and can export image as PNG or SVG format.
+  COGclassifier uses [`Altair`](https://altair-viz.github.io/) visualization library for plotting charts.  
 
-  ![classifier_count_barchart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/vega-lite_functionality.png)
+  ![cog_count_barchart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/example/output/ecoli/cog_count_barchart.png)
 
-- **`cog_count_piechart.html`**  
+- **`cog_count_piechart.[png|html]`**  
   Piechart of COG funcitional category classification result.  
   Functional category with percentages less than 1% don't display letter on piechart.  
 
-  ![classifier_count_piechart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/images/ecoli/classifier_count_piechart.png)
+  ![cog_count_piechart](https://raw.githubusercontent.com/moshi4/COGclassifier/main/example/output/ecoli/cog_count_piechart.png)
 
 ## Customize Charts
 
-COGclassifier also provides barchart & piechart plotting scripts to customize charts appearence.
-Each script can plot the following feature charts from `cog_count.tsv`.
+COGclassifier also provides barchart & piechart plotting API/CLI to customize charts appearence.
+See [notebooks](https://github.com/moshi4/COGclassifier/blob/main/example/plot/plot_example.ipynb) and command below for details.
 
 ### plot_cog_count_barchart
 
     $ plot_cog_count_barchart --help
-                                                                                                                          
-    Usage: plot_cog_count_barchart [OPTIONS]                                                                             
-                                                                                                                          
-    Plot COGclassifier count barchart figure                                                                             
-                                                                                                                          
-    ╭─ Options ───────────────────────────────────────────────────────────────────────────────╮
-    │ *  --infile         -i        Input COG count result file ('cog_count.tsv') [required]  │
-    │ *  --outfile        -o        Output barchart html file (must be '*.html') [required]   │
-    │    --width                    Figure pixel width [default: 540]                         │
-    │    --height                   Figure pixel height [default: 340]                        │
-    │    --bar_width                Figure bar width [default: 15]                            │
-    │    --y_limit                  Y-axis max limit value                                    │
-    │    --percent_style            Plot percent style instead of number count                │
-    │    --sort                     Enable descending sort by number count                    │
-    │    --help           -h        Show this message and exit.                               │
-    ╰─────────────────────────────────────────────────────────────────────────────────────────╯
+                                                                                                  
+    Usage: plot_cog_count_barchart [OPTIONS]                                                      
+                                                                                                  
+    Plot COGclassifier count barchart figure                                                      
+                                                                                                  
+    ╭─ Options ───────────────────────────────────────────────────────────────────────────────────╮
+    │ *  --infile         -i        Input COG count result file ('cog_count.tsv') [required]      │
+    │ *  --outfile        -o        Output barchart figure file (*.png|*.svg|*.html) [required]   │
+    │    --width                    Figure pixel width [default: 440]                             │
+    │    --height                   Figure pixel height [default: 340]                            │
+    │    --bar_width                Figure bar width [default: 15]                                │
+    │    --y_limit                  Y-axis max limit value                                        │
+    │    --percent_style            Plot percent style instead of number count                    │
+    │    --sort                     Enable descending sort by number count                        │
+    │    --dpi                      Figure DPI [default: 100]                                     │
+    │    --help           -h        Show this message and exit.                                   │
+    ╰─────────────────────────────────────────────────────────────────────────────────────────────╯
 
 ### plot_cog_count_piechart
 
     $ plot_cog_count_piechart --help
-                                                                                               
-    Usage: plot_cog_count_piechart [OPTIONS]                                                  
-                                                                                               
-    Plot COGclassifier count piechart figure                                                  
-                                                                                               
-    ╭─ Options ───────────────────────────────────────────────────────────────────────────────╮
-    │ *  --infile       -i        Input COG count result file ('cog_count.tsv') [required]    │
-    │ *  --outfile      -o        Output piechart html file (must be '*.html') [required]     │
-    │    --width                  Figure pixel width [default: 380]                           │
-    │    --height                 Figure pixel height [default: 380]                          │
-    │    --show_letter            Show functional category lettter on piechart                │
-    │    --sort                   Enable descending sort by number count                      │
-    │    --help         -h        Show this message and exit.                                 │
-    ╰─────────────────────────────────────────────────────────────────────────────────────────╯
+                                                                                                  
+    Usage: plot_cog_count_piechart [OPTIONS]                                                      
+                                                                                                  
+    Plot COGclassifier count piechart figure                                                      
+                                                                                                  
+    ╭─ Options ───────────────────────────────────────────────────────────────────────────────────╮
+    │ *  --infile       -i        Input COG count result file ('cog_count.tsv') [required]        │
+    │ *  --outfile      -o        Output piechart figure file (*.png|*.svg|*.html) [required]     │
+    │    --width                  Figure pixel width [default: 380]                               │
+    │    --height                 Figure pixel height [default: 380]                              │
+    │    --show_letter            Show functional category lettter on piechart                    │
+    │    --sort                   Enable descending sort by number count                          │
+    │    --dpi                    Figure DPI [default: 100]                                       │
+    │    --help         -h        Show this message and exit.                                     │
+    ╰─────────────────────────────────────────────────────────────────────────────────────────────╯

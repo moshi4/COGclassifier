@@ -33,7 +33,7 @@ def init_logger(
     verbose: bool, optional
         If True & quiet=False, print debug log on screen
     log_file : str | Path | None, optional
-        Log file (all level log)
+        Log file
     """
     pkg_root_name = __name__.split(".")[0]
     logger = logging.getLogger(pkg_root_name)

@@ -2,7 +2,6 @@ from functools import partial
 from pathlib import Path
 from typing import Annotated, Optional
 
-import pandas as pd
 from typer import Option, Typer
 
 from cogclassifier.plot import plot_cog_count_barchart
@@ -32,14 +31,14 @@ def cli(
         Option(
             "-o",
             "--outfile",
-            help="Output barchart html file (must be '*.html')",
+            help="Output barchart figure file (*.png|*.svg|*.html)",
             show_default=False,
         ),
     ],
     width: Annotated[
         int,
         Option("--width", help="Figure pixel width"),
-    ] = 540,
+    ] = 440,
     height: Annotated[
         int,
         Option("--height", help="Figure pixel height"),
@@ -60,10 +59,14 @@ def cli(
         bool,
         Option("--sort", help="Enable descending sort by number count"),
     ] = False,
+    dpi: Annotated[
+        int,
+        Option("--dpi", help="Figure DPI"),
+    ] = 100,
 ) -> None:
     """Plot COGclassifier count barchart figure"""
     plot_cog_count_barchart(
-        pd.read_csv(infile, sep="\t"),
+        infile,
         outfile,
         fig_width=width,
         fig_height=height,
@@ -71,6 +74,7 @@ def cli(
         y_limit=y_limit,
         percent_style=percent_style,
         sort=sort,
+        dpi=dpi,
     )
 
 
