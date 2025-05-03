@@ -115,8 +115,8 @@ class RpsBlast:
                 logger.error("STDERR:")
                 for line in stderr_lines:
                     logger.error(f"> {line}")
-                logger.error("Failed to run 'RPS-BLAST'!!")
-                raise
+            logger.error("Failed to run 'RPS-BLAST'!!")
+            raise
         except FileNotFoundError:
             raise
 
